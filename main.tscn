@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cnwt1i2fjb54r"]
+
+[ext_resource type="PackedScene" uid="uid://b1i5c0s0jsahu" path="res://level.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://ovas5wo15njr" path="res://network/spawner.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://etk8nfkin0bb" path="res://ui/ui.tscn" id="5_7mycd"]
+
+[node name="Main" type="Node3D" unique_id=896817536]
+
+[node name="Level" parent="." unique_id=540582825 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7295046, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1485250016]
+transform = Transform3D(1, 0, 0, 0, 0.3134787, 0.9495953, 0, -0.9495953, 0.3134787, 0, 13.70761, 0)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1938616195]
+_spawnable_scenes = PackedStringArray("uid://c05im176rlswp")
+spawn_path = NodePath("..")
+script = ExtResource("3_h2yge")
+network_player = ExtResource("1_ig7tw")
+
+[node name="UI" parent="." unique_id=1506281978 instance=ExtResource("5_7mycd")]

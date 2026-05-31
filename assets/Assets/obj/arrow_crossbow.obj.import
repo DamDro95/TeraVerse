@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0qcu6rbslyic"
+path="res://.godot/imported/arrow_crossbow.obj-e5202f2bef10e40482d223d107443d43.mesh"
+
+[deps]
+
+files=["res://.godot/imported/arrow_crossbow.obj-e5202f2bef10e40482d223d107443d43.mesh"]
+
+source_file="res://assets/Assets/obj/arrow_crossbow.obj"
+dest_files=["res://.godot/imported/arrow_crossbow.obj-e5202f2bef10e40482d223d107443d43.mesh", "res://.godot/imported/arrow_crossbow.obj-e5202f2bef10e40482d223d107443d43.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

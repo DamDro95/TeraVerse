@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://etk8nfkin0bb"]
+
+[ext_resource type="Script" uid="uid://dnl30wv8hec5k" path="res://ui/ui.gd" id="1_nb4k0"]
+
+[node name="UI" type="CanvasLayer" unique_id=1506281978]
+script = ExtResource("1_nb4k0")
+
+[node name="Button" type="Button" parent="." unique_id=365169148]
+offset_right = 107.0
+offset_bottom = 32.0
+text = "Host"
+
+[node name="Button2" type="Button" parent="." unique_id=1813893620]
+offset_top = 54.0
+offset_right = 107.0
+offset_bottom = 86.0
+text = "Connect"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
