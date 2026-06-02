@@ -7,25 +7,32 @@ albedo_texture = ExtResource("1_u52ul")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" unique_id=262107738]
-use_collision = true
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u52ul"]
 
-[node name="Ground" type="CSGBox3D" parent="." unique_id=54049544]
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1858283934]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=262107738]
+
+[node name="Ground" type="CSGBox3D" parent="CSGCombiner3D" unique_id=54049544]
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=676932088]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=676932088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.803, 1.5, 0)
 size = Vector3(1, 2.2543945, 1)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=676182742]
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=676182742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.803, 1.5, -12.562739)
 size = Vector3(1, 2.2543945, 1)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1219085096]
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1219085096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.530331, 1.5, 0)
 size = Vector3(1, 2.2543945, 1)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=510512476]
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=510512476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.530331, 1.5, 16.520187)
 size = Vector3(1, 2.2543945, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1761039002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("WorldBoundaryShape3D_u52ul")

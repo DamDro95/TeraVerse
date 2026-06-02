@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 @export var rotation_speed: float = 10.0
+@export var health: Node3D
+@export var damage: float = 10
 
 @onready var animation_player = $AnimationPlayer
 
@@ -63,3 +65,12 @@ func track_movement(delta: float) -> void:
 		velocity.y = 0
 		
 	move_and_slide()
+	
+	# Loop through everything we ran into during this frame
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+
+		if collider and collider.has_method("is_in_group"):
+			if collider.is_in_group('player'):
+				print("I am physically bumping into: ", collider.name)

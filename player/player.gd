@@ -1,16 +1,23 @@
 extends CharacterBody3D
 
+@export var health: Node3D
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const DAMAGE_BUFFER = 1.5
 
 @onready var camera := $SpringArmPivot/Camera3D
 @onready var animation_player = $AnimationPlayer
 @onready var mesh := $Barbarian
 
+var damage_buffer_time = 0
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
+	if health:
+		health.health_depleted.connect(die)
 	# Check if this specific player instance is controlled by THIS machine
 	if is_multiplayer_authority():
 		camera.make_current()
@@ -55,4 +62,17 @@ func _physics_process(delta: float) -> void:
 		elif velocity.length() == 0 and animation_player.current_animation != "Player/Melee_1H_Attack_Chop":
 			animation_player.play("Player/Idle_B")
 			
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+
+			if collider and collider.has_method("is_in_group"):
+				if collider.is_in_group("enemy") and health and damage_buffer_time <= 0:
+					damage_buffer_time = DAMAGE_BUFFER
+					health.take_damage(collider.damage)
+	
+	damage_buffer_time -= delta
 	move_and_slide()
+	
+func die() -> void:
+	queue_free()

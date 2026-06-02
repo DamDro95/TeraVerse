@@ -20,5 +20,4 @@ func start_timer() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func spawn() -> void:
 	var entity = entity_scene.instantiate()
-	entity.global_position = global_position
 	get_parent().add_child(entity)
