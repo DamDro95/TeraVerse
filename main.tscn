@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ovas5wo15njr" path="res://network/spawner.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://etk8nfkin0bb" path="res://ui/ui.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dl32avf4f7oa7" path="res://spawner/spawner.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dbgbhlabgoh5m" path="res://enemy/enemy.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node3D" unique_id=896817536]
 
@@ -20,3 +22,7 @@ script = ExtResource("3_h2yge")
 network_player = ExtResource("1_ig7tw")
 
 [node name="UI" parent="." unique_id=1506281978 instance=ExtResource("5_7mycd")]
+
+[node name="EnemySpawn" parent="." unique_id=733501571 instance=ExtResource("5_lquwl")]
+transform = Transform3D(0.73319596, 0.6800174, 0, -0.6800174, 0.73319596, 0, 0, 0, 1, 19.157764, 3.227581, 21.813007)
+entity_scene = ExtResource("6_7mycd")

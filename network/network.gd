@@ -5,13 +5,13 @@ const PORT: int = 11221
 
 var peer: ENetMultiplayerPeer
 
-signal spawn_player
+signal server_started
 
 func start_server() -> void:
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT)
 	multiplayer.multiplayer_peer = peer
-	spawn_player.emit()
+	server_started.emit()
 	
 func start_client() -> void:
 	peer = ENetMultiplayerPeer.new()

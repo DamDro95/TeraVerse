@@ -348,7 +348,7 @@ properties/4/path = NodePath("Barbarian:position")
 properties/4/spawn = true
 properties/4/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D" unique_id=2070672604]
+[node name="Player" type="CharacterBody3D" unique_id=2070672604 groups=["player"]]
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=903668810]
