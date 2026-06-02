@@ -79,7 +79,4 @@ func track_movement(delta: float) -> void:
 
 		if collider and collider.has_method("is_in_group"):
 			if collider.is_in_group('weapon'):
-				print('hi')
 				health.take_damage(50)
-			else:
-				print('aaa')

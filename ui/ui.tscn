@@ -5,16 +5,68 @@
 [node name="UI" type="CanvasLayer" unique_id=1506281978]
 script = ExtResource("1_nb4k0")
 
-[node name="Button" type="Button" parent="." unique_id=365169148]
-offset_right = 107.0
-offset_bottom = 32.0
+[node name="StartMenu" type="Panel" parent="." unique_id=418370393]
+unique_name_in_owner = true
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HostButton" type="Button" parent="StartMenu" unique_id=365169148]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 299.0
+offset_right = 501.0
+offset_bottom = 349.0
 text = "Host"
 
-[node name="Button2" type="Button" parent="." unique_id=1813893620]
-offset_top = 54.0
-offset_right = 107.0
-offset_bottom = 86.0
+[node name="ConnectButton" type="Button" parent="StartMenu" unique_id=1813893620]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 303.0
+offset_right = 824.0
+offset_bottom = 353.0
 text = "Connect"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[node name="Label" type="Label" parent="StartMenu" unique_id=645382801]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 94.0
+offset_right = 562.0
+offset_bottom = 126.0
+scale = Vector2(2, 2)
+text = "Start Game"
+
+[node name="ConnectMenu" type="Panel" parent="." unique_id=746705123]
+unique_name_in_owner = true
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="IPAddressTextEdit" type="TextEdit" parent="ConnectMenu" unique_id=2123021622]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 374.0
+offset_top = 337.0
+offset_right = 574.0
+offset_bottom = 377.0
+placeholder_text = "IP Address"
+
+[node name="ConnectButton" type="Button" parent="ConnectMenu" unique_id=1922877001]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 331.0
+offset_right = 819.0
+offset_bottom = 381.0
+text = "Connect"
+
+[node name="Label" type="Label" parent="ConnectMenu" unique_id=1663949374]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 140.0
+offset_right = 568.0
+offset_bottom = 172.0
+scale = Vector2(2, 2)
+text = "Connect To Host"
+
+[connection signal="pressed" from="StartMenu/HostButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StartMenu/ConnectButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ConnectMenu/ConnectButton" to="." method="_on_connect_button_pressed"]

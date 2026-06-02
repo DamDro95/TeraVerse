@@ -350,6 +350,9 @@ properties/3/replication_mode = 1
 properties/4/path = NodePath("Barbarian:position")
 properties/4/spawn = true
 properties/4/replication_mode = 1
+properties/5/path = NodePath("Health:health")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=2070672604 node_paths=PackedStringArray("health") groups=["player"]]
 script = ExtResource("1_oul6g")

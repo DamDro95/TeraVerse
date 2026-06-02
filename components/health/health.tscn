@@ -20,6 +20,7 @@ script = ExtResource("1_crkk2")
 [node name="SubViewport" type="SubViewport" parent="." unique_id=161191970]
 transparent_bg = true
 size = Vector2i(200, 20)
+render_target_update_mode = 4
 
 [node name="HealthBar" type="ProgressBar" parent="SubViewport" unique_id=1302944981]
 offset_right = 200.0
