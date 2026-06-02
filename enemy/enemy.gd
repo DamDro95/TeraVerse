@@ -13,10 +13,16 @@ var player_node: Node3D = null
 
 
 func _ready() -> void:
+	if health:
+		health.health_depleted.connect(die)
 	# Find the player in the scene tree using the group
 	var players = get_tree().get_nodes_in_group("player")
 	if not players.is_empty():
 		player_node = players[0] # Grab the first player found
+
+
+func die() -> void:
+	queue_free()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -72,5 +78,8 @@ func track_movement(delta: float) -> void:
 		var collider = collision.get_collider()
 
 		if collider and collider.has_method("is_in_group"):
-			if collider.is_in_group('player'):
-				print("I am physically bumping into: ", collider.name)
+			if collider.is_in_group('weapon'):
+				print('hi')
+				health.take_damage(50)
+			else:
+				print('aaa')

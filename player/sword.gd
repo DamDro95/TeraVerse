@@ -1,21 +1,20 @@
 extends Node3D
 
-var body: CharacterBody3D
-var is_jumping = false
+@export var body: CharacterBody3D
 
-func _ready() -> void:
-	body = get_parent() as CharacterBody3D
-	if not body:
-		push_error("JumpComponent must be a child of a CharacterBody3D!")
+@export var hitbox: Area3D
 
-func _unhandled_input(event: InputEvent) -> void:
+var is_attacking: bool = false
+
+func _input(event: InputEvent) -> void:
 	# Check if the event matches ANY action in our lookup keys
 	if event.is_action_pressed("attack") and body.is_on_floor():
-		handle_attack_input()
+		hitbox.monitoring = true
+		body.animation_player.play("Player/Melee_1H_Attack_Chop")
+		
+		call_deferred("attack")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func handle_attack_input() -> void:
-	body.animation_player.play("Player/Melee_1H_Attack_Chop")
+
+func attack() -> void:
+	await get_tree().create_timer(1).timeout
+	hitbox.monitoring = false

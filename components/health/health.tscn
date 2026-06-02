@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcrfmlo5f5o5" path="res://components/health/health.gd" id="1_crkk2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8e4l6"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1vrf"]
 bg_color = Color(0.6059925, 0.16905656, 0.16404223, 1)

@@ -322,8 +322,9 @@ _data = {
 &"Walking_C": ExtResource("27_pmyjl")
 }
 
-[node name="Enemy" type="CharacterBody3D" unique_id=1108492620 groups=["enemy"]]
+[node name="Enemy" type="CharacterBody3D" unique_id=1108492620 node_paths=PackedStringArray("health") groups=["enemy"]]
 script = ExtResource("1_ofsxj")
+health = NodePath("Health")
 
 [node name="Health" parent="." unique_id=526175774 instance=ExtResource("28_mqeel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4323092, 0)
