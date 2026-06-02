@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cbx7nmbig8qtc"]
+
+[ext_resource type="PackedScene" uid="uid://4nre3lyq4p3g" path="res://assets/Assets/gltf/sword_1handed.gltf" id="1_i8enr"]
+[ext_resource type="Script" uid="uid://po0jm36fh5vn" path="res://player/sword.gd" id="2_vyhaj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vyhaj"]
+height = 2.5367432
+radius = 0.28955078
+
+[node name="Sword1H" unique_id=1891083245 node_paths=PackedStringArray("hitbox") groups=["weapon"] instance=ExtResource("1_i8enr")]
+script = ExtResource("2_vyhaj")
+hitbox = NodePath("HitBox")
+
+[node name="sword_1handed" parent="." index="0" unique_id=1977431065 groups=["weapon"]]
+
+[node name="HitBox" type="Area3D" parent="." index="1" unique_id=962546188 groups=["weapon"]]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0" unique_id=1932647788 groups=["weapon"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_vyhaj")
