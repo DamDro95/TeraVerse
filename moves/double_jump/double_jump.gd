@@ -12,6 +12,8 @@ func _ready() -> void:
 		push_error("DoubleJumpComponent must be a child of a CharacterBody3D!")
 
 func _physics_process(delta: float) -> void:
+	if not is_multiplayer_authority(): return
+	
 	if body.is_on_floor():
 		# Reset our double jump ability when touching the ground
 		can_double_jump = true

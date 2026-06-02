@@ -31,38 +31,30 @@ const VECTOR_MAP = {
 }
 
 # Track timers for each enum type
-var last_press_times = {
-	DashDirection.LEFT: 0.0,
-	DashDirection.RIGHT: 0.0,
-	DashDirection.FORWARD: 0.0,
-	DashDirection.BACK: 0.0
-}
+var last_press_time = 0.0
+var last_keycode = 0
 
 func _ready() -> void:
 	body = get_parent() as CharacterBody3D
 	if not body:
 		push_error("DoubleJumpComponent must be a child of a CharacterBody3D!")
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
+	if not is_multiplayer_authority(): return
+	
 	# Check if the event matches ANY action in our lookup keys
 	for action in DIRECTION_MAP.keys():
 		if event.is_action_pressed(action):
 			var pressed_dir = DIRECTION_MAP[action]
-			if event.is_action_pressed("dash"):
+			if event.is_action_pressed("dash") or (last_press_time > 0 and last_keycode == event.keycode):
 				start_dash(VECTOR_MAP[pressed_dir])
 			else:
-				handle_dash_input(pressed_dir)
+				last_press_time = double_tap_timeout
+				last_keycode = event.keycode
 			break
 			
-# 2. ISOLATED DASH LOGIC
-func handle_dash_input(dir: DashDirection) -> void:
-	var current_time = Time.get_ticks_msec() / 1000.0
-	var time_since_last = current_time - last_press_times[dir]
-	
-	if time_since_last <= double_tap_timeout:
-		start_dash(VECTOR_MAP[dir])
-		
-	last_press_times[dir] = current_time
+func _process(delta: float) -> void:
+	last_press_time -= delta
 
 # --- The start_dash function called by your input handler ---
 func start_dash(relative_vector: Vector3) -> void:
@@ -84,6 +76,7 @@ func start_dash(relative_vector: Vector3) -> void:
 
 # --- Hook this into your physics loop to execute the high-speed movement ---
 func _physics_process(delta: float) -> void:
+	
 	if is_dashing:
 		process_dash(delta)
 		return # BYPASS standard WASD walking and gravity during a dash!
