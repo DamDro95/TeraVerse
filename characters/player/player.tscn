@@ -611,7 +611,8 @@ texture = SubResource("ViewportTexture_f0ap2")
 
 [node name="DoubleJump" parent="." unique_id=1488805339 instance=ExtResource("4_yw30f")]
 
-[node name="Dash" parent="." unique_id=737109348 instance=ExtResource("5_qjkh3")]
+[node name="Dash" parent="." unique_id=737109348 node_paths=PackedStringArray("player") instance=ExtResource("5_qjkh3")]
+player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1844369570]
 root_node = NodePath("../Barbarian")
