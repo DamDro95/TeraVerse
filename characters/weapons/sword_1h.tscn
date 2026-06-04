@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bsiuldal41yjq"]
+
+[ext_resource type="PackedScene" uid="uid://4nre3lyq4p3g" path="res://assets/Assets/gltf/sword_1handed.gltf" id="1_rfrtv"]
+[ext_resource type="PackedScene" uid="uid://38in5opkadpv" path="res://characters/components/hitbox/hitbox.tscn" id="2_y3kgj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ubawx"]
+
+[node name="Sword1h" type="Node3D" unique_id=109054750]
+
+[node name="Mesh" parent="." unique_id=1891083245 instance=ExtResource("1_rfrtv")]
+
+[node name="Hitbox" parent="Mesh" unique_id=2114302288 instance=ExtResource("2_y3kgj")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Hitbox" unique_id=585161925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45628, 0)
+shape = SubResource("CapsuleShape3D_ubawx")
