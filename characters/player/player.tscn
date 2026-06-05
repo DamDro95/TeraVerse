@@ -610,7 +610,8 @@ texture = SubResource("ViewportTexture_f0ap2")
 [node name="Jump" parent="." unique_id=1189372861 node_paths=PackedStringArray("player") instance=ExtResource("33_5ejfk")]
 player = NodePath("..")
 
-[node name="DoubleJump" parent="." unique_id=1488805339 instance=ExtResource("4_yw30f")]
+[node name="DoubleJump" parent="." unique_id=1488805339 node_paths=PackedStringArray("player") instance=ExtResource("4_yw30f")]
+player = NodePath("..")
 
 [node name="Dash" parent="." unique_id=737109348 node_paths=PackedStringArray("player") instance=ExtResource("5_qjkh3")]
 player = NodePath("..")

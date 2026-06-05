@@ -81,19 +81,19 @@ func _physics_process(delta: float) -> void:
 		elif velocity.length() == 0 and animation_player.current_animation != "Player/Melee_1H_Attack_Chop":
 			animation_player.play("Player/Idle_B")
 	
-	if current_state == MoveState.JUMPING and velocity.y > 0 and animation_player.current_animation != "Player/Jump_Start":
-		animation_player.play("Player/Jump_Idle")
-	
-	if current_state == MoveState.JUMPING and is_on_floor():
-		animation_player.play("Player/Jump_Land")
-		change_state(MoveState.IDLE_WALK)
+	if (current_state == MoveState.JUMPING or current_state == MoveState.JUMPING):
+		if velocity.y > 0 and animation_player.current_animation != "Player/Jump_Start":
+			animation_player.play("Player/Jump_Idle")
+		if is_on_floor():
+			animation_player.play("Player/Jump_Land")
 			
 	move_and_slide()
 
 
 func die() -> void:
 	queue_free()
-	
+
+
 ## Helper function for components to safely request a state change
 func change_state(new_state: MoveState) -> void:
 	# Prevent interrupting a dash unless you want them to cancel it
@@ -101,4 +101,3 @@ func change_state(new_state: MoveState) -> void:
 		return
 		
 	current_state = new_state
-	print("Player State Changed to: ", MoveState.keys()[new_state])

@@ -66,12 +66,13 @@ func dash(direction: Vector3) -> void:
 	if direction == Vector3.ZERO:
 		direction = -player.transform.basis.z # Forward
 	
-	print(direction)
+	# Adjust for camera position
 	var cam_basis = player.camera.global_transform.basis
 	var world_direction = cam_basis * direction
 	world_direction.y = 0
 	direction = world_direction.normalized()
 	
+	# Main dash
 	player.velocity = direction * dash_speed
 	
 	await player.get_tree().create_timer(dash_duration).timeout

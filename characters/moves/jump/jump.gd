@@ -21,9 +21,5 @@ func jump() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
 	
-	if player.current_state == player.MoveState.JUMPING and player.velocity.y > 0 and player.animation_player.current_animation != "Player/Jump_Start":
-		player.animation_player.play("Player/Jump_Idle")
-	
 	if player.current_state == player.MoveState.JUMPING and player.is_on_floor():
-		player.animation_player.play("Player/Jump_Land")
 		player.change_state(player.MoveState.IDLE_WALK)
