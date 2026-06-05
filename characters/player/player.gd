@@ -2,13 +2,16 @@ extends CharacterBody3D
 class_name PlayerController
 
 @export var health: Node3D
+@export var projectile_scene: PackedScene # Drop magic_projectile.tscn here
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DAMAGE_BUFFER = 1.5
 
 enum MoveState { IDLE_WALK, JUMPING, DOUBLE_JUMPING, FLYING, DASHING }
+enum CombatState { NORMAL, AIMING }
 var current_state: MoveState = MoveState.IDLE_WALK
+var current_combat_state: CombatState = CombatState.NORMAL
 
 @onready var camera := $SpringArmPivot/Camera3D
 @onready var animation_player = $AnimationPlayer
@@ -35,6 +38,27 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and is_on_floor():
 		animation_player.play("Player/Melee_1H_Attack_Chop")
+	
+	match current_combat_state:
+		CombatState.NORMAL:
+			# Enter Aiming Mode
+			if event.is_action_pressed("aim"):
+				current_combat_state = CombatState.AIMING
+				%TargetIndicator.visible = true
+				
+			# Standard basic attack logic can also live here
+			elif event.is_action_pressed("attack"):
+				# normal sword swing...
+				pass
+
+		CombatState.AIMING:
+			# Fire Spell (Left Click)
+			if event.is_action_pressed("attack"):
+				cast_magic_projectile(%TargetIndicator.global_position)
+				
+			# Cancel Spell (Right Click / Swap back to normal)
+			elif event.is_action_pressed("aim"):
+				exit_aiming_mode()
 
 
 func _physics_process(delta: float) -> void:
@@ -72,6 +96,10 @@ func _physics_process(delta: float) -> void:
 		MoveState.DASHING:
 			# Freeze gravity entirely during a dash
 			velocity.y = 0
+	
+	match current_combat_state:
+		CombatState.AIMING:
+			update_target_indicator_position()
 			
 	# --- ANIMATION LOGIC ---
 	# Check if we are on the floor and moving horizontally
@@ -101,3 +129,34 @@ func change_state(new_state: MoveState) -> void:
 		return
 		
 	current_state = new_state
+	
+
+func cast_magic_projectile(target_spot: Vector3) -> void:
+	if not projectile_scene: return
+	var proj = projectile_scene.instantiate() as MagicProjectile
+	get_parent().add_child(proj)
+	
+	var spawn_origin = global_position + Vector3(0, 1.0, 0)
+	proj.setup(spawn_origin, target_spot, self)
+	exit_aiming_mode()
+
+
+func exit_aiming_mode() -> void:
+	%TargetIndicator.visible = false
+	current_combat_state = CombatState.NORMAL
+
+
+func update_target_indicator_position() -> void:
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_length = 1000
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
+	
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [get_rid()] 
+	
+	var result = space_state.intersect_ray(query)
+	if result:
+		%TargetIndicator.global_position = result.position
+		%TargetIndicator.global_position.y += 0.05

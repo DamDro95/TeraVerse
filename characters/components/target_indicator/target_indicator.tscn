@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://db5ckurvayh6w"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yue0l"]
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an4hs"]
+
+[node name="TargetIndicator" type="MeshInstance3D" unique_id=1392793889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_yue0l")
+surface_material_override/0 = SubResource("StandardMaterial3D_an4hs")
