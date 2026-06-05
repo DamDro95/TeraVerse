@@ -607,7 +607,8 @@ bone_idx = 14
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9157238, 0)
 texture = SubResource("ViewportTexture_f0ap2")
 
-[node name="Jump" parent="." unique_id=1189372861 instance=ExtResource("33_5ejfk")]
+[node name="Jump" parent="." unique_id=1189372861 node_paths=PackedStringArray("player") instance=ExtResource("33_5ejfk")]
+player = NodePath("..")
 
 [node name="DoubleJump" parent="." unique_id=1488805339 instance=ExtResource("4_yw30f")]
 
