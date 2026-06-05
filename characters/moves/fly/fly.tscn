@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dc3trvhiq5dfe"]
+
+[ext_resource type="Script" uid="uid://co5ecxyl7otn5" path="res://characters/moves/fly/fly.gd" id="1_x0nkq"]
+
+[node name="Fly" type="Node3D" unique_id=1406111597]
+script = ExtResource("1_x0nkq")

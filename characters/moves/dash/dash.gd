@@ -33,6 +33,7 @@ const VECTOR_MAP = {
 var last_press_time = 0.0
 var last_keycode = 0
 
+
 func _input(event: InputEvent) -> void:
 	if not player or not player.is_multiplayer_authority(): return
 	
