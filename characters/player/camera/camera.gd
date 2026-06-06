@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 
-	if capture:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#if capture:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#else:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

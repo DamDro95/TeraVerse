@@ -60,6 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://rupu7iw0uild" path="res://characters/components/health/health.tscn" id="57_vgvch"]
 [ext_resource type="PackedScene" uid="uid://dc3trvhiq5dfe" path="res://characters/moves/fly/fly.tscn" id="58_7owf2"]
 [ext_resource type="PackedScene" uid="uid://db5ckurvayh6w" path="res://characters/components/target_indicator/target_indicator.tscn" id="59_d7nuc"]
+[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://characters/player/customizableCrosshair/crosshair/crosshair.tscn" id="61_hfasb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rkbax"]
 radius = 0.6772461
@@ -285,7 +286,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f0ap2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hfasb"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ge24q"]
@@ -380,7 +381,7 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.25, 0)
 shape = SubResource("CylinderShape3D_rkbax")
 
 [node name="SpringArmPivot" type="Node3D" parent="." unique_id=1454984573]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 1)
 script = ExtResource("2_rkbax")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot" unique_id=967085646]
@@ -609,7 +610,7 @@ bone_idx = 14
 
 [node name="Health" parent="." unique_id=953696699 instance=ExtResource("57_vgvch")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9157238, 0)
-texture = SubResource("ViewportTexture_f0ap2")
+texture = SubResource("ViewportTexture_hfasb")
 
 [node name="Jump" parent="." unique_id=1189372861 node_paths=PackedStringArray("player") instance=ExtResource("33_5ejfk")]
 player = NodePath("..")
@@ -633,3 +634,9 @@ player = NodePath("..")
 [node name="TargetIndicator" parent="." unique_id=1392793889 instance=ExtResource("59_d7nuc")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Crosshair" parent="." unique_id=231857165 instance=ExtResource("61_hfasb")]
+crosshairThickness = 5.0
+crosshairSize = 10.0
+crosshairGap = 10.0
+crosshairColor = Color(0.8, 0, 0, 1)

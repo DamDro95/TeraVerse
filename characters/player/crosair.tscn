@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://sqvp87hm3g2u"]
+
+[node name="Crosair" type="CanvasLayer" unique_id=1595215105]
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1492860228]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=1556325919]
+layout_mode = 2
