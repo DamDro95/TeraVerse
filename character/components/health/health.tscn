@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://rupu7iw0uild"]
+
+[ext_resource type="Script" uid="uid://dcrfmlo5f5o5" path="res://character/components/health/health.gd" id="1_crkk2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8e4l6"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1vrf"]
+bg_color = Color(0.6059925, 0.16905656, 0.16404223, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r07if"]
+bg_color = Color(0.37367, 0.4933043, 1.92523e-07, 1)
+
+[node name="Health" type="Sprite3D" unique_id=953696699]
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_8e4l6")
+script = ExtResource("1_crkk2")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=161191970]
+transparent_bg = true
+size = Vector2i(200, 20)
+render_target_update_mode = 4
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewport" unique_id=1302944981]
+offset_right = 200.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d1vrf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r07if")
+value = 50.0

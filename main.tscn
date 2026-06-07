@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cnwt1i2fjb54r"]
 
 [ext_resource type="PackedScene" uid="uid://b1i5c0s0jsahu" path="res://level.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://characters/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://character/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ovas5wo15njr" path="res://network/spawner.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://etk8nfkin0bb" path="res://ui/ui.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dl32avf4f7oa7" path="res://spawner/spawner.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://dbgbhlabgoh5m" path="res://characters/enemy/enemy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dbgbhlabgoh5m" path="res://character/enemy/enemy.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node3D" unique_id=896817536]
 
