@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0yhj1w1h1o2k"]
+
+[ext_resource type="Script" uid="uid://3vq8kkkd3sbq" path="res://character/states/dash/dash.gd" id="1_phsix"]
+
+[node name="Dodge" type="Node3D" unique_id=863606983]
+script = ExtResource("1_phsix")

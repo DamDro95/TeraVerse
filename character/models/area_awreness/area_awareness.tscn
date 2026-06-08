@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6fg8j1dnulon"]
+
+[ext_resource type="Script" uid="uid://ct4yj21i0oyx7" path="res://character/models/area_awreness/area_awareness.gd" id="1_3k2bx"]
+
+[node name="AreaAwareness" type="RayCast3D" unique_id=2128526215]
+script = ExtResource("1_3k2bx")
