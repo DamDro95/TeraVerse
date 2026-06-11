@@ -21,11 +21,11 @@ func update(delta : float):
 	gain_stamina(stamina_regeneration_rate * delta)
 
 
-func pay_resource_cost(move : CharacterMove):
+func pay_resource_cost(move : CharacterState):
 	lose_stamina(move.stamina_cost)
 
 
-func can_be_paid(move : CharacterMove) -> bool:
+func can_be_paid(move : CharacterState) -> bool:
 	if stamina > 0 or move.stamina_cost == 0:
 		return true
 	return false

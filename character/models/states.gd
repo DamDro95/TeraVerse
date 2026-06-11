@@ -3,30 +3,30 @@ class_name CharacterStates
 
 
 @export var model : CharacterModel
-@export var state_data: PlayerMovesData
 
-var moves : Dictionary # { string : Move }, where string is Move heirs name
+var states : Dictionary
 
-
-func accept_moves():
-	state_data.move_database = model.animator
-	for move in get_children():
-		if move is CharacterState:
-			print(move.move_name)
-			moves[move.move_name] = move
-			move.model = model
-			move.DURATION = state_data.get_duration(move.backend_animation)
-			move.state_data = state_data
-
-			move.assign_combos()
+@export var data_repo: StateDataRepo
 
 
-func moves_priority_sort(a : String, b : String):
-	if moves[a].priority > moves[b].priority:
+func accept_states():
+	for state in get_children():
+		if not state is CharacterState:
+			continue
+			
+		states[state.state_name] = state
+		state.model = model
+		state.DURATION = data_repo.get_duration(state.backend_animation)
+		state.assign_combos()
+
+
+func states_priority_sort(a : String, b : String):
+	if states[a].priority > states[b].priority:
 		return true
 	else:
 		return false
 
 
-func get_move_by_name(move_name : String) -> CharacterState:
-	return moves[move_name]
+func get_state_by_name(state_name : String) -> CharacterState:
+	print(states.keys())
+	return states[state_name]

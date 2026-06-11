@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlwomr4mqeha0"]
 
-[ext_resource type="Script" uid="uid://c4igats27pc41" path="res://character/states/jump/jump.gd" id="1_n1hb1"]
+[ext_resource type="Script" uid="uid://c4igats27pc41" path="res://character/models/states/jump/jump.gd" id="1_n1hb1"]
 
 [node name="Jump" type="Node3D" unique_id=1189372861]
 script = ExtResource("1_n1hb1")

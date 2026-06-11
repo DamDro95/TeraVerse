@@ -1,5 +1,5 @@
 extends AnimationPlayer
-class_name PlayerAnimations
+class_name StateData
 
 @export var root_position : Vector3
 @export var transitions_to_queued : bool

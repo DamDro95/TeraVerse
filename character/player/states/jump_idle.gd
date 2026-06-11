@@ -1,4 +1,4 @@
-extends CharacterMove
+extends CharacterState
 
 @export var DELTA_VECTOR_LENGTH = 6
 var jump_direction : Vector3
@@ -13,12 +13,12 @@ func default_lifecycle(_input : InputPackage):
 		xz_velocity.y = 0
 		if xz_velocity.length_squared() >= 10:
 			#return "landing_sprint"
-			return "character/Idle_B"
+			return "Idle"
 		#return "landing_run"
-		return "character/Idle_B"
+		return "Idle"
 	else:
 		#return "okay"
-		return "character/Idle_B"
+		return "Idle"
 
 
 func update(_input : InputPackage, delta ):

@@ -1,10 +1,10 @@
 extends Node
-class_name PlayerController
+class_name PlayerInput
 
 func gather_input() -> InputPackage:
 	var new_input = InputPackage.new()
 	
-	new_input.actions.append("character/Idle_B")
+	new_input.actions.append("Idle")
 	
 	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	if new_input.input_direction != Vector2.ZERO:

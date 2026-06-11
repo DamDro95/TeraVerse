@@ -3,9 +3,9 @@ class_name CharacterModel
 
 @export var is_enemy : bool = false
 
-@export var character: Character
+@export var character: CharacterController
 @export var skeleton: Skeleton3D
-@export var animator: PlayerAnimations
+@export var animator: SplitBodyAnimator
 @export var combat: CharacterCombat
 @export var stats:  CharacterStats
 #@export var hurtbox: CharacterHurtbox
@@ -25,9 +25,9 @@ class_name CharacterModel
 
 func _ready():
 	#moves_container.player = character
-	states.accept_moves()
-	current_state = states.moves["character/Idle_B"]
-	switch_to("character/Idle_B")
+	states.accept_states()
+	current_state = states.get_state_by_name("Idle")
+	switch_to("Idle")
 
 
 func update(input : InputPackage, delta : float):
@@ -42,7 +42,7 @@ func update(input : InputPackage, delta : float):
 
 
 func switch_to(state : String):
-	print(current_state.move_name + " -> " + state)
+	print(current_state.state_name + " -> " + state)
 	current_state._on_exit_state()
-	current_state = states.moves[state]
+	current_state = states.get_state_by_name(state)
 	current_state._on_enter_state()

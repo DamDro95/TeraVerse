@@ -1,10 +1,9 @@
-extends Character
-class_name CharacterPlayer
+extends CharacterController
+class_name PlayerController
 
-@export var controller: PlayerController
-
+@export var player_input: PlayerInput
 
 func _physics_process(delta):
-	var input = controller.gather_input()
+	var input = player_input.gather_input()
 	model.update(input, delta)
 	# Visuals -> follow parent transformations
