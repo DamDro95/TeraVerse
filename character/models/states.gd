@@ -2,11 +2,10 @@ extends Node
 class_name CharacterStates
 
 
-@export var model : CharacterModel
-
 var states : Dictionary
 
-@export var data_repo: StateDataRepo
+@onready var model : CharacterModel = get_parent()
+@onready var data_repo: StateDataRepo = $StateDataRepo
 
 
 func accept_states():
@@ -28,5 +27,4 @@ func states_priority_sort(a : String, b : String):
 
 
 func get_state_by_name(state_name : String) -> CharacterState:
-	print(states.keys())
 	return states[state_name]

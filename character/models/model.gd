@@ -12,6 +12,7 @@ class_name CharacterModel
 @onready var stats: CharacterStats = $Stats
 @onready var area_awareness: AreaAwareness = $AreaAwareness
 @onready var states: CharacterStates = $States
+@onready var legs: Legs = $Legs
 
 #@onready var active_weapon : Weapon = $RightWrist/WeaponSocket/Sword as Sword
 #@onready var weapons = {
@@ -27,12 +28,15 @@ func _ready():
 	states.accept_states()
 	current_state = states.get_state_by_name("Idle")
 	switch_to("Idle")
+	legs.current_legs_move = states.get_state_by_name("Idle")
+	legs.accept_behaviours()
 
 
 func update(input : InputPackage, delta : float):
 	input = combat.contextualize(input)
 	area_awareness.last_input_package = input
 	var relevance = current_state.check_relevance(input)
+	print(input.actions)
 	if relevance != "okay":
 		switch_to(relevance)
 	#print(animator.torso_animator.current_animation)

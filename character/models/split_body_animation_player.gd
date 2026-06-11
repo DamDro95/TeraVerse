@@ -1,14 +1,14 @@
 extends Node
 class_name SplitBodyAnimator
 
+@export var skeleton : Skeleton3D #MixamoSkeleton
+
+var full_body_mode : bool = true
+var synchronization_delta = 0.01
+
 @onready var torso_animator = $TorsoAnimationPlayer
 @onready var legs_animator = $LegsAnimationPlayer
-
-@export var model : CharacterModel
-@export var skeleton : Skeleton3D #MixamoSkeleton
-var full_body_mode : bool = true
-
-var synchronization_delta = 0.01
+@onready var model : CharacterModel = get_parent()
 
 
 func update_body_animations():
@@ -40,14 +40,15 @@ func set_animations():
 			#set_torso_animation(model.current_move.animation)
 
 
-func set_legs_animation(animation : String):
-	#print(legs_animator.current_animation + " changing to " + animation + "_legs")
-	legs_animator.play(animation)
-
-
 func set_torso_animation(animation : String):
-	#print(torso_animator.current_animation + " changing to " + animation + "_torso")
-	torso_animator.play(animation)
+	print(torso_animator.current_animation + " changing to " + animation)
+	torso_animator.play(animation + "_torso")
+
+
+func set_legs_animation(animation : String):
+	print(legs_animator.current_animation + " changing to " + animation)
+	legs_animator.play(animation + "_legs")
+
 
 # This triggers at the moments of first animation change after exiting TorsoPartialMove.
 # Imagine we had running legs with 0.5 sec progress, and now we need to Run with full body.
@@ -55,7 +56,7 @@ func set_torso_animation(animation : String):
 # desynced with legs, which will cause gibberish animation
 func synchronize_if_needed():
 	if abs(torso_animator.current_animation_position - legs_animator.current_animation_position) > synchronization_delta:
-		#print("triggered synchronization")
+		print("triggered synchronization")
 		torso_animator.seek(legs_animator.current_animation_position)
 
 

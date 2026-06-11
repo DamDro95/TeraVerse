@@ -19,7 +19,6 @@ func get_transitions_to_queued(animation : String, timecode : float) -> bool:
 	return state_data.get_boolean_value(animation, "StateData:transitions_to_queued", timecode) 
 
 func get_accepts_queueing(animation : String, timecode : float) -> bool:
-	print(animation)
 	return state_data.get_boolean_value(animation, "StateData:accepts_queueing", timecode) 
 
 func get_vulnerable(animation : String, timecode : float) -> bool:

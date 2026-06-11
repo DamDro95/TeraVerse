@@ -3,18 +3,16 @@ class_name CharacterStats
 
 
 @export var god_mode : bool = false
-
 @export var health : float = 100
 @export var max_health : float = 100
-
 @export var stamina : float = 100
 @export var max_stamina : float = 100
 @export var stamina_regeneration_rate : float = 10  # per sec, because then we'll multiply on delta
 
-@onready var model = $".." as CharacterModel
-
 var statuses : Array[String]
 const FATIQUE_TRESHOLD = 20
+
+@onready var model: CharacterModel = get_parent()
 
 
 func update(delta : float):

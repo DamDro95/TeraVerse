@@ -15,6 +15,6 @@ func accept_behaviours():
 	for child in get_children():
 		if child is LegsBehaviour:
 			child.model = model
-			child.moves_container = model.moves_container
+			child.moves_container = model.states
 			child.legs_manager = self
 			child.current_legs_move = current_legs_move
