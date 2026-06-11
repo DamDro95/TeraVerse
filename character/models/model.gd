@@ -2,17 +2,16 @@ extends Node
 class_name CharacterModel
 
 @export var is_enemy : bool = false
-
-@export var character: CharacterController
 @export var skeleton: Skeleton3D
-@export var animator: SplitBodyAnimator
-@export var combat: CharacterCombat
-@export var stats:  CharacterStats
 #@export var hurtbox: CharacterHurtbox
-@export var area_awareness: AreaAwareness
-@export var states: CharacterStates
 
+@onready var character: CharacterController = get_parent()
 @onready var current_state : CharacterState
+@onready var animator: SplitBodyAnimator = $SplitBodyAnimator
+@onready var combat: CharacterCombat = $Combat
+@onready var stats: CharacterStats = $Stats
+@onready var area_awareness: AreaAwareness = $AreaAwareness
+@onready var states: CharacterStates = $States
 
 #@onready var active_weapon : Weapon = $RightWrist/WeaponSocket/Sword as Sword
 #@onready var weapons = {

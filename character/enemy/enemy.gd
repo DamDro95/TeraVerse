@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		# 2. TRACK MOVEMENT (Walk toward the player)
 		track_movement(delta)
 	
-		animation_player.play("enemy_animation/Walking_A")
+		#animation_player.play("enemy_animation/Walking_A")
 
 
 func track_rotation(delta: float) -> void:

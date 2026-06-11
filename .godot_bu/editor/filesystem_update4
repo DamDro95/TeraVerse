@@ -1,0 +1,6 @@
+res://character/player/player.tscn
+res://character/models/states/state_data_repo.gd
+res://character/models/model.gd
+res://character/models/state_data.gd
+res://assets/animations/rig_medium/Jump_Start.res
+res://character/models/states/state_data.gd

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://3rl8sidj1kom" path="res://character/player/view/view.gd" id="1_0b00k"]
 [ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://character/player/view/customizableCrosshair/crosshair/crosshair.tscn" id="1_dxf5e"]
 
-[node name="Viewx" type="Node3D" unique_id=455438732]
+[node name="View" type="Node3D" unique_id=455438732]
 script = ExtResource("1_0b00k")
 
 [node name="Crosshair" parent="." unique_id=231857165 instance=ExtResource("1_dxf5e")]
