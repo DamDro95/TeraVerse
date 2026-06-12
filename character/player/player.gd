@@ -7,6 +7,7 @@ class_name PlayerController
 @onready var mesh := $Rig_Medium
 
 func _physics_process(delta):
+	if not is_multiplayer_authority(): return
 	var input = player_input.gather_input()
 	model.update(input, delta)
 	# Visuals -> follow parent transformations
