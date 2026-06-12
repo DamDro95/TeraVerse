@@ -1,0 +1,14 @@
+AnimationPlayer
+Legs
+Node
+BoneAttachment3D
+Node3D
+CSGSphere3D
+RayCast3D
+CharacterCombat
+Skeleton3D
+MeshInstance3D
+AnimationTree
+TextureRect
+CenterContainer
+CanvasLayer

@@ -1,0 +1,108 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c4ube7wpsq8l7"
+path="res://.godot/imported/Barbarian.glb-ffb45b7414b733fd395c586d03bb877e.scn"
+
+[deps]
+
+source_file="res://assets/characters/Barbarian.glb"
+dest_files=["res://.godot/imported/Barbarian.glb-ffb45b7414b733fd395c586d03bb877e.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Barbarian_Barbarian_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_ArmLeft.res",
+"save_to_file/path": "uid://cpo5ca6asxefq"
+},
+"Barbarian_Barbarian_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_ArmRight.res",
+"save_to_file/path": "uid://ur2uf3dqvm4i"
+},
+"Barbarian_Barbarian_BearHat": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_BearHat.res",
+"save_to_file/path": "uid://doygye27qxmn0"
+},
+"Barbarian_Barbarian_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_Body.res",
+"save_to_file/path": "uid://2f6parwdqu7r"
+},
+"Barbarian_Barbarian_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_Head.res",
+"save_to_file/path": "uid://dnukgdp3p5q4j"
+},
+"Barbarian_Barbarian_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_LegLeft.res",
+"save_to_file/path": "uid://bhc5f0hvy6lnb"
+},
+"Barbarian_Barbarian_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/barbarian/Barbarian_Barbarian_LegRight.res",
+"save_to_file/path": "uid://diewfgyt48aow"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

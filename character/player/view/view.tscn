@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://sqvp87hm3g2u"]
+
+[ext_resource type="Script" uid="uid://3rl8sidj1kom" path="res://character/player/view/view.gd" id="1_0b00k"]
+[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://character/player/view/customizableCrosshair/crosshair/crosshair.tscn" id="1_dxf5e"]
+
+[node name="View" type="Node3D" unique_id=455438732]
+script = ExtResource("1_0b00k")
+
+[node name="Crosshair" parent="." unique_id=231857165 instance=ExtResource("1_dxf5e")]
+crosshairThickness = 5.0
+crosshairSize = 10.0
+crosshairGap = 10.0
+crosshairColor = Color(0.8, 0, 0, 1)
+crosshairLineStyle = null
+crosshairDot = null
+crosshairTStyle = null
+crosshairOutline = null
+crosshairOutlineThickness = null
+crosshairHorizontalLines = null
+crosshairHorizontalLinesPosition = null
+crosshairHorizontalLinesThickness = null
+crosshairHorizontalLinesLength = null
+crosshairDynamic = null
+crosshairMaxDynamicOffset = null

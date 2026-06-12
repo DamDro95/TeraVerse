@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bodwvbxukwyyf"]
 
 [ext_resource type="PackedScene" uid="uid://rupu7iw0uild" path="res://character/components/health/health.tscn" id="1_dp0dq"]
-[ext_resource type="Texture2D" uid="uid://d0lcu1uwnq6fg" path="res://assets/Animations/Character/Mannequin Character/Textures/mannequin_texture.png" id="2_qcpon"]
+[ext_resource type="Texture2D" uid="uid://d0lcu1uwnq6fg" path="res://assets/textures/mannequin_texture.png" id="2_qcpon"]
 [ext_resource type="Animation" uid="uid://b3y8ffb2hpatk" path="res://assets/Animations/gltf/Rig_Medium/Death_A.res" id="3_kxebp"]
 [ext_resource type="Animation" uid="uid://cfwuj8cn452hq" path="res://assets/Animations/gltf/Rig_Medium/Death_A_Pose.res" id="4_7rkcq"]
 [ext_resource type="Animation" uid="uid://dnnlccxuvi165" path="res://assets/Animations/gltf/Rig_Medium/Death_B.res" id="5_aadhp"]
