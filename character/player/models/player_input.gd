@@ -22,7 +22,7 @@ func gather_input() -> InputPackage:
 		#new_input.actions.append("block")
 	
 	if Input.is_action_pressed("jump"):
-		new_input.actions.append("jump")
+		new_input.actions.append("Jump")
 		#if new_input.actions.has("sprint"):
 			#new_input.actions.append("jump_sprint")
 		#else:

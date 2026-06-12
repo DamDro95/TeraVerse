@@ -3,22 +3,15 @@ extends CharacterState
 @export var DELTA_VECTOR_LENGTH = 6
 var jump_direction : Vector3
 
-var landing_height : float = 1.163
+const LANDING_HEIGHT : float = 1.1
 
 
 func default_lifecycle(_input : InputPackage):
 	var floor_distance = model.area_awareness.get_floor_distance()
-	if floor_distance < landing_height:
-		var xz_velocity = model.character.velocity
-		xz_velocity.y = 0
-		if xz_velocity.length_squared() >= 10:
-			#return "landing_sprint"
-			return "Idle"
-		#return "landing_run"
-		return "Idle"
+	if floor_distance < LANDING_HEIGHT:
+		return "Jump_Land"
 	else:
-		#return "okay"
-		return "Idle"
+		return "okay"
 
 
 func update(_input : InputPackage, delta ):
@@ -27,22 +20,23 @@ func update(_input : InputPackage, delta ):
 
 
 func process_input_vector(input : InputPackage, delta : float):
-	var input_direction = (model.character.camera_mount.basis * Vector3(-input.input_direction.x, 0, -input.input_direction.y)).normalized()
-	var input_delta_vector = input_direction * DELTA_VECTOR_LENGTH
-	
-	jump_direction = (jump_direction + input_delta_vector * delta).limit_length(clamp(model.character.velocity.length(), 1, 999999))
-	model.character.look_at(model.character.global_position - jump_direction)
-	
-	var new_velocity = (model.character.velocity + input_delta_vector * delta).limit_length(model.character.velocity.length())
-	model.character.velocity = new_velocity
+	pass
+	#var input_direction = (model.character.camera.basis * Vector3(-input.input_direction.x, 0, -input.input_direction.y)).normalized()
+	#var input_delta_vector = input_direction * DELTA_VECTOR_LENGTH
+	#
+	#jump_direction = (jump_direction + input_delta_vector * delta).limit_length(clamp(model.character.velocity.length(), 1, 999999))
+	#model.character.look_at(model.character.global_position - jump_direction)
+	#
+	#var new_velocity = (model.character.velocity + input_delta_vector * delta).limit_length(model.character.velocity.length())
+	#model.character.velocity = new_velocity
 
 
-func on_enter_state():
+#func on_enter_state():
 	# the clamp construction is here to 
 	# 1) prevent look_at annoying errors when our velocity is zero and it can't look_at properly
 	# 3) have a way to scale from velocity. The longer the vector is, the harder it is to modify it by adding a delta.
 	#    Scaling jump_direction with velocity is giving us that natural behaviour of faster jumps (sprints)
 	#    being less controllable, and jumps from standing position being more volatile.
 	#    The dependance on velocity paramter is not critical, delete this if you don't like the approach.
-	jump_direction = Vector3(model.character.basis.z) * clamp(model.character.velocity.length(), 1, 999999)
-	jump_direction.y = 0
+	#jump_direction = Vector3(model.character.basis.z) * clamp(model.character.velocity.length(), 1, 999999)
+	#jump_direction.y = 0

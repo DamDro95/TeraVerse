@@ -1,8 +1,6 @@
 extends Node
 class_name SplitBodyAnimator
 
-@export var skeleton : Skeleton3D #MixamoSkeleton
-
 var full_body_mode : bool = true
 var synchronization_delta = 0.01
 

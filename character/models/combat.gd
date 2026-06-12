@@ -1,7 +1,7 @@
 extends Node
 class_name CharacterCombat
 
-@export var model: CharacterModel
+@onready var model: CharacterModel = get_parent()
 
 static var inputs_priority : Dictionary = {
 	"light_attack_pressed" : 1,

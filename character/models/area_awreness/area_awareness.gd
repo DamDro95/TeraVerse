@@ -1,14 +1,16 @@
 extends RayCast3D
 class_name AreaAwareness
 
+
+@export var anchor: BoneAttachment3D
+
 var last_pushback_vector : Vector3
 var last_input_package : InputPackage
 
-#@onready var anchor = $Anchor as CSGSphere3D
-#
-#func _process(_delta):
+
+func _process(_delta):
 	##print(root_attachment.global_position)
-	#global_position = root_attachment.global_position
+	global_position = anchor.global_position
 	#anchor.global_position = get_collision_point()
 
 

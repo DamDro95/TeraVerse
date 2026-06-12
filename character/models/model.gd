@@ -36,10 +36,8 @@ func update(input : InputPackage, delta : float):
 	input = combat.contextualize(input)
 	area_awareness.last_input_package = input
 	var relevance = current_state.check_relevance(input)
-	print(input.actions)
 	if relevance != "okay":
 		switch_to(relevance)
-	#print(animator.torso_animator.current_animation)
 	current_state.update_resources(delta) # moved back here for now, because of TorsoMoves triggering _update from legs behaviour -> doubledipping
 	current_state._update(input, delta)
 
