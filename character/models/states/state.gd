@@ -72,11 +72,13 @@ func _update(input : InputPackage, delta : float):
 func update(_input : InputPackage, _delta : float):
 	pass
 
+
 func process_input_vector(input : InputPackage, delta : float):
 	var input_direction = (model.character.camera.basis * Vector3(-input.input_direction.x, 0, -input.input_direction.y)).normalized()
 	var face_direction = model.character.basis.z
 	var angle = face_direction.signed_angle_to(input_direction, Vector3.UP)
 	model.character.rotate_y(clamp(angle, -tracking_angular_speed * delta, tracking_angular_speed * delta))
+
 
 func update_resources(delta : float):
 	model.stats.update(delta)
@@ -85,19 +87,23 @@ func update_resources(delta : float):
 func mark_enter_state():
 	enter_state_time = Time.get_unix_time_from_system()
 
+
 func get_progress() -> float:
 	var now = Time.get_unix_time_from_system()
 	return now - enter_state_time
+
 
 func works_longer_than(time : float) -> bool:
 	if get_progress() >= time:
 		return true
 	return false
 
+
 func works_less_than(time : float) -> bool:
 	if get_progress() < time: 
 		return true
 	return false
+
 
 func works_between(start : float, finish : float) -> bool:
 	var progress = get_progress()
@@ -105,34 +111,44 @@ func works_between(start : float, finish : float) -> bool:
 		return true
 	return false
 
+
 func transitions_to_queued() -> bool:
 	return model.states.data_repo.get_transitions_to_queued(backend_animation, get_progress())
+
 
 func accepts_queueing() -> bool:
 	return model.states.data_repo.get_accepts_queueing(backend_animation, get_progress())
 
+
 func tracks_input_vector() -> bool:
 	return model.states.data_repo.tracks_input_vector(backend_animation, get_progress())
+
 
 func time_til_unlocking() -> float:
 	if tracks_input_vector():
 		return 0
 	return model.states.data_repo.time_til_next_controllable_frame(backend_animation, get_progress())
 
+
 func is_vulnerable() -> bool:
 	return model.states.data_repo.get_vulnerable(backend_animation, get_progress())
+
 
 func is_interruptable() -> bool:
 	return model.states.data_repo.get_interruptable(backend_animation, get_progress())
 
+
 func is_parryable() -> bool:
 	return model.states.data_repo.get_parryable(backend_animation, get_progress())
+
 
 func get_root_position_delta(delta_time : float) -> Vector3:
 	return model.states.data_repo.get_root_delta_pos(backend_animation, get_progress(), delta_time)
 
+
 func right_weapon_hurts() -> bool:
 	return model.states.data_repo.get_right_weapon_hurts(backend_animation, get_progress())
+
 
 # "default-default", works for animations that just linger
 func default_lifecycle(input : InputPackage):
@@ -148,14 +164,18 @@ func _on_enter_state():
 	on_enter_state()
 	model.animator.update_body_animations()
 
+
 func on_enter_state():
 	pass
+
 
 func _on_exit_state():
 	on_exit_state()
 
+
 func on_exit_state():
 	pass
+
 
 func assign_combos():
 	for child in get_children():

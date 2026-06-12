@@ -14,9 +14,10 @@ func gather_input() -> InputPackage:
 		new_input.actions.append("Dash")
 	
 	if Input.is_action_pressed("fly"):
-		new_input.actions.append("Fly")
-	#if Input.is_action_pressed("descend"):
-		#new_input.actions.append("Fly")
+		new_input.actions.append("Fly_Start")
+	
+	if Input.is_action_pressed("slide"):
+		new_input.actions.append("Slide")
 	
 	if Input.is_action_pressed("jump"):
 		if not new_input.actions.has("jump"):

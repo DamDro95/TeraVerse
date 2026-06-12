@@ -39,12 +39,10 @@ func set_animations():
 
 
 func set_torso_animation(animation : String):
-	print(torso_animator.current_animation + " changing to " + animation)
 	torso_animator.play(animation + "_torso")
 
 
 func set_legs_animation(animation : String):
-	print(legs_animator.current_animation + " changing to " + animation)
 	legs_animator.play(animation + "_legs")
 
 
