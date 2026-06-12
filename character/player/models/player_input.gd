@@ -13,14 +13,10 @@ func gather_input() -> InputPackage:
 	if Input.is_action_pressed("dash"):
 		new_input.actions.append("Dash")
 	
-	#if Input.is_action_pressed("parry"):
-		#new_input.actions.append("parry")
-	#
-	#if Input.is_action_pressed("roll"):
-		#new_input.actions.append("roll")
-	#
-	#if Input.is_action_pressed("block"):
-		#new_input.actions.append("block")
+	if Input.is_action_pressed("fly"):
+		new_input.actions.append("Fly")
+	#if Input.is_action_pressed("descend"):
+		#new_input.actions.append("Fly")
 	
 	if Input.is_action_pressed("jump"):
 		if not new_input.actions.has("jump"):
