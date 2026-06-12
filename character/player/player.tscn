@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://broa35b3s1026" path="res://character/models/combat.gd" id="7_lbcgc"]
 [ext_resource type="Script" uid="uid://c7530ijslrogk" path="res://character/models/stats.gd" id="8_dsr0w"]
 [ext_resource type="Script" uid="uid://dk1wyraskehtm" path="res://character/models/states.gd" id="9_dsr0w"]
-[ext_resource type="Script" uid="uid://c6jc3vjw6wbrt" path="res://character/player/states/idle.gd" id="10_psok7"]
-[ext_resource type="Script" uid="uid://rlrlo75wa7vt" path="res://character/player/states/jump_idle.gd" id="11_wnlms"]
+[ext_resource type="Script" uid="uid://c6jc3vjw6wbrt" path="res://character/models/states/idle.gd" id="10_psok7"]
+[ext_resource type="Script" uid="uid://rlrlo75wa7vt" path="res://character/models/states/jump_idle.gd" id="11_wnlms"]
 [ext_resource type="Animation" uid="uid://b8rxbva2jrhki" path="res://assets/animations/rig_medium/legs/Running.res" id="12_2pong"]
-[ext_resource type="Script" uid="uid://c6d8xxab1641b" path="res://character/player/states/run.gd" id="12_vie7r"]
+[ext_resource type="Script" uid="uid://c6d8xxab1641b" path="res://character/models/states/run.gd" id="12_vie7r"]
 [ext_resource type="Script" uid="uid://dkitnxn0bnflt" path="res://character/models/split_body_animation_player.gd" id="19_vie7r"]
 [ext_resource type="Animation" uid="uid://dxxquqaum2q8x" path="res://assets/animations/rig_medium/Idle_B.res" id="21_vhygx"]
 [ext_resource type="Animation" uid="uid://dbiyoj3sbl6qa" path="res://assets/animations/rig_medium/torso/Idle.res" id="22_k6mlu"]
@@ -25,9 +25,11 @@
 [ext_resource type="Animation" uid="uid://c1o1vyigl38es" path="res://assets/animations/rig_medium/Running_B.res" id="25_na0yy"]
 [ext_resource type="Script" uid="uid://bn7xvrel6ktkb" path="res://character/models/states/state_data.gd" id="26_q30tv"]
 [ext_resource type="Animation" uid="uid://bbyspcb1cvlh3" path="res://assets/animations/rig_medium/legs/Idle.res" id="26_tkl2s"]
+[ext_resource type="Script" uid="uid://csxo4v5n3ss5y" path="res://character/models/states/double_jump_idle.gd" id="26_ykujo"]
 [ext_resource type="Script" uid="uid://qhxj42e5cfw7" path="res://character/models/states/jump.gd" id="27_i3eqf"]
 [ext_resource type="Animation" uid="uid://bu67a8wa6imu2" path="res://assets/animations/rig_medium/legs/Jump_Idle.res" id="27_vhygx"]
 [ext_resource type="Script" uid="uid://cex3is5knp137" path="res://character/models/states/jump_land.gd" id="28_1lity"]
+[ext_resource type="Script" uid="uid://cxunhr78agynr" path="res://character/models/states/double_jump.gd" id="28_blaly"]
 [ext_resource type="Script" uid="uid://c145pgbbjbydt" path="res://character/models/states/legs/run.gd" id="28_g6l2n"]
 [ext_resource type="Animation" uid="uid://xoiigvr1vn5u" path="res://assets/animations/rig_medium/legs/Jump_Land.res" id="28_s2r15"]
 [ext_resource type="Animation" uid="uid://csnl16elyf7sa" path="res://assets/animations/rig_medium/legs/Jump_Start.res" id="29_ed2qs"]
@@ -44,10 +46,10 @@
 [ext_resource type="Animation" uid="uid://1ix04feelwqe" path="res://assets/animations/rig_medium/Sneaking.res" id="45_m10nd"]
 [ext_resource type="Script" uid="uid://dlx1s0mvwfkdp" path="res://character/models/legs.gd" id="45_oa7k5"]
 [ext_resource type="Animation" uid="uid://dq80s2f1pd3vv" path="res://assets/animations/rig_medium/Walking_Backwards.res" id="46_60agu"]
-[ext_resource type="Animation" uid="uid://be3jn62bx144l" path="res://assets/animations/rig_medium/Lie_Down.res" id="46_ojtbi"]
-[ext_resource type="Animation" uid="uid://e1fbs872xgub" path="res://assets/animations/rig_medium/Lie_Idle.res" id="47_blaly"]
+[ext_resource type="Animation" uid="uid://dlfgy1a8b170r" path="res://assets/animations/rig_medium/Lie_Down.res" id="46_ojtbi"]
+[ext_resource type="Animation" uid="uid://cm03i8jieiw0h" path="res://assets/animations/rig_medium/Lie_Idle.res" id="47_blaly"]
 [ext_resource type="Script" uid="uid://dyu44a4okjgt" path="res://character/models/hitbox.gd" id="49_1lity"]
-[ext_resource type="Animation" uid="uid://c1bbwhlxirdbd" path="res://assets/animations/rig_medium/Sit_Floor_Idle.res" id="49_ykujo"]
+[ext_resource type="Animation" uid="uid://d3aow7jw2wmxj" path="res://assets/animations/rig_medium/Sit_Floor_Idle.res" id="49_ykujo"]
 [ext_resource type="Script" uid="uid://dafi1q2epmuls" path="res://character/player/models/model.gd" id="56_60agu"]
 [ext_resource type="Script" uid="uid://bld4sy4eqg1rl" path="res://character/player/models/player_input.gd" id="57_b5kq2"]
 [ext_resource type="PackedScene" uid="uid://db5ckurvayh6w" path="res://character/components/target_indicator/target_indicator.tscn" id="59_d7nuc"]
@@ -687,6 +689,12 @@ state_name = "Jump_Idle"
 priority = 10
 backend_animation = "Jump_Idle"
 
+[node name="DoubleJumpIdle" type="Node" parent="Model/States" unique_id=1244820806]
+script = ExtResource("26_ykujo")
+animation = "Jump_Idle"
+state_name = "Double_Jump_Idle"
+backend_animation = "Jump_Idle"
+
 [node name="Run" type="Node" parent="Model/States" unique_id=306721147]
 script = ExtResource("12_vie7r")
 animation = "Running"
@@ -698,6 +706,13 @@ backend_animation = "Running"
 script = ExtResource("27_i3eqf")
 animation = "Jump_Start"
 state_name = "Jump"
+priority = 10
+backend_animation = "Jump_Start"
+
+[node name="DoubleJump" type="Node" parent="Model/States" unique_id=1191179245]
+script = ExtResource("28_blaly")
+animation = "Jump_Start"
+state_name = "Double_Jump"
 priority = 10
 backend_animation = "Jump_Start"
 
