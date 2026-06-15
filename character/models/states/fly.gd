@@ -5,7 +5,7 @@ const FLY_SPEED = 8.0
 
 
 func default_lifecycle(input : InputPackage):
-	if input.actions.has("Fly_Start") and works_longer_than(DURATION):
+	if input.actions.has("Fly_Start"):
 		return "Jump_Idle"
 	
 	return "okay" 
