@@ -1,14 +1,20 @@
 extends CharacterState
 
-@export var SPEED = 5.0
+@export var SPEED = 7.0
 @export var TURN_SPEED = 2
  
 
 func default_lifecycle(input : InputPackage):
 	if not model.character.is_on_floor():
 		return "Jump_Idle" 
+	
+	var next_state = best_input_that_can_be_paid(input)
+	
+	#If Idle, keep the running state until friction reduces speed to 0
+	if next_state == "Idle" and (model.character.velocity.x != 0 or model.character.velocity.z != 0):
+		return "okay"
 
-	return best_input_that_can_be_paid(input)
+	return next_state
 
 
 func update(_input : InputPackage, _delta : float):
@@ -25,12 +31,17 @@ func process_input_vector(input : InputPackage, delta : float):
 	var target_angle = atan2(direction.x, direction.z)
 	if not target_angle == 0.0:
 		model.character.mesh.rotation.y = lerp_angle(model.character.mesh.rotation.y, target_angle, 0.2)
-	if direction:
-		model.character.velocity.x = direction.x * SPEED
-		model.character.velocity.z = direction.z * SPEED
+
+	var horizontal_vel = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
+	if direction != Vector3.ZERO:
+		# Accelerate toward the target direction up to max speed
+		horizontal_vel = horizontal_vel.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	else:
-		model.character.velocity.x = move_toward(model.character.velocity.x, 0, SPEED)
-		model.character.velocity.z = move_toward(model.character.velocity.z, 0, SPEED)
+		# Apply ground friction to slide to a smooth stop
+		horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
+
+	model.character.velocity.x = horizontal_vel.x
+	model.character.velocity.z = horizontal_vel.z
 
 
 func on_exit_state():

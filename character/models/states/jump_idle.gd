@@ -11,9 +11,6 @@ func default_lifecycle(input : InputPackage):
 	if floor_distance < LANDING_HEIGHT:
 		return "Jump_Land"
 		
-	if model.states.get_state_by_name("Double_Jump") and input.actions.has("Jump"):
-		return "Double_Jump"
-		
 	return "okay"
 
 

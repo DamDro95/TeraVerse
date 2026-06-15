@@ -17,9 +17,9 @@ func update(_input : InputPackage, _delta ):
 	model.character.move_and_slide()
 
 
-#func process_input_vector(input : InputPackage, delta : float):
-	#pass
-#
-#
-#func on_enter_state():
-	#model.character.velocity.y = jump_velocity
+func on_enter_state():
+	DURATION = model.states.data_repo.get_duration(backend_animation) / 4
+	model.animator.set_speed_scale(4)
+	
+func on_exit_state():
+	model.animator.set_speed_scale(1)

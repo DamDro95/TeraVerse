@@ -20,10 +20,7 @@ func gather_input() -> InputPackage:
 		new_input.actions.append("Slide")
 	
 	if Input.is_action_pressed("jump"):
-		if not new_input.actions.has("jump"):
-			new_input.actions.append("Jump")
-		elif not new_input.actions.has("Double_Jump"):
-			new_input.actions.append("Double_Jump")
+		new_input.actions.append("Jump")
 		#if new_input.actions.has("sprint"):
 			#new_input.actions.append("jump_sprint")
 		#else:

@@ -14,6 +14,11 @@ class_name CharacterState
 @onready var combos : Array[Combo] 
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var MAX_SPEED = 10.0
+var ACCELERATION = 20.0
+var FRICTION = 15.0
+var JUMP_VELOCITY = 6.5
+var AIR_CONTROL = 5.0 # Lower means harder to change directions in mid-air
 
 var model: CharacterModel
 
@@ -47,7 +52,7 @@ func check_relevance(input : InputPackage) -> String:
 
 func check_combos(input : InputPackage):
 	for combo : Combo in combos:
-		if model.combo.is_triggered(input) and model.stats.can_be_paid(model.container.states[combo.triggered_state]):
+		if combo.is_triggered(input) and model.stats.can_be_paid(model.states.get_state_by_name(combo.triggered_state)):
 			has_queued_state = true
 			queued_state = combo.triggered_state
 
@@ -213,3 +218,18 @@ func try_force_state(new_forced_state : String):
 		forced_state = new_forced_state
 	elif model.container.states[new_forced_state].priority >= model.container.states[forced_state].priority:
 		forced_state = new_forced_state
+		
+
+#func process_physics() -> void:
+	#if model.character.is_on_floor():
+		#if target_dir != Vector3.ZERO:
+			## Accelerate toward the target direction up to max speed
+			#horizontal_vel = horizontal_vel.move_toward(target_dir * MAX_SPEED, ACCELERATION * delta)
+		#else:
+			## Apply ground friction to slide to a smooth stop
+			#horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
+	#else:
+		## AIR PHYSICS: If moving in mid-air, apply limited steering control
+		#if target_dir != Vector3.ZERO:
+			## Instead of overriding speed, we nudge the existing air vector
+			#horizontal_vel = horizontal_vel.move_toward(target_dir * MAX_SPEED, AIR_CONTROL * delta)

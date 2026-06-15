@@ -22,3 +22,14 @@ crosshairHorizontalLinesThickness = null
 crosshairHorizontalLinesLength = null
 crosshairDynamic = null
 crosshairMaxDynamicOffset = null
+
+[node name="SpeedLabel" type="Label" parent="." unique_id=1938205547]
+offset_right = 115.0
+offset_bottom = 60.0
+text = "Speed:"
+
+[node name="SpeedValueLabel" type="Label" parent="." unique_id=393459560]
+offset_left = 55.0
+offset_right = 107.0
+offset_bottom = 23.0
+text = "0"

@@ -2,29 +2,33 @@ extends CharacterState
 class_name CharacterStateJump
 
 
-@export var jump_velocity: float = 5.0
+const ANIMATION_SPEED = 2
 
 var jumped: bool = false
 
 
 func default_lifecycle(input : InputPackage):
-	if works_less_than(DURATION):
-		return "okay"
+	if works_longer_than(DURATION):
+		return "Jump_Idle"
 	
-	jumped = false
-	return "Jump_Idle"
+	return "okay"
 
 
 func update(_input : InputPackage, _delta ):
 	if works_longer_than(DURATION) and not jumped:
-		model.character.velocity.y += 1
 		jumped = true
+	model.character.velocity.y -= gravity * _delta
 	model.character.move_and_slide()
 
 
 func process_input_vector(input : InputPackage, delta : float):
-	pass
+	model.character.velocity.y = JUMP_VELOCITY
 
 
 func on_enter_state():
-	model.character.velocity.y = jump_velocity
+	jumped = false
+	DURATION = model.states.data_repo.get_duration(backend_animation) / ANIMATION_SPEED
+	model.animator.set_speed_scale(ANIMATION_SPEED)
+	
+func on_exit_state():
+	model.animator.set_speed_scale(1)

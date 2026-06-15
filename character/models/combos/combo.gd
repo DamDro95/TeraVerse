@@ -2,8 +2,8 @@ extends Node
 class_name Combo
 
 
-#@onready var move : CharacterMove
-@export var triggered_move : String
+@onready var state : CharacterState
+@export var triggered_state : String
 
 
 func is_triggered(_input : InputPackage) -> bool:
