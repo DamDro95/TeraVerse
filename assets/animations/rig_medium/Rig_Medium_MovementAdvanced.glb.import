@@ -4153,7 +4153,7 @@ _subresources={
 },
 "Dodge_Backward": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dodge_Backward.res",
+"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dash_Back.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://chaii6othf8st",
 "settings/loop_mode": 0,
@@ -6209,7 +6209,7 @@ _subresources={
 },
 "Dodge_Forward": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dodge_Forward.res",
+"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dash_Forward.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://b78yv27fu4mqc",
 "settings/loop_mode": 0,
@@ -8265,7 +8265,7 @@ _subresources={
 },
 "Dodge_Left": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dodge_Left.res",
+"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dash_Left.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://gokxbs2h6lhl",
 "settings/loop_mode": 0,
@@ -10321,7 +10321,7 @@ _subresources={
 },
 "Dodge_Right": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dodge_Right.res",
+"save_to_file/fallback_path": "res://assets/animations/rig_medium/Dash_Right.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://cower4duj4ahv",
 "settings/loop_mode": 0,

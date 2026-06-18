@@ -1,11 +1,12 @@
-extends Node
+extends Node3D
 class_name CharacterModel
 
 @export var is_enemy : bool = false
-@export var skeleton: Skeleton3D
+
 #@export var hurtbox: CharacterHurtbox
 
 @onready var character: CharacterController = get_parent()
+@onready var skeleton: Skeleton3D = $Skeleton
 @onready var current_state : CharacterState
 @onready var animator: SplitBodyAnimator = $SplitBodyAnimator
 @onready var combat: CharacterCombat = $Combat
@@ -14,7 +15,7 @@ class_name CharacterModel
 @onready var states: CharacterStates = $States
 @onready var legs: Legs = $Legs
 
-#@onready var active_weapon : Weapon = $RightWrist/WeaponSocket/Sword as Sword
+@onready var active_weapon : Weapon = $RightHand/Sword1h as Sword
 #@onready var weapons = {
 	#"sword" = $....Sword,
 	#"bow" = $....Bow,
@@ -28,7 +29,7 @@ func _ready():
 	states.accept_states()
 	current_state = states.get_state_by_name("Idle")
 	switch_to("Idle")
-	legs.current_legs_move = states.get_state_by_name("Idle")
+	legs.current_legs_state = states.get_state_by_name("Idle")
 	legs.accept_behaviours()
 
 

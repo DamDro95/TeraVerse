@@ -30879,13 +30879,6 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
-},
-"materials": {
-"Character_Material": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/animations/rig_medium/Character_Material.tres",
-"use_external/path": "uid://diso5bv6al716"
-}
 }
 }
 gltf/naming_version=2

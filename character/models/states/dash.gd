@@ -35,7 +35,7 @@ func process_input_vector(input : InputPackage, delta : float):
 	# Rotate mesh
 	var target_angle = atan2(direction.x, direction.z)
 	if not target_angle == 0.0:
-		model.character.mesh.rotation.y = lerp_angle(model.character.mesh.rotation.y, target_angle, 0.2)
+		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
 	
 	# Main dash
 	model.character.velocity = direction * dash_speed

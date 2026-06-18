@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bbhwkbmjl80ov"]
+
+[ext_resource type="Script" uid="uid://cbdrtbllk21qf" path="res://weapon/sword_1h/sword_1h.gd" id="1_37d0p"]
+[ext_resource type="PackedScene" uid="uid://4nre3lyq4p3g" path="res://assets/weapons/sword_1handed.gltf" id="1_olmr8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_37d0p"]
+height = 3.1774902
+
+[node name="Sword1h" type="Area3D" unique_id=2102040549]
+script = ExtResource("1_37d0p")
+
+[node name="collider" type="CollisionShape3D" parent="." unique_id=1012051721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5349739, 0)
+shape = SubResource("CylinderShape3D_37d0p")
+
+[node name="Mesh" parent="." unique_id=170706608 instance=ExtResource("1_olmr8")]

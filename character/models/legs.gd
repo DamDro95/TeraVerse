@@ -8,13 +8,14 @@ class_name Legs
 # But I wanted a fast makeshift patch to work
 @export var model : CharacterModel
 #@export var legs_states : Array[Move]
-var current_legs_move : CharacterState
+var current_legs_state : CharacterState
 
 
 func accept_behaviours():
 	for child in get_children():
 		if child is LegsBehaviour:
+			print(child)
 			child.model = model
-			child.moves_container = model.states
+			child.states = model.states
 			child.legs_manager = self
-			child.current_legs_move = current_legs_move
+			child.current_legs_state = current_legs_state

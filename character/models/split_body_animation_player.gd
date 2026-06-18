@@ -17,7 +17,7 @@ func update_body_animations():
 func update_legs_animation():
 	update_playmode()
 	#set_animations()
-	set_legs_animation(model.legs.current_legs_move.animation)
+	set_legs_animation(model.legs.current_legs_state.animation)
 
 
 func set_animations():
@@ -30,7 +30,7 @@ func set_animations():
 			#set_torso_animation(model.current_move.animation)
 			#synchronize_if_needed()
 	else:
-		set_legs_animation(model.legs.current_legs_move.animation)
+		set_legs_animation(model.legs.current_legs_state.animation)
 		set_torso_animation(model.current_state.animation)
 		#if legs_animator.current_animation != model.legs.current_legs_move.animation + "_legs":
 			#set_legs_animation(model.legs.current_legs_move.animation)

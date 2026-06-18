@@ -1,0 +1,58 @@
+extends TorsoPartialState
+
+
+@export var RELEASES_PRIORITY : float
+
+const ANIMATION_SPEED = 2.5
+
+@onready var hit_damage = 10 # will be a function of player stats in the future
+
+
+# this strange construction is here because our animation asset has a long tail transitioning to idle,
+# think of it as of "custom perfect blending" to idle
+# so after a certain point we want to release priority, but to anything except idle
+func default_lifecycle(input : InputPackage) -> String:
+	#if works_less_than(RELEASES_PRIORITY):
+	if works_less_than(DURATION):
+		return "okay"
+		
+	var best_input = best_input_that_can_be_paid(input)
+	#if works_longer_than(DURATION) or best_input != "idle":
+	return best_input
+
+
+func update(_input : InputPackage, delta):
+	#move_player(delta)
+	#model.active_weapon.is_attacking = right_weapon_hurts()
+	model.character.move_and_slide()
+
+
+func move_player(delta : float):
+	var delta_pos = get_root_position_delta(delta)
+	delta_pos.y = 0
+	model.character.velocity = model.character.get_quaternion() * delta_pos / delta
+	if not model.character.is_on_floor():
+		model.character.velocity.y -= gravity * delta
+		has_forced_state = true
+		forced_state = "midair"
+	model.character.move_and_slide()
+
+
+func form_hit_data(weapon : Weapon) -> HitData:
+	var hit = HitData.new()
+	hit.damage = hit_damage
+	hit.hit_move_animation = animation
+	hit.is_parryable = is_parryable()
+	hit.weapon = model.character.model.active_weapon
+	return hit
+
+
+func on_enter_state():
+	DURATION = model.states.data_repo.get_duration(backend_animation) / ANIMATION_SPEED
+	model.animator.set_speed_scale(ANIMATION_SPEED)
+
+
+func on_exit_state():
+	model.animator.set_speed_scale(1)
+	model.character.model.active_weapon.hitbox_ignore_list.clear()
+	model.character.model.active_weapon.is_attacking = false

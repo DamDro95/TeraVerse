@@ -21,5 +21,10 @@ func process_input_vector(input : InputPackage, delta : float):
 	world_direction.y = 0
 	direction = world_direction.normalized()
 	
+		# Rotate mesh
+	var target_angle = atan2(direction.x, direction.z)
+	if not target_angle == 0.0:
+		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
+	
 	model.character.velocity = direction * JUMP_FORWARD
 	model.character.velocity += Vector3(0, (JUMP_VELOCITY + 5), 0)
