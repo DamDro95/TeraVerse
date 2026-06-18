@@ -14,7 +14,6 @@ var current_legs_state : CharacterState
 func accept_behaviours():
 	for child in get_children():
 		if child is LegsBehaviour:
-			print(child)
 			child.model = model
 			child.states = model.states
 			child.legs_manager = self

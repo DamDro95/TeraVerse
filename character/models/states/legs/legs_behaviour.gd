@@ -18,7 +18,6 @@ func transition_legs_state(_input, _delta):
 
 
 func change_state(next_state : String):
-	print(next_state)
 	current_legs_state = states.get_state_by_name(next_state)
 	legs_manager.current_legs_state = current_legs_state
 	model.animator.update_legs_animation()

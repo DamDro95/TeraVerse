@@ -21,23 +21,6 @@ func default_lifecycle(input : InputPackage) -> String:
 	return best_input
 
 
-func update(_input : InputPackage, delta):
-	#move_player(delta)
-	#model.active_weapon.is_attacking = right_weapon_hurts()
-	model.character.move_and_slide()
-
-
-func move_player(delta : float):
-	var delta_pos = get_root_position_delta(delta)
-	delta_pos.y = 0
-	model.character.velocity = model.character.get_quaternion() * delta_pos / delta
-	if not model.character.is_on_floor():
-		model.character.velocity.y -= gravity * delta
-		has_forced_state = true
-		forced_state = "midair"
-	model.character.move_and_slide()
-
-
 func form_hit_data(weapon : Weapon) -> HitData:
 	var hit = HitData.new()
 	hit.damage = hit_damage
@@ -49,10 +32,11 @@ func form_hit_data(weapon : Weapon) -> HitData:
 
 func on_enter_state():
 	DURATION = model.states.data_repo.get_duration(backend_animation) / ANIMATION_SPEED
-	model.animator.set_speed_scale(ANIMATION_SPEED)
+	model.animator.set_speed_scale(ANIMATION_SPEED, "torso")
 
 
 func on_exit_state():
-	model.animator.set_speed_scale(1)
+	DURATION = model.states.data_repo.get_duration(backend_animation) * ANIMATION_SPEED
+	model.animator.set_speed_scale(1, "toso")
 	model.character.model.active_weapon.hitbox_ignore_list.clear()
 	model.character.model.active_weapon.is_attacking = false

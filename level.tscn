@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b1i5c0s0jsahu"]
 
-[ext_resource type="Texture2D" uid="uid://cuihb3opdgrlm" path="res://texture/PNG/Green/texture_01.png" id="1_u52ul"]
+[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://level.gdshader" id="1_u52ul"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
-albedo_texture = ExtResource("1_u52ul")
-uv1_triplanar = true
-uv1_world_triplanar = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vonw3"]
+render_priority = 0
+shader = ExtResource("1_u52ul")
+shader_parameter/color_one = Color(0, 0, 0, 1)
+shader_parameter/color_two = Color(0.2233411, 0, 0.028663324, 1)
+shader_parameter/size = 25.00000118424012
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u52ul"]
 
@@ -16,7 +18,7 @@ collision_mask = 0
 
 [node name="Ground" type="CSGBox3D" parent="CSGCombiner3D" unique_id=54049544]
 size = Vector3(100, 1, 100)
-material = SubResource("StandardMaterial3D_vonw3")
+material = SubResource("ShaderMaterial_vonw3")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=676932088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.803, 1.5, 0)

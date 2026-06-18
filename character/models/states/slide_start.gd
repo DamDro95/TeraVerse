@@ -40,4 +40,5 @@ func on_enter_state():
 	model.animator.set_speed_scale(3)
 	
 func on_exit_state():
+	DURATION = model.states.data_repo.get_duration(backend_animation) * 3
 	model.animator.set_speed_scale(1)

@@ -12,7 +12,7 @@ func get_root_delta_pos(animation : String, progress : float, delta : float) -> 
 	var previous_pos = data.value_track_interpolate(track, progress - delta)
 	var current_pos = data.value_track_interpolate(track, progress)
 	var delta_pos = current_pos - previous_pos
-	return delta_pos
+	return current_pos
 
 
 func get_transitions_to_queued(animation : String, timecode : float) -> bool:

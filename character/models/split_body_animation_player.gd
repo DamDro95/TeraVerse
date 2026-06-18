@@ -63,9 +63,12 @@ func update_playmode():
 		full_body_mode = true
 
 
-func set_speed_scale(speed : float):
-	legs_animator.speed_scale = speed
-	torso_animator.speed_scale = speed
+func set_speed_scale(speed : float, target: String = ""):
+	if target == "torso" or target == "":
+		torso_animator.speed_scale = speed
+		
+	if target == "legs" or target == "":
+		legs_animator.speed_scale = speed
 
 
 func reset_torso_animation():

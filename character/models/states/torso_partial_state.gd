@@ -5,7 +5,7 @@ class_name TorsoPartialState
 @export var legs_behaviour : LegsBehaviour
 
 func process_input_vector(input, delta):
-	legs_behaviour.current_legs_move.process_input_vector(input, delta)
+	legs_behaviour.current_legs_state.process_input_vector(input, delta)
 
 # Dangerous stuff, but we are overriding an internal method of base Move class.
 # Unthoughtful changes can ruin base Move processing around this class.

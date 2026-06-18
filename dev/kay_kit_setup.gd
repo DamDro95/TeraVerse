@@ -26,7 +26,7 @@ const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/format
 }
 
 @onready var torso_bones_rename_map = {
-	"Rig_Medium/Skeleton3D:root" : "%Skeleton3D:root",
+	#"Rig_Medium/Skeleton3D:root" : "%Skeleton3D:root",
 	"Rig_Medium/Skeleton3D:head" : "%Skeleton:head",
 	"Rig_Medium/Skeleton3D:chest" : "%Skeleton:chest",
 	"Rig_Medium/Skeleton3D:spine" : "%Skeleton:spine",
@@ -86,11 +86,11 @@ func setup_animation(animation_name : String):
 	var animation = animations.get_animation(animation_name) as Animation
 	var animation_torso = split_animations(animation, torso_bones_rename_map)
 	var animation_legs = split_animations(animation, legs_bones_rename_map)
-	var animation_data = create_animation_data(animation)
+	#var animation_data = create_animation_data(animation)
 	
 	ResourceSaver.save(animation_torso, ANIMATION_DIRECTORY_TORSO + animation_names[animation_name] + "_torso.res")
 	ResourceSaver.save(animation_legs, ANIMATION_DIRECTORY_LEGS + animation_names[animation_name] + "_legs.res")
-	ResourceSaver.save(animation_data, ANIMATION_DIRECTORY_DATA + animation_names[animation_name] + ".res")
+	#ResourceSaver.save(animation_data, ANIMATION_DIRECTORY_DATA + animation_names[animation_name] + ".res")
 
 func split_animations(animation : Animation, rename_map: Dictionary) -> Animation:
 	var split_animation = animation.duplicate()
@@ -98,7 +98,6 @@ func split_animations(animation : Animation, rename_map: Dictionary) -> Animatio
 	for i in range(total_tracks - 1, -1, -1):
 		var track_path: NodePath = split_animation.track_get_path(i)
 		var track_path_string: String = str(track_path)
-		print(track_path_string)
 		if rename_map.values().has(track_path_string):
 			#update the track name
 			split_animation.track_set_path(i, track_path_string)
@@ -120,7 +119,7 @@ func setup_animation_root_data(animation_name : String, into_backend_animation :
 	var animation = animations.get_animation(animation_name) as Animation
 	var backend_animation = animation_data.get_animation(into_backend_animation) as Animation
 	var backend_track = backend_animation.find_track("StateData:root_position", Animation.TYPE_VALUE)
-	var hips_track = animation.find_track("Rig_Medium/Skeleton3D:hips", Animation.TYPE_POSITION_3D)
+	var hips_track = animation.find_track("%Skeleton:hips", Animation.TYPE_POSITION_3D)
 	for i : int in animation.track_get_key_count(hips_track):
 		var position = animation.track_get_key_value(hips_track, i)
 		var time = animation.track_get_key_time(hips_track, i)
@@ -129,7 +128,11 @@ func setup_animation_root_data(animation_name : String, into_backend_animation :
 		position_without_z.z = value
 		animation.track_set_key_value(hips_track, i, position_without_z)
 	
+	var animation_torso = split_animations(animation, torso_bones_rename_map)
+	var animation_legs = split_animations(animation, legs_bones_rename_map)
+	
 	# create a animation file with z position adjusted
-	ResourceSaver.save(animation, ANIMATION_DIRECTORY_STATIC + animation_name + ".res")
+	ResourceSaver.save(animation_torso, ANIMATION_DIRECTORY_STATIC + "torso/" + animation_name + ".res")
+	ResourceSaver.save(animation_legs, ANIMATION_DIRECTORY_STATIC + "legs/" + animation_name + ".res")
 	# update the animation data root track
 	ResourceSaver.save(backend_animation, ANIMATION_DIRECTORY_DATA + into_backend_animation + ".res")

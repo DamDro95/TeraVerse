@@ -42,7 +42,3 @@ func process_input_vector(input : InputPackage, delta : float):
 
 	model.character.velocity.x = horizontal_vel.x
 	model.character.velocity.z = horizontal_vel.z
-
-
-func on_exit_state():
-	model.animator.set_speed_scale(1)
