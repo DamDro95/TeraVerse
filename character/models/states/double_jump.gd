@@ -1,7 +1,7 @@
 extends CharacterStateJump
 
-const FORWARD_VELOCITY = 20.0
-const VERTICLE_VELOCITY = 4.0
+const FORWARD_VELOCITY = 10.0
+const VERTICLE_VELOCITY = 5.0
 
 
 func default_lifecycle(input : InputPackage):

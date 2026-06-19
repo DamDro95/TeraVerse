@@ -15,9 +15,9 @@ class_name CharacterState
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var MAX_SPEED = 10.0
-var ACCELERATION = 20.0
-var FRICTION = 25.0
-var JUMP_VELOCITY = 6.5
+var ACCELERATION = 50.0
+var FRICTION = 50.0
+var JUMP_VELOCITY = 5.0
 var AIR_CONTROL = 5.0 # Lower means harder to change directions in mid-air
 
 var model: CharacterModel

@@ -1,7 +1,7 @@
 extends CharacterState
 
 
-@export var dash_speed: float = 10.0
+@export var dash_speed: float = 20.0
 
 var dashed: bool = false
 

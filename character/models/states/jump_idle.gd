@@ -3,7 +3,7 @@ class_name CharacterStateJumpIdle
 
 
 const LANDING_HEIGHT : float = 1.1
-const JUMP_IDLE_MOVE_SPEED : float = 5.0
+const JUMP_IDLE_MOVE_SPEED : float = 10.0
 
 
 func default_lifecycle(input : InputPackage):
