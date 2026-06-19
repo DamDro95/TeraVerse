@@ -492,11 +492,10 @@ _data = {
 &"Waving": ExtResource("120_0r04t")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=2070672604 node_paths=PackedStringArray("player_input") groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=2070672604 groups=["player"]]
 collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_60agu")
-player_input = NodePath("PlayerInput")
 
 [node name="KayKitSetup" type="Node" parent="." unique_id=434387763 node_paths=PackedStringArray("animations", "animation_data", "model")]
 script = ExtResource("76_do7iy")
@@ -938,17 +937,6 @@ crosshairThickness = 5.0
 crosshairSize = 10.0
 crosshairGap = 10.0
 crosshairColor = Color(0.8, 0, 0, 1)
-crosshairLineStyle = null
-crosshairDot = null
-crosshairTStyle = null
-crosshairOutline = null
-crosshairOutlineThickness = null
-crosshairHorizontalLines = null
-crosshairHorizontalLinesPosition = null
-crosshairHorizontalLinesThickness = null
-crosshairHorizontalLinesLength = null
-crosshairDynamic = null
-crosshairMaxDynamicOffset = null
 
 [node name="PlayerInput" type="Node" parent="." unique_id=1150348117]
 script = ExtResource("57_b5kq2")

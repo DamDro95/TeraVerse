@@ -59,8 +59,8 @@ const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/format
 
 func _ready():
 	#format_dev_animations()
-	for animation_name in animation_names.keys():
-		setup_animation(animation_name)
+	#for animation_name in animation_names.keys():
+		#setup_animation(animation_name)
 	#setup_animation_root_data("Sword_1h_Attack_Chop", "Sword_1h_Attack_Chop", -0.062)
 	print("DONE")
 	

@@ -1,5 +1,5 @@
 extends Node
-class_name PlayerInput
+class_name PlayerController
 
 func gather_input() -> InputPackage:
 	var new_input = InputPackage.new()

@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name CharacterController
+class_name CharacterEntity
 
 @onready var model: CharacterModel = $Model
 @onready var view: CharacterView = $View

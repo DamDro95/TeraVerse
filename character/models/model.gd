@@ -5,7 +5,7 @@ class_name CharacterModel
 
 #@export var hurtbox: CharacterHurtbox
 
-@onready var character: CharacterController = get_parent()
+@onready var character: CharacterEntity = get_parent()
 @onready var skeleton: Skeleton3D = $Skeleton
 @onready var current_state : CharacterState
 @onready var animator: SplitBodyAnimator = $SplitBodyAnimator
