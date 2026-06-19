@@ -13,16 +13,18 @@ const ANIMATION_DIRECTORY_STATIC = "res://assets/animations/rig_medium/static/"
 const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/formatted/"
 
 @onready var animation_names = {
-	"Sword_1h_Attack_Chop" : "Sword_1h_Attack_Chop",
-	"Idle_B" : "Idle",
-	"Dodge_Forward" : "Dash",
-	"Jump_Idle" : "Jump_Idle",
-	"Jump_Land" : "Jump_Land",
-	"Jump_Start" : "Jump_Start",
-	"Running_B" : "Running",
-	"Sit_Floor_Down" : "Slide_Down",
-	"Sit_Floor_Idle" : "Slide_Idle",
-	"Sit_Floor_StandUp" : "Slide_End",
+	#"Sword_1h_Attack_Chop" : "Sword_1h_Attack_Chop",
+	#"Sword_1h_Attack_Slice_Diagonal" : "Sword_1h_Attack_Slice_Diagonal",
+	"Sword_1h_Attack_Stab" : "Sword_1h_Attack_Stab",
+	#"Idle_B" : "Idle",
+	#"Dodge_Forward" : "Dash",
+	#"Jump_Idle" : "Jump_Idle",
+	#"Jump_Land" : "Jump_Land",
+	#"Jump_Start" : "Jump_Start",
+	#"Running_B" : "Running",
+	#"Sit_Floor_Down" : "Slide_Down",
+	#"Sit_Floor_Idle" : "Slide_Idle",
+	#"Sit_Floor_StandUp" : "Slide_End",
 }
 
 @onready var torso_bones_rename_map = {
@@ -57,8 +59,8 @@ const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/format
 
 func _ready():
 	#format_dev_animations()
-	#for animation_name in animation_names.keys():
-		#setup_animation(animation_name)
+	for animation_name in animation_names.keys():
+		setup_animation(animation_name)
 	#setup_animation_root_data("Sword_1h_Attack_Chop", "Sword_1h_Attack_Chop", -0.062)
 	print("DONE")
 	
@@ -86,11 +88,11 @@ func setup_animation(animation_name : String):
 	var animation = animations.get_animation(animation_name) as Animation
 	var animation_torso = split_animations(animation, torso_bones_rename_map)
 	var animation_legs = split_animations(animation, legs_bones_rename_map)
-	#var animation_data = create_animation_data(animation)
+	var animation_data = create_animation_data(animation)
 	
 	ResourceSaver.save(animation_torso, ANIMATION_DIRECTORY_TORSO + animation_names[animation_name] + "_torso.res")
 	ResourceSaver.save(animation_legs, ANIMATION_DIRECTORY_LEGS + animation_names[animation_name] + "_legs.res")
-	#ResourceSaver.save(animation_data, ANIMATION_DIRECTORY_DATA + animation_names[animation_name] + ".res")
+	ResourceSaver.save(animation_data, ANIMATION_DIRECTORY_DATA + animation_names[animation_name] + ".res")
 
 func split_animations(animation : Animation, rename_map: Dictionary) -> Animation:
 	var split_animation = animation.duplicate()

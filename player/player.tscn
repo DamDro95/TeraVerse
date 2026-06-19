@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c05im176rlswp"]
 
-[ext_resource type="Script" uid="uid://bbpwpj8vjf177" path="res://character/player/player.gd" id="1_60agu"]
+[ext_resource type="Script" uid="uid://bbpwpj8vjf177" path="res://player/player.gd" id="1_60agu"]
 [ext_resource type="Script" uid="uid://bieosryp34dpm" path="res://character/models/states/state_data_repo.gd" id="2_k6mlu"]
-[ext_resource type="Script" uid="uid://bhk4r8ks7871h" path="res://character/player/models/camera/camera.gd" id="2_rkbax"]
-[ext_resource type="Script" uid="uid://cjv2ijxgs4ah5" path="res://character/player/models/camera/camera_follow.gd" id="3_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://sqvp87hm3g2u" path="res://character/player/view/view.tscn" id="5_60agu"]
-[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://character/player/view/customizableCrosshair/crosshair/crosshair.tscn" id="5_r212m"]
+[ext_resource type="Script" uid="uid://bhk4r8ks7871h" path="res://player/models/camera/camera.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://cjv2ijxgs4ah5" path="res://player/models/camera/camera_follow.gd" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://sqvp87hm3g2u" path="res://player/view/view.tscn" id="5_60agu"]
+[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://player/view/customizableCrosshair/crosshair/crosshair.tscn" id="5_r212m"]
 [ext_resource type="Animation" uid="uid://dmirh66kwvl6f" path="res://assets/animations/rig_medium/torso/Dash_torso.res" id="5_xyxa2"]
 [ext_resource type="Animation" uid="uid://b3xbsge23ncjd" path="res://assets/animations/rig_medium/torso/Idle_torso.res" id="6_jv8p0"]
 [ext_resource type="Script" uid="uid://broa35b3s1026" path="res://character/models/combat.gd" id="7_lbcgc"]
@@ -24,7 +24,9 @@
 [ext_resource type="Animation" uid="uid://ymxl8rpynk6s" path="res://assets/animations/rig_medium/torso/Sword_1h_Attack_Chop_torso.res" id="14_vicm4"]
 [ext_resource type="Animation" uid="uid://duvc0ev8vfi8k" path="res://assets/animations/rig_medium/legs/Dash_legs.res" id="15_1o672"]
 [ext_resource type="Animation" uid="uid://clufpyiegt02a" path="res://assets/animations/rig_medium/legs/Idle_legs.res" id="16_sgapt"]
+[ext_resource type="Animation" uid="uid://csncbsn3twtoa" path="res://assets/animations/rig_medium/data/Sword_1h_Attack_Slice_Diagonal.res" id="16_wtvvi"]
 [ext_resource type="Animation" uid="uid://c2y6ypbrabico" path="res://assets/animations/rig_medium/legs/Jump_Idle_legs.res" id="17_cco2m"]
+[ext_resource type="Animation" path="res://assets/animations/rig_medium/data/Sword_1h_Attack_Stab.res" id="17_nh8j8"]
 [ext_resource type="Animation" uid="uid://wv521t4415kk" path="res://assets/animations/rig_medium/legs/Jump_Land_legs.res" id="18_otfve"]
 [ext_resource type="Animation" uid="uid://bbsp7oiuqa4u8" path="res://assets/animations/rig_medium/legs/Jump_Start_legs.res" id="19_a48ro"]
 [ext_resource type="Script" uid="uid://dkitnxn0bnflt" path="res://character/models/split_body_animation_player.gd" id="19_vie7r"]
@@ -48,6 +50,7 @@
 [ext_resource type="Animation" uid="uid://jac8pd4674j7" path="res://assets/animations/rig_medium/data/Jump_Idle.res" id="32_ulnr1"]
 [ext_resource type="Animation" uid="uid://dkl1j6wknmydf" path="res://assets/animations/rig_medium/data/Jump_Land.res" id="33_hr7g6"]
 [ext_resource type="Animation" uid="uid://cuvylfcto1lli" path="res://assets/animations/rig_medium/data/Jump_Start.res" id="34_5dcy2"]
+[ext_resource type="Script" uid="uid://dl4fb3pqtc4dx" path="res://character/models/combos/combo_attack.gd" id="34_xyxa2"]
 [ext_resource type="Animation" uid="uid://35dtscakwvh5" path="res://assets/animations/rig_medium/data/Running.res" id="35_0r04t"]
 [ext_resource type="Animation" uid="uid://3qrk76r40tjb" path="res://assets/animations/rig_medium/data/Slide_Down.res" id="36_775h1"]
 [ext_resource type="Animation" uid="uid://c2loog7eyl1jt" path="res://assets/animations/rig_medium/data/Slide_End.res" id="37_6mw8d"]
@@ -62,17 +65,19 @@
 [ext_resource type="Script" uid="uid://be2755ceidyip" path="res://character/models/states/fly_start.gd" id="45_cvifs"]
 [ext_resource type="Script" uid="uid://dlx1s0mvwfkdp" path="res://character/models/legs.gd" id="45_oa7k5"]
 [ext_resource type="Script" uid="uid://dhxy4dflyyj0k" path="res://character/models/combos/slide_jump.gd" id="46_j8ai1"]
+[ext_resource type="Animation" uid="uid://devtutdbij5i7" path="res://assets/animations/rig_medium/torso/Sword_1h_Attack_Slice_Diagonal_torso.res" id="47_nh8j8"]
 [ext_resource type="Script" uid="uid://dyu44a4okjgt" path="res://character/models/hitbox.gd" id="49_1lity"]
+[ext_resource type="Animation" path="res://assets/animations/rig_medium/torso/Sword_1h_Attack_Stab_torso.res" id="49_m110l"]
 [ext_resource type="Animation" uid="uid://c11vevq5vt75j" path="res://assets/animations/rig_medium/extracted/Sit_Floor_Idle.res" id="49_ykujo"]
 [ext_resource type="Script" uid="uid://ebjo15m510or" path="res://character/models/combos/double_jump.gd" id="50_y7b43"]
 [ext_resource type="Script" uid="uid://cwfjkr3hwyho6" path="res://character/models/combos/fly.gd" id="51_ba87y"]
 [ext_resource type="Script" uid="uid://de57qtfyu0s" path="res://character/models/combos/dash.gd" id="51_qrm07"]
-[ext_resource type="Animation" uid="uid://b5rjpnf703e6l" path="res://assets/animations/rig_medium/legs/Sword_1h_Attack_Chop_legs.res" id="54_oxydq"]
+[ext_resource type="Animation" path="res://assets/animations/rig_medium/legs/Sword_1h_Attack_Chop_legs.res" id="54_oxydq"]
 [ext_resource type="Script" uid="uid://y1lql0qe7wmn" path="res://character/models/states/slide_start.gd" id="55_ntgqi"]
 [ext_resource type="Script" uid="uid://cqrcvgemslech" path="res://character/models/states/slide_idle.gd" id="56_17cng"]
-[ext_resource type="Script" uid="uid://dafi1q2epmuls" path="res://character/player/models/model.gd" id="56_60agu"]
+[ext_resource type="Script" uid="uid://dafi1q2epmuls" path="res://player/models/model.gd" id="56_60agu"]
 [ext_resource type="Animation" uid="uid://s5w1rdf1qani" path="res://assets/animations/rig_medium/extracted/Cheering.res" id="57_57edm"]
-[ext_resource type="Script" uid="uid://bld4sy4eqg1rl" path="res://character/player/models/player_input.gd" id="57_b5kq2"]
+[ext_resource type="Script" uid="uid://bld4sy4eqg1rl" path="res://player/models/player_input.gd" id="57_b5kq2"]
 [ext_resource type="Script" uid="uid://cvkuqv3najheg" path="res://character/models/states/slide_end.gd" id="57_j8ai1"]
 [ext_resource type="Animation" uid="uid://dn7irpkf8rfrh" path="res://assets/animations/rig_medium/extracted/Crawling.res" id="58_cvifs"]
 [ext_resource type="Animation" uid="uid://cw2tutb5bdlk0" path="res://assets/animations/rig_medium/extracted/Crouching.res" id="59_125oa"]
@@ -273,7 +278,9 @@ _data = {
 &"Slide_Down": ExtResource("36_775h1"),
 &"Slide_End": ExtResource("37_6mw8d"),
 &"Slide_Idle": ExtResource("38_4jlyw"),
-&"Sword_1h_Attack_Chop": ExtResource("39_ynk0u")
+&"Sword_1h_Attack_Chop": ExtResource("39_ynk0u"),
+&"Sword_1h_Attack_Slice_Diagonal": ExtResource("16_wtvvi"),
+&"Sword_1h_Attack_Stab": ExtResource("17_nh8j8")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_quie5"]
@@ -287,7 +294,9 @@ _data = {
 &"Slide_Down_torso": ExtResource("11_map6p"),
 &"Slide_End_torso": ExtResource("12_wki6n"),
 &"Slide_Idle_torso": ExtResource("13_gudak"),
-&"Sword_1h_Attack_Chop_torso": ExtResource("14_vicm4")
+&"Sword_1h_Attack_Chop_torso": ExtResource("14_vicm4"),
+&"Sword_1h_Attack_Slice_Diagonal_torso": ExtResource("47_nh8j8"),
+&"Sword_1h_Attack_Stab_torso": ExtResource("49_m110l")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4k3bb"]
@@ -435,9 +444,7 @@ _data = {
 &"Lie_Idle": ExtResource("75_vy3bx"),
 &"Lie_StandUp": ExtResource("76_4k3bb"),
 &"Melee_1H_Attack_Jump_Chop": ExtResource("78_it0p7"),
-&"Melee_1H_Attack_Slice_Diagonal": ExtResource("79_bb74b"),
 &"Melee_1H_Attack_Slice_Horizontal": ExtResource("80_rmesj"),
-&"Melee_1H_Attack_Stab": ExtResource("81_a2yt2"),
 &"Melee_2H_Attack_Chop": ExtResource("82_b73t8"),
 &"Melee_2H_Attack_Slice": ExtResource("83_bjgso"),
 &"Melee_2H_Attack_Spin": ExtResource("84_sw1ql"),
@@ -473,6 +480,8 @@ _data = {
 &"Spawn_Air": ExtResource("110_jfd86"),
 &"Spawn_Ground": ExtResource("111_i5wgh"),
 &"Sword_1h_Attack_Chop": ExtResource("77_kihpf"),
+&"Sword_1h_Attack_Slice_Diagonal": ExtResource("79_bb74b"),
+&"Sword_1h_Attack_Stab": ExtResource("81_a2yt2"),
 &"T-Pose": ExtResource("113_nchce"),
 &"Throw": ExtResource("114_7jgma"),
 &"Use_Item": ExtResource("115_015do"),
@@ -625,6 +634,34 @@ state_name = "Attack"
 priority = 40
 backend_animation = "Sword_1h_Attack_Chop"
 
+[node name="ComboAttack" type="Node" parent="Model/States/Attack1" unique_id=130582902]
+script = ExtResource("34_xyxa2")
+triggered_state = "Attack2"
+
+[node name="Attack2" type="Node" parent="Model/States" unique_id=2138809043 node_paths=PackedStringArray("legs_behaviour")]
+script = ExtResource("65_4igst")
+legs_behaviour = NodePath("../../Legs/Run")
+animation = "Sword_1h_Attack_Slice_Diagonal"
+state_name = "Attack2"
+priority = 40
+backend_animation = "Sword_1h_Attack_Slice_Diagonal"
+
+[node name="ComboAttack" type="Node" parent="Model/States/Attack2" unique_id=463518728]
+script = ExtResource("34_xyxa2")
+triggered_state = "Attack3"
+
+[node name="Attack3" type="Node" parent="Model/States" unique_id=343787192 node_paths=PackedStringArray("legs_behaviour")]
+script = ExtResource("65_4igst")
+legs_behaviour = NodePath("../../Legs/Run")
+animation = "Sword_1h_Attack_Stab"
+state_name = "Attack3"
+priority = 40
+backend_animation = "Sword_1h_Attack_Stab"
+
+[node name="ComboAttack" type="Node" parent="Model/States/Attack3" unique_id=1841910974]
+script = ExtResource("34_xyxa2")
+triggered_state = "Attack"
+
 [node name="SplitBodyAnimator" type="Node" parent="Model" unique_id=1467070242]
 script = ExtResource("19_vie7r")
 
@@ -668,7 +705,7 @@ bones/1/name = "hips"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, -2.3841855e-07, 0, 1, 0, 2.3841855e-07, 0, 1, 0, 0.40566343, 0)
 bones/1/enabled = true
-bones/1/position = Vector3(0, 0.30743554, 0)
+bones/1/position = Vector3(0, 0.4171587, 0)
 bones/1/rotation = Quaternion(0.095845774, -1.1866046e-07, 1.1425705e-08, 0.9953962)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "spine"
@@ -690,7 +727,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0.057284202, 0.9983573, -4.5386042e-07, -3.8742996e-07, 4.768369e-07, 0.99999976, 0.9983573, -0.057284202, 4.1410917e-07, 0.21200737, 0.13413215, 8.402462e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(0.21200736, 0.13413203, 7.9299625e-08)
-bones/4/rotation = Quaternion(-0.5599063, -0.060880348, -0.6439745, 0.5177794)
+bones/4/rotation = Quaternion(-0.5599063, -0.060880356, -0.6439745, 0.5177794)
 bones/4/scale = Vector3(0.99999934, 0.99999934, 0.99999976)
 bones/5/name = "lowerarm.l"
 bones/5/parent = 4
@@ -739,7 +776,7 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(0.99388725, -0.11040192, 1.2453701e-07, 0.110401966, 0.9938869, 3.9025445e-09, -1.2420661e-07, 9.87044e-09, 0.99999994, -7.1219225e-11, 0.24189733, -1.1940561e-07)
 bones/11/enabled = true
 bones/11/position = Vector3(-7.1219225e-11, 0.24189733, -1.1940561e-07)
-bones/11/rotation = Quaternion(2.1687793e-08, 6.223694e-08, 0.5179393, 0.85541743)
+bones/11/rotation = Quaternion(2.1687793e-08, 6.223694e-08, 0.5179393, 0.8554175)
 bones/11/scale = Vector3(1.0000002, 0.9999999, 0.99999994)
 bones/12/name = "wrist.r"
 bones/12/parent = 11
@@ -766,57 +803,57 @@ bones/15/name = "upperleg.l"
 bones/15/parent = 1
 bones/15/rest = Transform3D(1, -1.4221531e-07, -2.6560238e-08, -1.4305222e-07, -0.9993962, -0.034741182, -2.160345e-08, 0.034741133, -0.9993976, 0.17094506, 0.11358726, 1.3923272e-08)
 bones/15/enabled = true
-bones/15/position = Vector3(0.17094505, 0.11492193, 0.04899914)
-bones/15/rotation = Quaternion(0.8689807, -2.286296e-07, 3.4063323e-08, 0.49484617)
+bones/15/position = Vector3(0.17094506, 0.11358723, 0.10000004)
+bones/15/rotation = Quaternion(0.87406147, -8.3038195e-08, 2.4776313e-08, 0.4858154)
 bones/15/scale = Vector3(1, 0.9999998, 1.0000012)
 bones/16/name = "lowerleg.l"
 bones/16/parent = 15
 bones/16/rest = Transform3D(1, 1.61291e-07, 1.2085519e-07, -1.3212053e-07, 0.9774329, -0.21124826, -1.522002e-07, 0.21124834, 0.97743255, 3.5797574e-09, 0.2270775, -6.140325e-09)
 bones/16/enabled = true
 bones/16/position = Vector3(3.5797574e-09, 0.2270775, -6.140325e-09)
-bones/16/rotation = Quaternion(0.6746663, 5.096219e-08, -4.685324e-07, 0.73812294)
+bones/16/rotation = Quaternion(0.21908584, 6.73655e-08, -1.5214744e-07, 0.97570556)
 bones/16/scale = Vector3(1, 1.0000005, 1.0000001)
 bones/17/name = "foot.l"
 bones/17/parent = 16
 bones/17/rest = Transform3D(1, 4.6432284e-08, 6.012426e-08, -7.592727e-08, 0.5855154, 0.8106606, 2.437142e-09, -0.81066227, 0.5855142, 1.8339347e-10, 0.14943703, 9.658738e-10)
 bones/17/enabled = true
 bones/17/position = Vector3(1.8339347e-10, 0.14943703, 9.658738e-10)
-bones/17/rotation = Quaternion(-0.7635184, -1.016504e-07, 1.8936574e-07, 0.6457862)
+bones/17/rotation = Quaternion(-0.60178953, -3.642158e-08, -4.1305782e-08, 0.79865474)
 bones/17/scale = Vector3(1, 1.0000008, 0.99999875)
 bones/18/name = "toes.l"
 bones/18/parent = 17
 bones/18/rest = Transform3D(-1, 1.332896e-07, 6.9433895e-08, 4.2534122e-08, 0.6941041, -0.7198751, -1.4414616e-07, -0.71987, -0.694109, -1.5114397e-08, 0.16565003, 5.171392e-09)
 bones/18/enabled = true
 bones/18/position = Vector3(-1.5114397e-08, 0.16565003, 5.171392e-09)
-bones/18/rotation = Quaternion(2.664621e-08, 0.91989243, -0.392171, 6.0750885e-08)
+bones/18/rotation = Quaternion(-4.421328e-08, 0.9201735, -0.39151067, 5.406565e-08)
 bones/18/scale = Vector3(1, 0.9999966, 1.0000037)
 bones/19/name = "upperleg.r"
 bones/19/parent = 1
 bones/19/rest = Transform3D(1, 1.496114e-07, -6.08626e-08, 1.4740667e-07, -0.9993962, -0.034741182, -6.6023446e-08, 0.034741133, -0.9993976, -0.17094506, 0.11358726, 1.3923272e-08)
 bones/19/enabled = true
-bones/19/position = Vector3(-0.17094508, 0.113587275, -0.049045496)
-bones/19/rotation = Quaternion(0.9997017, 5.698575e-07, -4.5385214e-08, -0.02442723)
+bones/19/position = Vector3(-0.17094506, 0.11358735, -0.10000001)
+bones/19/rotation = Quaternion(0.98625875, 2.700978e-07, -2.1307404e-08, -0.16520801)
 bones/19/scale = Vector3(1, 0.9999998, 1.0000012)
 bones/20/name = "lowerleg.r"
 bones/20/parent = 19
 bones/20/rest = Transform3D(1, -1.61291e-07, -1.2085522e-07, 1.3212053e-07, 0.9774329, -0.21124826, 1.5220023e-07, 0.21124834, 0.97743255, -3.5797574e-09, 0.2270775, -6.140325e-09)
 bones/20/enabled = true
 bones/20/position = Vector3(-3.5797574e-09, 0.2270775, -6.140325e-09)
-bones/20/rotation = Quaternion(0.92541146, -2.6164564e-08, 6.4266555e-07, 0.3789642)
+bones/20/rotation = Quaternion(0.49409893, -6.002629e-08, 3.431345e-07, 0.86940575)
 bones/20/scale = Vector3(1, 1.0000005, 1.0000001)
 bones/21/name = "foot.r"
 bones/21/parent = 20
 bones/21/rest = Transform3D(1, -1.5513058e-07, 2.935212e-07, -1.4711547e-07, 0.5855154, 0.8106606, -2.9761958e-07, -0.81066227, 0.5855142, -1.8339222e-10, 0.14943703, 9.658786e-10)
 bones/21/enabled = true
 bones/21/position = Vector3(-1.8339222e-10, 0.14943703, 9.658786e-10)
-bones/21/rotation = Quaternion(-0.7122883, 3.8942218e-07, -7.337914e-07, 0.7018871)
+bones/21/rotation = Quaternion(-0.25984055, 2.8457643e-07, -2.012656e-07, 0.9656516)
 bones/21/scale = Vector3(1, 1.0000008, 0.99999875)
 bones/22/name = "toes.r"
 bones/22/parent = 21
 bones/22/rest = Transform3D(-1, 8.95137e-08, 1.0213958e-07, -1.1394949e-08, 0.6941041, -0.7198751, -1.3533413e-07, -0.71987, -0.694109, 2.1323326e-10, 0.16565003, 5.1714e-09)
 bones/22/enabled = true
 bones/22/position = Vector3(2.1323326e-10, 0.16565003, 5.1714e-09)
-bones/22/rotation = Quaternion(-1.6874669e-08, 0.9201272, -0.3916197, 8.258115e-08)
+bones/22/rotation = Quaternion(2.1433177e-08, 0.9205717, -0.3905736, 6.4466455e-08)
 bones/22/scale = Vector3(1, 0.9999966, 1.0000037)
 
 [node name="ArmLeft" type="MeshInstance3D" parent="Model/Skeleton" unique_id=2092215725]
@@ -868,7 +905,7 @@ script = ExtResource("49_1lity")
 shape = SubResource("CylinderShape3D_3yvbn")
 
 [node name="RightHand" type="BoneAttachment3D" parent="Model" unique_id=941573671]
-transform = Transform3D(0.23459706, 4.4703484e-07, -0.97209203, 0.18548395, -0.98162633, 0.04476309, -0.9542319, -0.19080915, -0.23028696, -0.55431926, 0.6365765, 0.115283385)
+transform = Transform3D(0.23459715, 4.172325e-07, -0.97209203, 0.18548398, -0.98162633, 0.044763118, -0.954232, -0.19080919, -0.23028696, -0.55431926, 0.7462997, 0.11528338)
 bone_name = "hand.r"
 bone_idx = 13
 use_external_skeleton = true

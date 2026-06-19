@@ -15,7 +15,6 @@ class_name CharacterModel
 @onready var states: CharacterStates = $States
 @onready var legs: Legs = $Legs
 
-@onready var active_weapon : Weapon = $RightHand/Sword1h as Sword
 #@onready var weapons = {
 	#"sword" = $....Sword,
 	#"bow" = $....Bow,

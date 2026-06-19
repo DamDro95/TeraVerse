@@ -3,7 +3,7 @@ extends TorsoPartialState
 
 @export var RELEASES_PRIORITY : float
 
-const ANIMATION_SPEED = 2.5
+const ANIMATION_SPEED = 1.5
 
 @onready var hit_damage = 10 # will be a function of player stats in the future
 

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dbgbhlabgoh5m"]
 
 [ext_resource type="Texture2D" uid="uid://d0lcu1uwnq6fg" path="res://assets/textures/mannequin_texture.png" id="1_2mvqj"]
-[ext_resource type="Script" uid="uid://bm7a3wnqup5gn" path="res://character/enemy/enemy.gd" id="1_ofsxj"]
+[ext_resource type="Script" uid="uid://bm7a3wnqup5gn" path="res://enemy/enemyx.gd" id="1_ofsxj"]
 [ext_resource type="PackedScene" uid="uid://mn5nb00vf7re" path="res://character/components/hurtbox/hurtbox.tscn" id="2_htffl"]
 [ext_resource type="PackedScene" uid="uid://38in5opkadpv" path="res://character/components/hitbox/hitbox.tscn" id="2_w5anl"]
 [ext_resource type="PackedScene" uid="uid://rupu7iw0uild" path="res://character/components/health/health.tscn" id="28_mqeel"]

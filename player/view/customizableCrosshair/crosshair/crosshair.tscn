@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://iwlpamd20oko"]
 
-[ext_resource type="Script" uid="uid://dr6qcorhej7t3" path="res://character/player/view/customizableCrosshair/crosshair/crosshair.gd" id="1_ncaag"]
+[ext_resource type="Script" uid="uid://dr6qcorhej7t3" path="res://player/view/customizableCrosshair/crosshair/crosshair.gd" id="1_ncaag"]
 
 [node name="Crosshair" type="CenterContainer" unique_id=231857165]
 anchors_preset = 8
