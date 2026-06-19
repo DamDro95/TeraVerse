@@ -194,11 +194,11 @@ func update_line_style(style: int):
 			return null
 		1:
 			return preload(
-				"res://character/player/view/customizableCrosshair/crosshair/curves/arrow.tres"
+				"res://player/view/customizableCrosshair/crosshair/curves/arrow.tres"
 			)
 		2:
 			return preload(
-				"res://character/player/view/customizableCrosshair/crosshair/curves/inverseArrow.tres"
+				"res://player/view/customizableCrosshair/crosshair/curves/inverseArrow.tres"
 			)
 		_:
 			return null
