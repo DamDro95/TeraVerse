@@ -34,8 +34,11 @@ func process_input_vector(input : InputPackage, delta : float):
 
 	var horizontal_vel = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
 	if direction != Vector3.ZERO:
+		var current_speed = horizontal_vel.length()
+		current_speed = move_toward(current_speed, MAX_SPEED, ACCELERATION * delta)
 		# Accelerate toward the target direction up to max speed
-		horizontal_vel = horizontal_vel.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+		horizontal_vel = direction * max(current_speed, ACCELERATION * delta)
+		#horizontal_vel = horizontal_vel.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	else:
 		# Apply ground friction to slide to a smooth stop
 		horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
