@@ -3,20 +3,21 @@ extends CharacterState
 
 @export var slide_velocity: float = 5.0
 
-var jumped: bool = false
+@onready var jumped: bool = false
 
-@onready var MAX_SLIDE_SPEED = (MAX_SPEED + 5)
-@onready var SLIDE_ACCELERATION = (ACCELERATION * (1/3))
+#@onready var MAX_SLIDE_SPEED = (model.physics.MAX_SPEED + 5)
+#@onready var SLIDE_ACCELERATION = (model.physics.ACCELERATION * (1/3))
 
 func default_lifecycle(input : InputPackage):
 	
-	if input.actions.has("Slide"):
+	if input.actions.has("Slide") and model.character.velocity.length() > 0:
 		return "okay"
 	
 	return "Slide_End"
 
 
-func update(_input : InputPackage, _delta ):
+func update(input : InputPackage, delta ):
+	model.physics.apply_horizontal_resistance("slide", delta)
 	model.character.move_and_slide()
 
 
@@ -26,18 +27,4 @@ func process_input_vector(input : InputPackage, delta : float):
 	# Move in the directin relative to the camera
 	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
 	
-	# Rotate mesh
-	var target_angle = atan2(direction.x, direction.z)
-	if not target_angle == 0.0:
-		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
-		
-	var horizontal_vel = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
-	if direction != Vector3.ZERO:
-		# Accelerate toward the target direction up to max speed
-		horizontal_vel = horizontal_vel.move_toward(direction * MAX_SLIDE_SPEED, SLIDE_ACCELERATION * delta)
-	else:
-		# Apply ground friction to slide to a smooth stop
-		horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
-		
-	model.character.velocity.x = horizontal_vel.x
-	model.character.velocity.z = horizontal_vel.z
+	model.character.rotate_mesh(direction)

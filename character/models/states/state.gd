@@ -13,13 +13,6 @@ class_name CharacterState
 
 @onready var combos : Array[Combo] 
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var MAX_SPEED = 10.0
-var ACCELERATION = 20.0
-var FRICTION = 25.0
-var JUMP_VELOCITY = 6.5
-var AIR_CONTROL = 5.0 # Lower means harder to change directions in mid-air
-
 var model: CharacterModel
 
 var enter_state_time : float
@@ -38,7 +31,7 @@ var DURATION : float
 func check_relevance(input : InputPackage) -> String:
 	if accepts_queueing():
 		check_combos(input)
-	
+		
 	if has_queued_state and transitions_to_queued():
 		try_force_state(queued_state)
 		has_queued_state = false

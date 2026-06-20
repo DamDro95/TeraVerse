@@ -3,15 +3,22 @@ extends CharacterState
 
 @export var slide_velocity: float = 5.0
 
+const slide_boost = 12
+
 
 @warning_ignore("unused_parameter")
 func default_lifecycle(input : InputPackage):
 	if works_less_than(DURATION):
-		return "okay"
-	return "Slide_Idle"
+		return best_input_that_can_be_paid(input)
+		
+	if works_longer_than(DURATION):
+		return "Slide_Idle"
+		
+	return "okay"
 
 
-func update(_input : InputPackage, _delta ):
+func update(_input : InputPackage, delta ):
+	model.physics.apply_horizontal_resistance("ground", delta)
 	model.character.move_and_slide()
 
 
@@ -22,17 +29,17 @@ func process_input_vector(input : InputPackage, delta : float):
 	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
 	
 	# Rotate mesh
-	var target_angle = atan2(direction.x, direction.z)
-	if not target_angle == 0.0:
-		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
+	model.character.rotate_mesh(direction)
 
-	var horizontal_vel = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
-	if direction != Vector3.ZERO:
-		# Accelerate toward the target direction up to max speed
-		horizontal_vel = horizontal_vel.move_toward(direction * (MAX_SPEED + 4), ACCELERATION * delta)
-
-	model.character.velocity.x = horizontal_vel.x
-	model.character.velocity.z = horizontal_vel.z
+	if direction == Vector3.ZERO:
+		return
+		
+	var velocity_h = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
+	var to = model.character.velocity.length() + 10
+	velocity_h = velocity_h.move_toward(direction * to, model.physics.SLIDE_ACCELERATION * delta)
+		
+	model.character.velocity.x = velocity_h.x
+	model.character.velocity.z = velocity_h.z
 
 
 func on_enter_state():

@@ -17,7 +17,8 @@ func default_lifecycle(input : InputPackage):
 	return next_state
 
 
-func update(_input : InputPackage, _delta : float):
+func update(_input : InputPackage, delta : float):
+	model.physics.apply_horizontal_resistance("ground", delta)
 	model.character.move_and_slide()
 
 
@@ -27,21 +28,17 @@ func process_input_vector(input : InputPackage, delta : float):
 	# Move in the directin relative to the camera
 	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
 	
-	# Rotate mesh
-	var target_angle = atan2(direction.x, direction.z)
-	if not target_angle == 0.0:
-		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
+	model.character.rotate_mesh(direction)
+		
+	if direction == Vector3.ZERO:
+		return
+		
+	var velocity_h = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
+	var current_speed = velocity_h.length()
+	current_speed = move_toward(current_speed, model.physics.MAX_SPEED, model.physics.ACCELERATION * delta)
+	
+	# Keep velocity even when changing direction
+	velocity_h = direction * max(current_speed, model.physics.ACCELERATION * delta)
 
-	var horizontal_vel = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
-	if direction != Vector3.ZERO:
-		var current_speed = horizontal_vel.length()
-		current_speed = move_toward(current_speed, MAX_SPEED, ACCELERATION * delta)
-		# Accelerate toward the target direction up to max speed
-		horizontal_vel = direction * max(current_speed, ACCELERATION * delta)
-		#horizontal_vel = horizontal_vel.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-	else:
-		# Apply ground friction to slide to a smooth stop
-		horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
-
-	model.character.velocity.x = horizontal_vel.x
-	model.character.velocity.z = horizontal_vel.z
+	model.character.velocity.x = velocity_h.x
+	model.character.velocity.z = velocity_h.z

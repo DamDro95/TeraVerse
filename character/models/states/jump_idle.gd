@@ -3,7 +3,6 @@ class_name CharacterStateJumpIdle
 
 
 const LANDING_HEIGHT : float = 1.1
-const JUMP_IDLE_MOVE_SPEED : float = 5.0
 
 
 func default_lifecycle(input : InputPackage):
@@ -15,7 +14,8 @@ func default_lifecycle(input : InputPackage):
 
 
 func update(_input : InputPackage, delta ):
-	model.character.velocity.y -= gravity * delta
+	model.character.velocity.y -= model.physics.gravity * delta
+	model.physics.apply_horizontal_resistance("air", delta)
 	model.character.move_and_slide()
 
 
@@ -29,10 +29,3 @@ func process_input_vector(input : InputPackage, delta : float):
 	var target_angle = atan2(direction.x, direction.z)
 	if not target_angle == 0.0:
 		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
-		
-	if direction:
-		model.character.velocity.x = direction.x * JUMP_IDLE_MOVE_SPEED
-		model.character.velocity.z = direction.z * JUMP_IDLE_MOVE_SPEED
-	else:
-		model.character.velocity.x = move_toward(model.character.velocity.x, 0, JUMP_IDLE_MOVE_SPEED)
-		model.character.velocity.z = move_toward(model.character.velocity.z, 0, JUMP_IDLE_MOVE_SPEED)
