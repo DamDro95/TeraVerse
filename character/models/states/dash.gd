@@ -17,7 +17,7 @@ func default_lifecycle(input : InputPackage):
 func update(_input : InputPackage, _delta ):
 	if works_longer_than(DURATION) and not dashed:
 		dashed = true
-	model.character.velocity.y -= gravity * _delta
+	model.character.velocity.y -= model.physics.gravity * _delta
 	model.character.move_and_slide()
 
 

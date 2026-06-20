@@ -26,7 +26,7 @@ func gather_input() -> InputPackage:
 		#else:
 			#new_input.actions.append("jump_run")
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		new_input.combat_actions.append("Attack")
 	#if Input.is_action_just_pressed("heavy_attack"):
 		#new_input.combat_actions.append("heavy_attack_pressed")

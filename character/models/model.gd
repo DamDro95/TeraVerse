@@ -7,6 +7,7 @@ class_name CharacterModel
 
 @onready var character: CharacterEntity = get_parent()
 @onready var skeleton: Skeleton3D = $Skeleton
+@onready var physics: CharacterPhysics = $Physics
 @onready var current_state : CharacterState
 @onready var animator: SplitBodyAnimator = $SplitBodyAnimator
 @onready var combat: CharacterCombat = $Combat

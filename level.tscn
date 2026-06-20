@@ -5,8 +5,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vonw3"]
 render_priority = 0
 shader = ExtResource("1_u52ul")
-shader_parameter/color_one = Color(0, 0, 0, 1)
-shader_parameter/color_two = Color(0.2233411, 0, 0.028663324, 1)
+shader_parameter/color_one = Color(0.7529412, 0.7529412, 0.7529412, 1)
+shader_parameter/color_two = Color(0.0627451, 0.4862745, 0.0627451, 1)
 shader_parameter/size = 25.00000118424012
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u52ul"]
