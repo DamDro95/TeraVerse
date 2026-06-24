@@ -19,8 +19,8 @@ func process_input_vector(input : InputPackage, delta : float):
 	
 	var direction = (player.global_position - model.character.global_position).normalized()
 	
-	model.character.velocity.x = direction.x * 10
-	model.character.velocity.z = direction.z * 10
+	model.character.velocity.x = direction.x * 7
+	model.character.velocity.z = direction.z * 7
 	model.character.velocity.y = 0
 	## Handle standard 3D gravity if it's not a flying entity
 	#if not model.character.is_on_floor():

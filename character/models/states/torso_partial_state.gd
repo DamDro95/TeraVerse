@@ -21,4 +21,5 @@ func _update(input : InputPackage, delta : float):
 		else:
 			model.legs.current_state._update(input, delta)
 	
+	process_input_vector(input, delta)
 	update(input, delta)
