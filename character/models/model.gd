@@ -8,13 +8,13 @@ class_name CharacterModel
 @onready var character: CharacterEntity = get_parent()
 @onready var skeleton: Skeleton3D = $Skeleton
 @onready var physics: CharacterPhysics = $Physics
-@onready var current_state : CharacterState
 @onready var animator: SplitBodyAnimator = $SplitBodyAnimator
-@onready var combat: CharacterCombat = $Combat
 @onready var stats: CharacterStats = $Stats
+@onready var combat: CharacterCombat = $Combat
 @onready var area_awareness: AreaAwareness = $AreaAwareness
 @onready var states: CharacterStates = $States
-@onready var legs: Legs = $Legs
+@onready var legs: LegsStates = $LegsStates
+@onready var current_state : CharacterState
 
 #@onready var weapons = {
 	#"sword" = $....Sword,
@@ -26,11 +26,11 @@ class_name CharacterModel
 
 func _ready():
 	#moves_container.player = character
-	states.accept_states()
+	states.load_states()
 	current_state = states.get_state_by_name("Idle")
 	switch_to("Idle")
-	legs.current_legs_state = states.get_state_by_name("Idle")
-	legs.accept_behaviours()
+	legs.current_state = states.get_state_by_name("Idle")
+	legs.load_states()
 
 
 func update(input : InputPackage, delta : float):

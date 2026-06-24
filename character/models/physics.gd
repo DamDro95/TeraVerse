@@ -4,7 +4,7 @@ class_name CharacterPhysics
 @export var character: CharacterEntity
 
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var MAX_SPEED = 10.0
+@onready var MAX_SPEED = 12.0
 @onready var ACCELERATION = 40.0
 @onready var SLIDE_ACCELERATION = 50.0
 @onready var FRICTION = 10.0

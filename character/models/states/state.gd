@@ -212,17 +212,3 @@ func try_force_state(new_forced_state : String):
 	elif model.container.states[new_forced_state].priority >= model.container.states[forced_state].priority:
 		forced_state = new_forced_state
 		
-
-#func process_physics() -> void:
-	#if model.character.is_on_floor():
-		#if target_dir != Vector3.ZERO:
-			## Accelerate toward the target direction up to max speed
-			#horizontal_vel = horizontal_vel.move_toward(target_dir * MAX_SPEED, ACCELERATION * delta)
-		#else:
-			## Apply ground friction to slide to a smooth stop
-			#horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
-	#else:
-		## AIR PHYSICS: If moving in mid-air, apply limited steering control
-		#if target_dir != Vector3.ZERO:
-			## Instead of overriding speed, we nudge the existing air vector
-			#horizontal_vel = horizontal_vel.move_toward(target_dir * MAX_SPEED, AIR_CONTROL * delta)

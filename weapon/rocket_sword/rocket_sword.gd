@@ -1,8 +1,7 @@
 extends Weapon
-class_name Sword
-
 
 func _ready():
+	super()
 	base_damage = 10
 	basic_attacks = {
 		"Attack" : "Attack"

@@ -8,13 +8,13 @@ func gather_input() -> InputPackage:
 	
 	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	if new_input.input_direction != Vector2.ZERO:
-		new_input.actions.append("Running")
+		new_input.actions.append("Move")
 		
-	if Input.is_action_pressed("dash"):
-		new_input.actions.append("Dash")
-	
-	if Input.is_action_pressed("fly"):
-		new_input.actions.append("Fly_Start")
+	#if Input.is_action_pressed("dash"):
+		#new_input.actions.append("Dash")
+	#
+	#if Input.is_action_pressed("fly"):
+		#new_input.actions.append("Fly_Start")
 	
 	if Input.is_action_pressed("slide"):
 		new_input.actions.append("Slide")
