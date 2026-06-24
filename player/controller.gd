@@ -1,5 +1,4 @@
-extends Node
-class_name PlayerController
+extends CharacterController
 
 func gather_input() -> InputPackage:
 	var new_input = InputPackage.new()

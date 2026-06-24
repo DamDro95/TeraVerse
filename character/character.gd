@@ -3,6 +3,7 @@ class_name CharacterEntity
 
 @onready var model: CharacterModel = $Model
 @onready var view: CharacterView = $View
+@onready var controller: CharacterController = $Controller
 
 func rotate_mesh(direction: Vector3) -> void:
 	var target_angle = atan2(direction.x, direction.z)

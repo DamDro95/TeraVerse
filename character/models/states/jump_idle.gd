@@ -23,7 +23,8 @@ func process_input_vector(input: InputPackage, delta : float):
 	var direction := (model.character.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
 	
 	# Move in the directin relative to the camera
-	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
+	if model.character.is_in_group("player"):
+		direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
 	
 	# Rotate mesh
 	var target_angle = atan2(direction.x, direction.z)

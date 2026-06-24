@@ -4,16 +4,11 @@ class_name TorsoPartialState
 
 @export var valid_legs_states: Array[String]
 
-func process_input_vector(input, delta):
-	print(model.legs.current_state.state_name)
-	print(input.actions)
-	print("XXXXXXXXXXXXXXXXXXX")
-	#model.legs.current_state.process_input_vector(input, delta)
-
 # Dangerous stuff, but we are overriding an internal method of base Move class.
 # Unthoughtful changes can ruin base Move processing around this class.
 # Here I only add new lines and I call the base implementation onwards
 func _update(input : InputPackage, delta : float):
+	# Check to see if the is a valid leg state to enter
 	var do_intersect: bool = input.actions.any(func(item): return item in valid_legs_states)
 	if do_intersect:
 		var input_no_combat = InputPackage.new()

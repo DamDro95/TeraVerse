@@ -1,4 +1,5 @@
 extends CharacterModel
+class_name PlayerModel
 
 @onready var active_weapon : Weapon = $RightHand/RocketSword as Weapon
 
