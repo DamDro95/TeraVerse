@@ -11,7 +11,7 @@ script = ExtResource("2_mhmgu")
 
 [node name="Attack1" type="Node" parent="." unique_id=1768879155]
 script = ExtResource("3_6mvr6")
-valid_legs_states = Array[String](["Move", "Slide"])
+valid_legs_states = Array[String](["Move", "Slide", ""])
 animation = "Sword_1h_Attack_Chop"
 state_name = "Attack"
 priority = 40

@@ -16,6 +16,7 @@ func default_lifecycle(input) -> String:
 func update(_input : InputPackage, delta ):
 	if not model.character.is_on_floor():
 		model.character.velocity.y -= model.physics.gravity * delta
+	model.physics.apply_horizontal_resistance("ground", delta)
 	model.character.move_and_slide()
 
 func process_input_vector(input : InputPackage, delta : float):

@@ -19,7 +19,7 @@ func update(_input : InputPackage, delta ):
 	model.character.move_and_slide()
 
 
-func process_input_vector(input : InputPackage, delta : float):
+func process_input_vector(input: InputPackage, delta : float):
 	var direction := (model.character.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
 	
 	# Move in the directin relative to the camera

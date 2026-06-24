@@ -6,12 +6,11 @@ class_name CharacterPhysics
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var MAX_SPEED = 12.0
 @onready var ACCELERATION = 40.0
-@onready var SLIDE_ACCELERATION = 50.0
+@onready var SLIDE_ACCELERATION = 80.0
 @onready var FRICTION = 10.0
-@onready var SLIDE_FRICTION = 30.0
-@onready var JUMP_VELOCITY = 6.5
-@onready var AIR_CONTROL = 15.0
-
+@onready var SLIDE_FRICTION = 55.0
+@onready var JUMP_VELOCITY = 8
+@onready var AIR_CONTROL = 5.0
 
 func apply_horizontal_resistance(type: String, delta : float):
 	var friction = get_resistance(type)
