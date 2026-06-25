@@ -15,7 +15,7 @@ const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/format
 @onready var animation_names = {
 	#"Sword_1h_Attack_Chop" : "Sword_1h_Attack_Chop",
 	#"Sword_1h_Attack_Slice_Diagonal" : "Sword_1h_Attack_Slice_Diagonal",
-	"Sword_1h_Attack_Stab" : "Sword_1h_Attack_Stab",
+	#"Sword_1h_Attack_Stab" : "Sword_1h_Attack_Stab",
 	#"Idle_B" : "Idle",
 	#"Dodge_Forward" : "Dash",
 	#"Jump_Idle" : "Jump_Idle",
@@ -25,6 +25,7 @@ const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/format
 	#"Sit_Floor_Down" : "Slide_Down",
 	#"Sit_Floor_Idle" : "Slide_Idle",
 	#"Sit_Floor_StandUp" : "Slide_End",
+	"Hit_B": "Pushback"
 }
 
 @onready var torso_bones_rename_map = {

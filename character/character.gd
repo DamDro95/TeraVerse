@@ -9,3 +9,9 @@ func rotate_mesh(direction: Vector3) -> void:
 	var target_angle = atan2(direction.x, direction.z)
 	if not target_angle == 0.0:
 		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
+
+func get_direction(input: InputPackage) -> Vector3:
+	var direction: Vector3 = model.character.velocity
+	direction.y = 0.0
+	
+	return direction.normalized()

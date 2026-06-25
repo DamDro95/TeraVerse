@@ -3,8 +3,8 @@ extends TorsoPartialState
 @export var RELEASES_PRIORITY : float
 
 const ANIMATION_SPEED = 1.5
-const START_ANGLE: float = 60
-const END_ANGLE: float = -45
+const START_ANGLE: float = 120
+const END_ANGLE: float = -120
 const ATTACK_RANGE: float = 10
 const NARROW_CONE_WIDTH: float = 60.0
 
@@ -40,7 +40,7 @@ func process_input_vector(input : InputPackage, delta : float):
 	
 	var player_right = player_forward.cross(Vector3.UP).normalized()
 	
-	var current_sword_direction = player_forward.rotated(player_right, deg_to_rad(current_sword_angle))
+	var current_sword_direction = direction.rotated(Vector3.UP, deg_to_rad(current_sword_angle))
 	#direction.move_toward(Vector3.FORWARD)
 	# --- DRAW DEBUG LINE ---
 	_draw_debug_line(current_sword_direction)
@@ -67,7 +67,7 @@ func process_input_vector(input : InputPackage, delta : float):
 				# Enemy is hit! Add them to the blacklist for this specific swing
 				hit_targets.append(target)
 				target.model.hitbox.on_area_contact(model.active_weapon)
-
+				print("@@@ @@@ @@@")
 
 func form_hit_data(weapon : Weapon) -> HitData:
 	var hit = HitData.new()
@@ -92,6 +92,7 @@ func on_enter_state():
 
 
 func on_exit_state():
+	
 	DURATION = model.states.data_repo.get_duration(backend_animation) * ANIMATION_SPEED
 	model.animator.set_speed_scale(1, "torso")
 	

@@ -38,7 +38,7 @@ func lose_health(amount : float):
 	if not god_mode:
 		health -= amount
 		if health < 1:
-			model.current_move.try_force_move("death")
+			model.current_state.try_force_move("death")
 
 
 func gain_health(amount : float):

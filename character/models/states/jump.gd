@@ -24,16 +24,7 @@ func update(_input : InputPackage, delta ):
 
 func process_input_vector(input : InputPackage, delta : float):
 	model.character.velocity.y = model.physics.JUMP_VELOCITY
-	
-	var direction := (model.character.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
-	
-	# Move in the directin relative to the camera
-	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
-	
-	# Rotate mesh
-	var target_angle = atan2(direction.x, direction.z)
-	if not target_angle == 0.0:
-		model.skeleton.rotation.y = lerp_angle(model.skeleton.rotation.y, target_angle, 0.2)
+	model.character.rotate_mesh(model.character.get_direction(input))
 
 
 func on_enter_state():

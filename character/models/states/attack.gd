@@ -39,4 +39,4 @@ func on_exit_state():
 	DURATION = model.states.data_repo.get_duration(backend_animation) * ANIMATION_SPEED
 	model.animator.set_speed_scale(1, "toso")
 	model.character.model.active_weapon.hitbox_ignore_list.clear()
-	model.character.model.active_weapon.is_attacking = false
+	#model.character.model.active_weapon.is_attacking = false

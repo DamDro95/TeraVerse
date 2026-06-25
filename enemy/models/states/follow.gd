@@ -1,5 +1,8 @@
 extends CharacterState
 
+func default_lifecycle(input : InputPackage):
+	return best_input_that_can_be_paid(input)
+
 func update(_input : InputPackage, _delta : float):
 	model.character.move_and_slide()
 
@@ -8,22 +11,10 @@ func process_input_vector(input : InputPackage, delta : float):
 	if not player:
 		return
 		
-	var target_pos = player.global_position
-	target_pos.y = model.character.global_position.y
-	
-	# Create a transform that looks at the target position
-	var target_transform = model.character.global_transform.looking_at(target_pos, Vector3.UP)
-	
-	# Smoothly interpolate (lerp) the rotation toward the player
-	model.character.global_transform = model.character.global_transform.interpolate_with(target_transform, 10 * delta)
-	
-	var direction = (player.global_position - model.character.global_position).normalized()
-	
-	model.character.velocity.x = direction.x * 7
-	model.character.velocity.z = direction.z * 7
+	# Move towards the closest player
+	var target_direction = (player.global_position - model.character.global_position).normalized()
+	model.character.rotate_mesh(target_direction)
+
+	model.character.velocity.x = target_direction.x * 7
+	model.character.velocity.z = target_direction.z * 7
 	model.character.velocity.y = 0
-	## Handle standard 3D gravity if it's not a flying entity
-	#if not model.character.is_on_floor():
-		#model.character.velocity.y += get_gravity().y * delta
-	#else:
-		#velocity.y = 0

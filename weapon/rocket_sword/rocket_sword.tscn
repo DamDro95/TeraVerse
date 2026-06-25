@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://de1e3t47et8yu" path="res://character/models/states/attack.gd" id="3_6mvr6"]
 [ext_resource type="Script" uid="uid://ddjas6alk3d5r" path="res://weapon/rocket_sword/states/chop.gd" id="3_rfhk8"]
 [ext_resource type="Script" uid="uid://dl4fb3pqtc4dx" path="res://character/models/combos/combo_attack.gd" id="4_rfhk8"]
+[ext_resource type="Script" uid="uid://ctrjp7kgjo3a6" path="res://weapon/rocket_sword/states/slash.gd" id="5_ysm5v"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" unique_id=900316509]
+transform = Transform3D(-0.2534025, 0.96733254, 0.007397804, -0.96696657, -0.25351015, 0.026616083, 0.027622016, -0.000408846, 0.99961823, 0, 0, 0)
 mesh = ExtResource("1_fpf7t")
 script = ExtResource("2_mhmgu")
 
@@ -23,7 +25,7 @@ script = ExtResource("4_rfhk8")
 triggered_state = "Attack2"
 
 [node name="Attack2" type="Node" parent="." unique_id=204539601]
-script = ExtResource("3_6mvr6")
+script = ExtResource("5_ysm5v")
 valid_legs_states = Array[String](["Move", "Slide"])
 animation = "Sword_1h_Attack_Slice_Diagonal"
 state_name = "Attack2"

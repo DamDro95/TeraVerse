@@ -23,24 +23,21 @@ func update(_input : InputPackage, delta : float):
 
 
 func process_input_vector(input : InputPackage, delta : float):
-	var direction := (model.character.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
-	
-	# Move in the directin relative to the camera
-	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
+	var direction := model.character.get_direction(input)
 	
 	model.character.rotate_mesh(direction)
-		
-	if direction == Vector3.ZERO:
-		model.character.velocity.x = 0
-		model.character.velocity.z = 0
-		return
-		
-	var velocity_h = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
-	var current_speed = velocity_h.length()
-	current_speed = move_toward(current_speed, model.physics.MAX_SPEED, model.physics.ACCELERATION * delta)
 	
-	# Keep velocity even when changing direction
-	velocity_h = direction * max(current_speed, model.physics.ACCELERATION * delta)
+	var velocity_h = Vector3(model.character.velocity.x, 0, model.character.velocity.z)
+	
+	if direction == Vector3.ZERO:
+		velocity_h.x = 0
+		velocity_h.z = 0
+	else:
+		var current_speed = velocity_h.length()
+		var acceleration = model.physics.ACCELERATION * delta
+		var target_speed = move_toward(current_speed, model.physics.MAX_SPEED, acceleration)
+		# Keep velocity even when changing direction
+		velocity_h = direction * max(target_speed, acceleration)
 
 	model.character.velocity.x = velocity_h.x
 	model.character.velocity.z = velocity_h.z

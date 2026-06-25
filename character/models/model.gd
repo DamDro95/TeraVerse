@@ -3,9 +3,8 @@ class_name CharacterModel
 
 @export var is_enemy : bool = false
 
-#@export var hurtbox: CharacterHurtbox
-
 @onready var character: CharacterEntity = get_parent()
+@onready var hitbox: CharacterHitbox = %Hitbox
 @onready var skeleton: Skeleton3D = $Skeleton
 @onready var physics: CharacterPhysics = $Physics
 @onready var animator: SplitBodyAnimator = $SplitBodyAnimator
@@ -44,7 +43,8 @@ func update(input : InputPackage, delta : float):
 
 
 func switch_to(state : String):
-	print(current_state.state_name + " -> " + state)
+	#if character.is_in_group("Enemy"):
+		#print(current_state.state_name + " -> " + state)
 	current_state._on_exit_state()
 	current_state = states.get_state_by_name(state)
 	current_state._on_enter_state()

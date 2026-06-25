@@ -10,7 +10,6 @@ class_name LegsState
 
 func update(input : InputPackage, delta : float):
 	transition_legs_state(input, delta)
-	print('Update Legs: ' + legs_manager.current_state.state_name)
 	legs_manager.current_state._update(input, delta)
 
 

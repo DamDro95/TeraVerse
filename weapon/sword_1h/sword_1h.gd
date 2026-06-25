@@ -10,4 +10,4 @@ func _ready():
 
 
 func get_hit_data():
-	return holder.current_move.form_hit_data(self)
+	return holder.current_state.form_hit_data(self)

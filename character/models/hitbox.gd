@@ -1,5 +1,5 @@
 extends Area3D
-class_name Hitbox
+class_name CharacterHitbox
 
 # old way from controller series, works only for a player
 #@onready var model = $"../.." as PlayerModel
@@ -20,16 +20,19 @@ func _physics_process(_delta):
 
 func on_area_contact(area : Node3D):
 	#print(area.name)
+	print("levbe 1")
 	if is_eligible_attacking_weapon(area):
+		print("levbe 2")
 		area.hitbox_ignore_list.append(self)
-		processor.current_move.react_on_hit(area.get_hit_data())
+		processor.current_state.react_on_hit(area.get_hit_data())
 
 
 func is_eligible_attacking_weapon(area : Node3D) -> bool:
+	if area is Weapon:
+		print(area.is_attacking)
 	if area is Weapon and is_not_ignored(area) and not area.hitbox_ignore_list.has(self) and area.is_attacking:
 		return true
 	return false
-
 
 
 func is_not_ignored(area : Node3D) -> bool:

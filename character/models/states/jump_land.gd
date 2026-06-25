@@ -20,4 +20,4 @@ func update(_input : InputPackage, delta ):
 	model.character.move_and_slide()
 
 func process_input_vector(input : InputPackage, delta : float):
-	pass
+	model.character.rotate_mesh(model.character.get_direction(input))

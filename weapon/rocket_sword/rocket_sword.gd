@@ -6,7 +6,8 @@ func _ready():
 	basic_attacks = {
 		"Attack" : "Attack"
 	}
+	is_attacking = true
 
 
 func get_hit_data():
-	return holder.current_move.form_hit_data(self)
+	return holder.current_state.form_hit_data(self)
