@@ -8,10 +8,10 @@ var peer: ENetMultiplayerPeer
 signal server_started
 
 func start_server() -> void:
-	setup_upnp()
-	peer = ENetMultiplayerPeer.new()
-	peer.create_server(PORT)
-	multiplayer.multiplayer_peer = peer
+	#setup_upnp()
+	#peer = ENetMultiplayerPeer.new()
+	#peer.create_server(PORT)
+	#multiplayer.multiplayer_peer = peer
 	server_started.emit()
 	
 func start_client(ip_address: String) -> void:
