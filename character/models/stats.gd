@@ -28,6 +28,7 @@ func can_be_paid(move : CharacterState) -> bool:
 		return true
 	return false
 
+
 # F a part of polymorphism, it doesn't work
 #func can_be_paid(move_name : String) -> bool:
 	#var move = model.moves[move_name]
@@ -38,7 +39,7 @@ func lose_health(amount : float):
 	if not god_mode:
 		health -= amount
 		if health < 1:
-			model.current_state.try_force_move("death")
+			model.current_state.try_force_state("Dead")
 
 
 func gain_health(amount : float):

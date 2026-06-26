@@ -23,13 +23,9 @@ func default_lifecycle(input : InputPackage) -> String:
 		return "okay"
 	
 	return best_input_that_can_be_paid(input)
-	
 
 func process_input_vector(input : InputPackage, delta : float):
 	var progress = get_progress() / DURATION
-	
-	# Interpolate the exact angle of the blade on this frame
-	var current_sword_angle = lerp(START_ANGLE, END_ANGLE, progress)
 	
 	# Rotate the player's forward vectorby that calculated angle
 	var direction := model.character.get_direction(input)
@@ -39,10 +35,8 @@ func process_input_vector(input : InputPackage, delta : float):
 	var player_forward = direction.normalized()
 	player_forward.y = 0.0
 	
-	var player_right = player_forward.cross(Vector3.UP).normalized()
-	
-	var current_sword_direction = direction.rotated(Vector3.UP, deg_to_rad(current_sword_angle))
-	#direction.move_toward(Vector3.FORWARD)
+	var current_sword_direction = player_forward
+		
 	# --- DRAW DEBUG LINE ---
 	_draw_debug_line(current_sword_direction)
 	
@@ -111,7 +105,6 @@ func _setup_debug_mesh() -> void:
 	
 	debug_mesh.material_override = mat
 	model.character.add_child(debug_mesh)
-
 
 func _draw_debug_line(direction: Vector3) -> void:
 	if not debug_mesh: return

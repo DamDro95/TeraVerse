@@ -1,6 +1,7 @@
 extends CharacterState
 
 func default_lifecycle(input : InputPackage):
+	print(forced_state)
 	if works_longer_than(DURATION):
 		return "Follow"
 	return "okay"

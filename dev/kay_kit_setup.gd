@@ -25,7 +25,8 @@ const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/format
 	#"Sit_Floor_Down" : "Slide_Down",
 	#"Sit_Floor_Idle" : "Slide_Idle",
 	#"Sit_Floor_StandUp" : "Slide_End",
-	"Hit_B": "Pushback"
+	#"Hit_B": "Pushback",
+	"Death_A": "Die"
 }
 
 @onready var torso_bones_rename_map = {

@@ -202,9 +202,10 @@ func react_on_parry(_hit : HitData):
 
 
 func try_force_state(new_forced_state : String):
+	print(model.states)
 	if not has_forced_state:
 		has_forced_state = true
 		forced_state = new_forced_state
-	elif model.container.states[new_forced_state].priority >= model.container.states[forced_state].priority:
+	elif model.states.get_state_by_name(new_forced_state).priority >= model.states.get_state_by_name(forced_state).priority:
 		forced_state = new_forced_state
 		
