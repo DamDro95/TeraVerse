@@ -43,8 +43,6 @@ func update(input : InputPackage, delta : float):
 
 
 func switch_to(state : String):
-	#if character.is_in_group("Enemy"):
-		#print(current_state.state_name + " -> " + state)
 	current_state._on_exit_state()
 	current_state = states.get_state_by_name(state)
 	current_state._on_enter_state()

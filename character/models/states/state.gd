@@ -202,7 +202,6 @@ func react_on_parry(_hit : HitData):
 
 
 func try_force_state(new_forced_state : String):
-	print(model.states)
 	if not has_forced_state:
 		has_forced_state = true
 		forced_state = new_forced_state

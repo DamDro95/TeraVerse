@@ -1,7 +1,6 @@
 extends CharacterState
 
 func default_lifecycle(input : InputPackage):
-	print(forced_state)
 	if works_longer_than(DURATION):
 		return "Follow"
 	return "okay"
@@ -14,3 +13,7 @@ func process_input_vector(input : InputPackage, delta : float):
 	var pushback = (-direction * 160)
 	model.character.velocity.x = pushback.normalized().x
 	model.character.velocity.z = pushback.normalized().z
+
+func on_enter_state():
+	model.animator.reset_torso_animation()
+	model.animator.reset_legs_animation()

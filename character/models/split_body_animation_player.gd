@@ -52,7 +52,6 @@ func set_legs_animation(animation : String):
 # desynced with legs, which will cause gibberish animation
 func synchronize_if_needed():
 	if abs(torso_animator.current_animation_position - legs_animator.current_animation_position) > synchronization_delta:
-		print("triggered synchronization")
 		torso_animator.seek(legs_animator.current_animation_position)
 
 
