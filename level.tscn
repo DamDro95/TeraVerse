@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b1i5c0s0jsahu"]
 
 [ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://level.gdshader" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://ovas5wo15njr" path="res://network/spawner.gd" id="2_1ainy"]
+[ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://player/player.tscn" id="3_n6hdu"]
+[ext_resource type="PackedScene" uid="uid://etk8nfkin0bb" path="res://ui/ui.tscn" id="4_km5ld"]
+[ext_resource type="PackedScene" uid="uid://dl32avf4f7oa7" path="res://spawner/spawner.tscn" id="5_i2t4f"]
+[ext_resource type="PackedScene" uid="uid://dbgbhlabgoh5m" path="res://enemy/enemy.tscn" id="6_8cye3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vonw3"]
 render_priority = 0
@@ -51,3 +56,17 @@ size = Vector3(6.7001953, 5.2611084, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1761039002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("WorldBoundaryShape3D_u52ul")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1377617505]
+transform = Transform3D(1, 0, 0, 0, 0.3134787, 0.9495953, 0, -0.9495953, 0.3134787, 0, 13.70761, 0)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=936636974]
+spawn_path = NodePath("..")
+script = ExtResource("2_1ainy")
+network_player = ExtResource("3_n6hdu")
+
+[node name="UI" parent="." unique_id=1506281978 instance=ExtResource("4_km5ld")]
+
+[node name="EnemySpawn" parent="." unique_id=733501571 instance=ExtResource("5_i2t4f")]
+transform = Transform3D(0.73319596, 0.6800174, 0, -0.6800174, 0.73319596, 0, 0, 0, 1, 12.593, 0, 11.499)
+entity_scene = ExtResource("6_8cye3")

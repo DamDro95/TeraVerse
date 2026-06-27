@@ -1,13 +1,12 @@
-[gd_scene format=3 uid="uid://cujeftfgc36q2"]
+[gd_scene format=3 uid="uid://sqvp87hm3g2u"]
 
 [ext_resource type="Script" uid="uid://3rl8sidj1kom" path="res://player/view/view.gd" id="1_0b00k"]
-[ext_resource type="PackedScene" uid="uid://bgovcv82vyf6c" path="res://character/view/view.tscn" id="1_7uhev"]
 [ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://player/view/customizableCrosshair/crosshair/crosshair.tscn" id="1_dxf5e"]
 
-[node name="View" unique_id=500930464 instance=ExtResource("1_7uhev")]
+[node name="View" type="Node3D" unique_id=455438732]
 script = ExtResource("1_0b00k")
 
-[node name="Crosshair" parent="." index="7" unique_id=231857165 instance=ExtResource("1_dxf5e")]
+[node name="Crosshair" parent="." unique_id=231857165 instance=ExtResource("1_dxf5e")]
 crosshairThickness = 5.0
 crosshairSize = 10.0
 crosshairGap = 10.0
@@ -24,12 +23,12 @@ crosshairHorizontalLinesLength = null
 crosshairDynamic = null
 crosshairMaxDynamicOffset = null
 
-[node name="SpeedLabel" type="Label" parent="." index="8" unique_id=2122733330]
+[node name="SpeedLabel" type="Label" parent="." unique_id=1938205547]
 offset_right = 115.0
 offset_bottom = 60.0
 text = "Speed:"
 
-[node name="SpeedValueLabel" type="Label" parent="." index="9" unique_id=953741920]
+[node name="SpeedValueLabel" type="Label" parent="." unique_id=393459560]
 offset_left = 55.0
 offset_right = 107.0
 offset_bottom = 23.0

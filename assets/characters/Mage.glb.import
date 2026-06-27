@@ -37,6 +37,81 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Mage_Mage_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/ArmLeft.res",
+"save_to_file/path": "uid://bvcg0q5ut86c6"
+},
+"Mage_Mage_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_ArmRight.res",
+"save_to_file/path": "uid://bliowaksjt4ft"
+},
+"Mage_Mage_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_Body.res",
+"save_to_file/path": "uid://dirpo3pq7ci0c"
+},
+"Mage_Mage_Cape": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_Cape.res",
+"save_to_file/path": "uid://dt3m681t6jb3s"
+},
+"Mage_Mage_Hat": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_Hat.res",
+"save_to_file/path": "uid://3q4groqnh06o"
+},
+"Mage_Mage_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_Head.res",
+"save_to_file/path": "uid://btwlqueyvroow"
+},
+"Mage_Mage_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_LegLeft.res",
+"save_to_file/path": "uid://dkdd51cshvydl"
+},
+"Mage_Mage_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mage/Mage_Mage_LegRight.res",
+"save_to_file/path": "uid://v7jamxof2a42"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

@@ -37,6 +37,81 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Ranger_Ranger_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_ArmLeft.res",
+"save_to_file/path": "uid://baiwrfagh3px1"
+},
+"Ranger_Ranger_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_ArmRight.res",
+"save_to_file/path": "uid://ccgaki5j5dpxn"
+},
+"Ranger_Ranger_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_Body.res",
+"save_to_file/path": "uid://momqw40w62u0"
+},
+"Ranger_Ranger_Cape": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_Cape.res",
+"save_to_file/path": "uid://cbg4t033osca3"
+},
+"Ranger_Ranger_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_Head.res",
+"save_to_file/path": "uid://cojsrswkfhrgv"
+},
+"Ranger_Ranger_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_LegLeft.res",
+"save_to_file/path": "uid://cmllatu55pu7i"
+},
+"Ranger_Ranger_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_LegRight.res",
+"save_to_file/path": "uid://cdp1ftgxo27oj"
+},
+"Ranger_Ranger_Quiver": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/ranger/Ranger_Ranger_Quiver.res",
+"save_to_file/path": "uid://q7blf6u82dmr"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

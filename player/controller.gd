@@ -1,9 +1,12 @@
 extends CharacterController
 
-func gather_input() -> InputPackage:
+func gather_input(disabled: bool = false) -> InputPackage:
 	var new_input = InputPackage.new()
 	
 	new_input.actions.append("Idle")
+	
+	if disabled:
+		return new_input
 	
 	new_input.input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	if new_input.input_direction != Vector2.ZERO:
