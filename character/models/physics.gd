@@ -10,7 +10,7 @@ class_name CharacterPhysics
 @onready var FRICTION = 10.0
 @onready var SLIDE_FRICTION = 30.0
 @onready var JUMP_VELOCITY = 6.5
-@onready var AIR_CONTROL = 15.0
+@onready var AIR_CONTROL = 10.0
 
 
 func apply_horizontal_resistance(type: String, delta : float):

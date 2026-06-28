@@ -18,7 +18,7 @@ func default_lifecycle(input : InputPackage):
 
 
 func update(_input : InputPackage, delta : float):
-	model.physics.apply_horizontal_resistance("ground", delta)
+	#model.physics.apply_horizontal_resistance("ground", delta)
 	model.character.move_and_slide()
 
 
@@ -31,6 +31,8 @@ func process_input_vector(input : InputPackage, delta : float):
 	model.character.rotate_mesh(direction)
 		
 	if direction == Vector3.ZERO:
+		model.character.velocity.x = 0
+		model.character.velocity.z = 0
 		return
 		
 	var velocity_h = Vector3(model.character.velocity.x, 0, model.character.velocity.z)

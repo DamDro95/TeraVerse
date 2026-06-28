@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1i5c0s0jsahu"]
 
-[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://level.gdshader" id="1_u52ul"]
+[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://levels/level.gdshader" id="1_u52ul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vonw3"]
 render_priority = 0
