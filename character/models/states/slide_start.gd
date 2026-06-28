@@ -18,7 +18,7 @@ func default_lifecycle(input : InputPackage):
 
 
 func update(_input : InputPackage, delta ):
-	model.physics.apply_horizontal_resistance("ground", delta)
+	model.physics.apply_horizontal_resistance("slide", delta)
 	model.character.move_and_slide()
 
 

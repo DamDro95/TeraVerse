@@ -23,6 +23,5 @@ network_player = ExtResource("1_ig7tw")
 [node name="UI" parent="." unique_id=1506281978 instance=ExtResource("5_7mycd")]
 
 [node name="EnemySpawn" parent="." unique_id=733501571 instance=ExtResource("5_lquwl")]
-process_mode = 4
-transform = Transform3D(0.73319596, 0.6800174, 0, -0.6800174, 0.73319596, 0, 0, 0, 1, 19.157764, 3.227581, 21.813007)
+transform = Transform3D(0.73319596, 0.6800174, 0, -0.6800174, 0.73319596, 0, 0, 0, 1, 12.59333, 3.227581, 11.498888)
 entity_scene = ExtResource("6_7mycd")

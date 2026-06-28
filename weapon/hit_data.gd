@@ -1,6 +1,7 @@
 extends Resource
 class_name HitData
 
+var effects: Dictionary
 var is_parryable : bool
 var damage : float
 var hit_move_animation : String

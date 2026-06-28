@@ -72,10 +72,7 @@ func update(_input : InputPackage, _delta : float):
 
 
 func process_input_vector(input : InputPackage, delta : float):
-	var input_direction = (model.character.camera.basis * Vector3(-input.input_direction.x, 0, -input.input_direction.y)).normalized()
-	var face_direction = model.character.basis.z
-	var angle = face_direction.signed_angle_to(input_direction, Vector3.UP)
-	model.character.rotate_y(clamp(angle, -tracking_angular_speed * delta, tracking_angular_speed * delta))
+	model.character.rotate_mesh(model.character.get_direction(input))
 
 
 func update_resources(delta : float):
@@ -194,9 +191,8 @@ func react_on_hit(hit : HitData):
 		model.stats.lose_health(hit.damage)
 	if is_interruptable():
 		# TODO rewrite for better effects processing, this scales badly
-		if hit.effects.has("pushback") and hit.effects["pushback"]:
-			model.area_awareness.last_pushback_vector = hit.effects["pushback_direction"]
-			try_force_state("pushback")
+		if hit.effects.has("Pushback") and hit.effects["Pushback"]:
+			try_force_state("Pushback")
 		else:
 			try_force_state("staggered")
 
@@ -209,20 +205,6 @@ func try_force_state(new_forced_state : String):
 	if not has_forced_state:
 		has_forced_state = true
 		forced_state = new_forced_state
-	elif model.container.states[new_forced_state].priority >= model.container.states[forced_state].priority:
+	elif model.states.get_state_by_name(new_forced_state).priority >= model.states.get_state_by_name(forced_state).priority:
 		forced_state = new_forced_state
 		
-
-#func process_physics() -> void:
-	#if model.character.is_on_floor():
-		#if target_dir != Vector3.ZERO:
-			## Accelerate toward the target direction up to max speed
-			#horizontal_vel = horizontal_vel.move_toward(target_dir * MAX_SPEED, ACCELERATION * delta)
-		#else:
-			## Apply ground friction to slide to a smooth stop
-			#horizontal_vel = horizontal_vel.move_toward(Vector3.ZERO, FRICTION * delta)
-	#else:
-		## AIR PHYSICS: If moving in mid-air, apply limited steering control
-		#if target_dir != Vector3.ZERO:
-			## Instead of overriding speed, we nudge the existing air vector
-			#horizontal_vel = horizontal_vel.move_toward(target_dir * MAX_SPEED, AIR_CONTROL * delta)

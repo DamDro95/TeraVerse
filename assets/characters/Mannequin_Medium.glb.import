@@ -37,6 +37,63 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Mannequin_Medium_Mannequin_Medium_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_ArmLeft.res",
+"save_to_file/path": "uid://crwidxpbfve8n"
+},
+"Mannequin_Medium_Mannequin_Medium_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_ArmRight.res",
+"save_to_file/path": "uid://dgqaovlrkw3bb"
+},
+"Mannequin_Medium_Mannequin_Medium_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_Body.res",
+"save_to_file/path": "uid://dc7f0wbljo5vg"
+},
+"Mannequin_Medium_Mannequin_Medium_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_Head.res",
+"save_to_file/path": "uid://dm7ye1aksukx0"
+},
+"Mannequin_Medium_Mannequin_Medium_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_LegLeft.res",
+"save_to_file/path": "uid://dlh1klnxcu2du"
+},
+"Mannequin_Medium_Mannequin_Medium_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_LegRight.res",
+"save_to_file/path": "uid://d2hartuqoa7xf"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

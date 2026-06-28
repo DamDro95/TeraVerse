@@ -1,5 +1,5 @@
 extends Node
-class_name Legs
+class_name LegsStates
 
 
 # The more suited approach will be inherit Move once more to define LegsMove 
@@ -8,13 +8,12 @@ class_name Legs
 # But I wanted a fast makeshift patch to work
 @export var model : CharacterModel
 #@export var legs_states : Array[Move]
-var current_legs_state : CharacterState
+var current_state : CharacterState
+var states: Dictionary[String, LegsState]
 
 
-func accept_behaviours():
+func load_states():
 	for child in get_children():
-		if child is LegsBehaviour:
+		if child is LegsState:
+			states[child.state_name] = child
 			child.model = model
-			child.states = model.states
-			child.legs_manager = self
-			child.current_legs_state = current_legs_state

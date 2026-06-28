@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://mnr4hfewlh7u"]
+
+[ext_resource type="ArrayMesh" uid="uid://cdscamhxmc7k0" path="res://assets/weapons/rocket_sword/sword_2handed_sword_2handed.res" id="1_fpf7t"]
+[ext_resource type="Script" uid="uid://4p7275gojowg" path="res://weapon/rocket_sword/rocket_sword.gd" id="2_mhmgu"]
+[ext_resource type="Script" uid="uid://ddjas6alk3d5r" path="res://weapon/rocket_sword/states/chop.gd" id="3_rfhk8"]
+[ext_resource type="Script" uid="uid://dl4fb3pqtc4dx" path="res://character/models/combos/combo_attack.gd" id="4_rfhk8"]
+[ext_resource type="Script" uid="uid://ctrjp7kgjo3a6" path="res://weapon/rocket_sword/states/slash.gd" id="5_ysm5v"]
+[ext_resource type="Script" uid="uid://u1vmmep55b87" path="res://weapon/rocket_sword/states/stab.gd" id="6_ysm5v"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=900316509]
+transform = Transform3D(-0.2534025, 0.96733254, 0.007397804, -0.96696657, -0.25351015, 0.026616083, 0.027622016, -0.000408846, 0.99961823, 0, 0, 0)
+mesh = ExtResource("1_fpf7t")
+script = ExtResource("2_mhmgu")
+
+[node name="Chop" type="Node" parent="." unique_id=1768879155]
+script = ExtResource("3_rfhk8")
+valid_legs_states = Array[String](["Move", "Slide"])
+animation = "Sword_1h_Attack_Chop"
+state_name = "Attack"
+priority = 40
+backend_animation = "Sword_1h_Attack_Chop"
+
+[node name="ComboAttack" type="Node" parent="Chop" unique_id=1463284311]
+script = ExtResource("4_rfhk8")
+triggered_state = "Attack2"
+
+[node name="Attack2" type="Node" parent="." unique_id=204539601]
+script = ExtResource("5_ysm5v")
+valid_legs_states = Array[String](["Move", "Slide"])
+animation = "Sword_1h_Attack_Slice_Diagonal"
+state_name = "Attack2"
+priority = 40
+backend_animation = "Sword_1h_Attack_Slice_Diagonal"
+
+[node name="ComboAttack" type="Node" parent="Attack2" unique_id=1272024508]
+script = ExtResource("4_rfhk8")
+triggered_state = "Attack3"
+
+[node name="Attack3" type="Node" parent="." unique_id=816220696]
+script = ExtResource("6_ysm5v")
+valid_legs_states = Array[String](["Move", "Slide"])
+animation = "Sword_1h_Attack_Stab"
+state_name = "Attack3"
+priority = 40
+backend_animation = "Sword_1h_Attack_Stab"
+
+[node name="ComboAttack" type="Node" parent="Attack3" unique_id=883716842]
+script = ExtResource("4_rfhk8")
+triggered_state = "Attack"

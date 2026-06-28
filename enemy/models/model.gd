@@ -1,0 +1,2 @@
+extends CharacterModel
+class_name EnemyModel
