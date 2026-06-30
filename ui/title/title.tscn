@@ -197,6 +197,6 @@ layout_mode = 2
 text = ">"
 metadata/Target = "leg"
 
-[node name="Button" type="Button" parent="Menu/CharacterCreate" unique_id=668741607]
+[node name="PlayGameButton" type="Button" parent="Menu/CharacterCreate" unique_id=668741607]
 layout_mode = 2
 text = "Play"

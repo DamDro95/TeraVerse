@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bqhrvwlr8ug6u"]
+
+[ext_resource type="PackedScene" uid="uid://bgovcv82vyf6c" path="res://character/view/view.tscn" id="1_d3hxx"]
+[ext_resource type="ArrayMesh" uid="uid://dgqaovlrkw3bb" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_ArmRight.res" id="2_uqt5g"]
+[ext_resource type="ArrayMesh" uid="uid://crwidxpbfve8n" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_ArmLeft.res" id="3_bbkup"]
+[ext_resource type="ArrayMesh" uid="uid://dc7f0wbljo5vg" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_Body.res" id="4_63xih"]
+[ext_resource type="ArrayMesh" uid="uid://dm7ye1aksukx0" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_Head.res" id="5_di41c"]
+[ext_resource type="ArrayMesh" uid="uid://dlh1klnxcu2du" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_LegLeft.res" id="6_8boq1"]
+[ext_resource type="ArrayMesh" uid="uid://d2hartuqoa7xf" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_LegRight.res" id="7_d2a4i"]
+
+[node name="View" unique_id=500930464 instance=ExtResource("1_d3hxx")]
+
+[node name="ArmLeft" parent="." index="0" unique_id=1635285804]
+mesh = ExtResource("2_uqt5g")
+
+[node name="ArmRight" parent="." index="1" unique_id=282692557]
+mesh = ExtResource("3_bbkup")
+
+[node name="Hat" parent="." index="2" unique_id=206616636]
+mesh = null
+
+[node name="Body" parent="." index="3" unique_id=1128027527]
+mesh = ExtResource("4_63xih")
+
+[node name="Head" parent="." index="4" unique_id=2004156502]
+mesh = ExtResource("5_di41c")
+
+[node name="LegLeft" parent="." index="5" unique_id=994799061]
+mesh = ExtResource("6_8boq1")
+
+[node name="LegRight" parent="." index="6" unique_id=1754283338]
+mesh = ExtResource("7_d2a4i")

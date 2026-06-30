@@ -31,13 +31,7 @@
 [ext_resource type="Animation" uid="uid://s5bgyryriv2f" path="res://assets/animations/rig_medium/legs/Slide_Idle_legs.res" id="24_h2c6r"]
 [ext_resource type="Animation" path="res://assets/animations/rig_medium/legs/Sword_1h_Attack_Chop_legs.res" id="25_op57s"]
 [ext_resource type="Script" uid="uid://bhna2rg3ojg8x" path="res://player/legs_animation_player.gd" id="26_i64f5"]
-[ext_resource type="ArrayMesh" uid="uid://dgqaovlrkw3bb" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_ArmRight.res" id="28_70x6l"]
-[ext_resource type="ArrayMesh" uid="uid://crwidxpbfve8n" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_ArmLeft.res" id="29_k585h"]
-[ext_resource type="ArrayMesh" uid="uid://dm7ye1aksukx0" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_Head.res" id="30_vyqw8"]
-[ext_resource type="ArrayMesh" uid="uid://dc7f0wbljo5vg" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_Body.res" id="31_ont7t"]
-[ext_resource type="ArrayMesh" uid="uid://d2hartuqoa7xf" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_LegRight.res" id="33_uv8bv"]
 [ext_resource type="Animation" uid="uid://s5w1rdf1qani" path="res://assets/animations/rig_medium/extracted/Cheering.res" id="34_3fk66"]
-[ext_resource type="ArrayMesh" uid="uid://dlh1klnxcu2du" path="res://assets/characters/mannequin_medium/Mannequin_Medium_Mannequin_Medium_LegLeft.res" id="34_730sd"]
 [ext_resource type="Script" uid="uid://cu5txea3bmmrg" path="res://character/models/physics.gd" id="34_bat5x"]
 [ext_resource type="Script" uid="uid://c7530ijslrogk" path="res://character/models/stats.gd" id="35_fjpjw"]
 [ext_resource type="Animation" uid="uid://dn7irpkf8rfrh" path="res://assets/animations/rig_medium/extracted/Crawling.res" id="35_wma6s"]
@@ -54,7 +48,6 @@
 [ext_resource type="Script" uid="uid://c145pgbbjbydt" path="res://character/models/states/legs/move.gd" id="40_a8jkm"]
 [ext_resource type="Script" uid="uid://bieosryp34dpm" path="res://character/models/states/state_data_repo.gd" id="40_jrq4x"]
 [ext_resource type="Animation" uid="uid://bw780jva5t56d" path="res://assets/animations/rig_medium/extracted/Death_A.res" id="41_bat5x"]
-[ext_resource type="Script" uid="uid://cetbn6keakb7e" path="res://character/view/view.gd" id="41_fjpjw"]
 [ext_resource type="Animation" uid="uid://bog3oyggybd4k" path="res://assets/animations/rig_medium/data/Dash.res" id="41_tpj5f"]
 [ext_resource type="Animation" uid="uid://ba8ssyq6abtg0" path="res://assets/animations/rig_medium/data/Idle.res" id="42_0wku3"]
 [ext_resource type="Animation" uid="uid://b7tbfjygiih6c" path="res://assets/animations/rig_medium/extracted/Death_A_Pose.res" id="42_fjpjw"]
@@ -104,6 +97,7 @@
 [ext_resource type="Animation" uid="uid://cxt72oj4nliln" path="res://assets/animations/rig_medium/extracted/Melee_2H_Attack_Spin.res" id="66_e77r6"]
 [ext_resource type="Animation" uid="uid://b18couyptg1dg" path="res://assets/animations/rig_medium/extracted/Melee_2H_Attack_Spinning.res" id="67_ygj7m"]
 [ext_resource type="Animation" uid="uid://du8uddydp5ely" path="res://assets/animations/rig_medium/extracted/Melee_2H_Attack_Stab.res" id="68_awlda"]
+[ext_resource type="PackedScene" uid="uid://bqhrvwlr8ug6u" path="res://enemy/views/view.tscn" id="68_ghwoj"]
 [ext_resource type="Animation" uid="uid://pn7ycbbxrj2p" path="res://assets/animations/rig_medium/extracted/Melee_2H_Idle.res" id="69_5h88f"]
 [ext_resource type="Animation" uid="uid://bumgbrdhj2ywm" path="res://assets/animations/rig_medium/extracted/Melee_Block.res" id="70_ghwoj"]
 [ext_resource type="Animation" uid="uid://c4qkigewmcf46" path="res://assets/animations/rig_medium/extracted/Melee_Block_Attack.res" id="71_vq3sl"]
@@ -145,10 +139,6 @@
 [ext_resource type="Animation" uid="uid://dk7688v1e77vt" path="res://assets/animations/rig_medium/extracted/Walking_C.res" id="107_neypk"]
 [ext_resource type="Animation" uid="uid://cv3k4thgbf2xh" path="res://assets/animations/rig_medium/extracted/Waving.res" id="108_6nlor"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_78jik"]
-radius = 0.8823242
-height = 2.5916748
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pmyjl"]
 _data = {
 &"Dash_torso": ExtResource("3_jb0mw"),
@@ -182,73 +172,6 @@ _data = {
 &"Slide_Idle_legs": ExtResource("24_h2c6r"),
 &"Sword_1h_Attack_Chop_legs": ExtResource("25_op57s")
 }
-
-[sub_resource type="Skin" id="Skin_fi5if"]
-resource_name = "Skin"
-bind_count = 21
-bind/0/name = &"root"
-bind/0/bone = -1
-bind/0/pose = Transform3D(1, 0, -2.3841855e-07, 0, 1, 0, 2.3841855e-07, 0, 1, 0, 0, 0)
-bind/1/name = &"hips"
-bind/1/bone = -1
-bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40566343, 0)
-bind/2/name = &"upperleg.l"
-bind/2/bone = -1
-bind/2/pose = Transform3D(1, -1.3659287e-07, -1.5161298e-07, -1.3124304e-07, -0.99939644, 0.034742657, -1.5626405e-07, -0.034742657, -0.99939597, -0.17094499, 0.5189373, 0.018040188)
-bind/3/name = &"lowerleg.l"
-bind/3/bone = -1
-bind/3/pose = Transform3D(1, 7.3710177e-10, -4.0946952e-09, 5.785925e-13, -0.984181, -0.17716601, -4.1575006e-09, 0.17716613, -0.98418057, -0.17094503, 0.289084, -0.044022996)
-bind/4/name = &"foot.l"
-bind/4/bone = -1
-bind/4/pose = Transform3D(1, -1.6907059e-09, -1.7534683e-09, -2.102762e-12, -0.719873, 0.6941057, -2.4335713e-09, -0.694106, -0.71987265, -0.17094503, 0.11745294, 0.08743056)
-bind/5/name = &"toes.l"
-bind/5/bone = -1
-bind/5/pose = Transform3D(-1, 1.534316e-07, -6.126929e-15, -3.0532933e-12, 5.960463e-08, 0.99999976, 1.5343156e-07, 1, -2.9802315e-08, 0.17094503, -0.09639277, -0.025990315)
-bind/6/name = &"spine"
-bind/6/bone = -1
-bind/6/pose = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0, -0.59764093, 0)
-bind/7/name = &"chest"
-bind/7/bone = -1
-bind/7/pose = Transform3D(1, 0, -1.4210854e-14, 0, 1.0000001, 0, 1.4210854e-14, 0, 1, 0, -0.97262895, 0)
-bind/8/name = &"upperarm.r"
-bind/8/bone = -1
-bind/8/pose = Transform3D(0.05729549, 1.3410366e-07, -0.99835753, -0.99835753, 3.9647796e-09, -0.05729569, -3.3244254e-09, 1.0000002, 1.2294612e-07, 0.012147002, -0.21165913, -1.1067613)
-bind/9/name = &"lowerarm.r"
-bind/9/bone = -1
-bind/9/pose = Transform3D(-0.053297255, 9.514964e-09, -0.9985789, -0.99857897, -9.953018e-10, 0.053297054, -8.5924594e-11, 1.0000002, -1.6099023e-09, -0.038010545, -0.45212415, -1.1067613)
-bind/10/name = &"wrist.r"
-bind/10/bone = -1
-bind/10/pose = Transform3D(-3.725292e-09, 8.936492e-09, -1.0000002, -1.0000002, -4.0084122e-10, -1.9744049e-07, -1.3606717e-18, 1.0000002, -2.227898e-09, 7.313433e-08, -0.7131817, -1.1067613)
-bind/11/name = &"hand.r"
-bind/11/bone = -1
-bind/11/pose = Transform3D(-1.2159625e-26, 8.936492e-09, -1.0000002, -1.0000002, -4.008412e-10, -2.0116576e-07, 4.135905e-25, 1.0000002, -2.227898e-09, 7.606616e-08, -0.7870076, -1.1067613)
-bind/12/name = &"head"
-bind/12/bone = -1
-bind/12/pose = Transform3D(1, 0, -1.4210855e-14, 0, 1.0000001, 0, 1.4210855e-14, 0, 1, 0, -1.2414255, 0)
-bind/13/name = &"upperarm.l"
-bind/13/bone = -1
-bind/13/pose = Transform3D(0.05729549, -1.3410366e-07, 0.99835753, 0.99835753, 3.9647796e-09, -0.05729569, 3.3244254e-09, 1.0000002, 1.2294612e-07, -0.012147002, -0.21165913, -1.1067613)
-bind/14/name = &"lowerarm.l"
-bind/14/bone = -1
-bind/14/pose = Transform3D(-0.053297255, -9.514964e-09, 0.9985789, 0.99857897, -9.953018e-10, 0.053297054, 8.5924594e-11, 1.0000002, -1.6099023e-09, 0.038010545, -0.45212415, -1.1067613)
-bind/15/name = &"wrist.l"
-bind/15/bone = -1
-bind/15/pose = Transform3D(-3.725292e-09, -8.936492e-09, 1.0000002, 1.0000002, -4.0084122e-10, -1.9744049e-07, 1.3606717e-18, 1.0000002, -2.227898e-09, -7.313433e-08, -0.7131817, -1.1067613)
-bind/16/name = &"hand.l"
-bind/16/bone = -1
-bind/16/pose = Transform3D(-1.2159625e-26, -8.936492e-09, 1.0000002, 1.0000002, -4.008412e-10, -2.0116576e-07, -4.135905e-25, 1.0000002, -2.227898e-09, -7.606616e-08, -0.7870076, -1.1067613)
-bind/17/name = &"upperleg.r"
-bind/17/bone = -1
-bind/17/pose = Transform3D(1, 1.3659287e-07, 1.5161298e-07, 1.3124304e-07, -0.99939644, 0.034742657, 1.5626405e-07, -0.034742657, -0.99939597, 0.17094499, 0.5189373, 0.018040188)
-bind/18/name = &"lowerleg.r"
-bind/18/bone = -1
-bind/18/pose = Transform3D(1, -7.370968e-10, 4.0946673e-09, -5.704879e-13, -0.984181, -0.17716601, 4.15747e-09, 0.17716613, -0.98418057, 0.17094503, 0.289084, -0.044022996)
-bind/19/name = &"foot.r"
-bind/19/bone = -1
-bind/19/pose = Transform3D(1, 1.6906887e-09, 1.7534497e-09, 2.1090902e-12, -0.719873, 0.6941057, 2.4335514e-09, -0.694106, -0.71987265, 0.17094503, 0.11745294, 0.08743056)
-bind/20/name = &"toes.r"
-bind/20/bone = -1
-bind/20/pose = Transform3D(-1, -1.5343159e-07, 1.0456797e-14, 3.0532933e-12, 5.960463e-08, 0.99999976, -1.5343153e-07, 1, -2.9802315e-08, -0.17094503, -0.09639277, -0.025990315)
 
 [sub_resource type="Animation" id="Animation_kafyw"]
 length = 0.001
@@ -382,6 +305,10 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fi5if"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_78jik"]
+radius = 0.8823242
+height = 2.5916748
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hovqe"]
 _data = {
 &"Cheering": ExtResource("34_3fk66"),
@@ -465,10 +392,6 @@ _data = {
 collision_layer = 5
 collision_mask = 7
 script = ExtResource("1_2mvqj")
-
-[node name="Collider" type="CollisionShape3D" parent="." unique_id=1849914200]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_78jik")
 
 [node name="Model" type="Node3D" parent="." unique_id=962218707]
 script = ExtResource("2_1bxjs")
@@ -636,36 +559,6 @@ bones/20/position = Vector3(2.129614e-10, 0.16565003, 5.1719318e-09)
 bones/20/rotation = Quaternion(-8.934892e-05, 0.9202217, -0.3913977, 2.0290998e-05)
 bones/20/scale = Vector3(1, 0.9999966, 1.0000037)
 
-[node name="ArmLeft" type="MeshInstance3D" parent="Model/Skeleton" unique_id=899356813]
-mesh = ExtResource("29_k585h")
-skin = SubResource("Skin_fi5if")
-skeleton = NodePath("..")
-
-[node name="ArmRight" type="MeshInstance3D" parent="Model/Skeleton" unique_id=321828505]
-mesh = ExtResource("28_70x6l")
-skin = SubResource("Skin_fi5if")
-skeleton = NodePath("..")
-
-[node name="Body" type="MeshInstance3D" parent="Model/Skeleton" unique_id=2030381388]
-mesh = ExtResource("31_ont7t")
-skin = SubResource("Skin_fi5if")
-skeleton = NodePath("..")
-
-[node name="Head" type="MeshInstance3D" parent="Model/Skeleton" unique_id=1402733889]
-mesh = ExtResource("30_vyqw8")
-skin = SubResource("Skin_fi5if")
-skeleton = NodePath("..")
-
-[node name="LegLeft" type="MeshInstance3D" parent="Model/Skeleton" unique_id=467087002]
-mesh = ExtResource("34_730sd")
-skin = SubResource("Skin_fi5if")
-skeleton = NodePath("..")
-
-[node name="LegRight" type="MeshInstance3D" parent="Model/Skeleton" unique_id=1652843087]
-mesh = ExtResource("33_uv8bv")
-skin = SubResource("Skin_fi5if")
-skeleton = NodePath("..")
-
 [node name="Physics" type="Node" parent="Model" unique_id=501670605 node_paths=PackedStringArray("character")]
 script = ExtResource("34_bat5x")
 character = NodePath("../..")
@@ -762,13 +655,15 @@ processor = NodePath("../..")
 [node name="HitboxCollider" type="CollisionShape3D" parent="Model/Root/Hitbox" unique_id=615381572]
 shape = SubResource("CylinderShape3D_fi5if")
 
-[node name="View" type="Node3D" parent="." unique_id=298826331 node_paths=PackedStringArray("model", "skeleton")]
-script = ExtResource("41_fjpjw")
+[node name="View" parent="." unique_id=500930464 node_paths=PackedStringArray("model") instance=ExtResource("68_ghwoj")]
 model = NodePath("../Model")
-skeleton = NodePath("../Model/Skeleton")
 
 [node name="Controller" type="Node" parent="." unique_id=562811115]
 script = ExtResource("57_tpj5f")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1849914200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_78jik")
 
 [node name="DEV_AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1545152262]
 libraries/ = SubResource("AnimationLibrary_hovqe")

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const LEVEL_SCENE_UID = "uid://b1i5c0s0jsahu"
+
 var meshes = {
 	"hat":[
 		"res://assets/characters/barbarian/BearHat.res",
@@ -15,7 +17,7 @@ var meshes = {
 	],
 	"arm":[
 		{
-			"right": "res://assets/characters/barbarian/ArmLeft.res",
+			"right": "res://assets/characters/barbarian/ArmRight.res",
 			"left": "res://assets/characters/barbarian/ArmLeft.res",
 		},
 		{
@@ -78,6 +80,8 @@ var selected_meshes: Dictionary[String, int] = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player.set_display_mode(true)
+	$Menu/CharacterCreate/PlayGameButton.pressed.connect(play_game)
 	setup_buttons()
 		
 func setup_buttons() -> void:
@@ -96,7 +100,14 @@ func cycle_mesh(target: String) -> void:
 	
 	var mesh = meshes[target][selected_meshes[target]]
 	if not ["arm", "leg"].has(target):
-		print(target)
 		player.view.set_mesh(target, mesh)
 	else:
 		player.view.set_mesh_pair(target, mesh)
+		
+func play_game() -> void:
+	var level_scene = load(LEVEL_SCENE_UID)
+	var level = level_scene.instantiate()
+	player.reparent(level)
+	player.set_display_mode(false)
+	get_parent().add_child(level)
+	queue_free()

@@ -14,12 +14,16 @@ class_name CharacterView
 	"leg_right": $LegRight,
 	"leg_left": $LegLeft,
 }
-@onready var speed_value = $SpeedValueLabel
 
 
 func _ready():
 	skeleton = model.skeleton
+
+
+func set_meshes() -> void:
+	print(skeleton.get_path())
 	for mesh in meshes:
+		print(skeleton.get_path())
 		meshes[mesh].skeleton = skeleton.get_path()
 
 
@@ -27,6 +31,5 @@ func set_mesh(target: String, mesh_path: String) -> void:
 	meshes[target].mesh = load(mesh_path)
 
 func set_mesh_pair(target: String, mesh_pair: Dictionary) -> void:
-	print(mesh_pair)
 	meshes[target + "_right"].mesh = load(mesh_pair["right"])
 	meshes[target + "_left"].mesh = load(mesh_pair["left"])

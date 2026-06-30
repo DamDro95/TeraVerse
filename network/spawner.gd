@@ -3,9 +3,9 @@ extends MultiplayerSpawner
 @export var network_player: PackedScene
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	multiplayer.peer_connected.connect(spawn_player)
-	NetworkController.server_started.connect(spawn_player)
+#func _ready() -> void:
+	#multiplayer.peer_connected.connect(spawn_player)
+	#NetworkController.server_started.connect(spawn_player)
 
 
 func spawn_player(id: int = 1) -> void:
