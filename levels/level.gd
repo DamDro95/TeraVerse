@@ -9,8 +9,3 @@ func _ready() -> void:
 			var player = node as PlayerEntity
 			player.global_position = Vector3(0,0,0)
 			player.view.set_meshes()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

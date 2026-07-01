@@ -1,6 +1,7 @@
 extends Node3D
 class_name CharacterModel
 
+
 @export var is_enemy : bool = false
 
 @onready var character: CharacterEntity = get_parent()

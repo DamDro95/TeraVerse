@@ -2,52 +2,16 @@
 
 [ext_resource type="Script" uid="uid://3rl8sidj1kom" path="res://player/view/view.gd" id="1_0b00k"]
 [ext_resource type="PackedScene" uid="uid://bgovcv82vyf6c" path="res://character/view/view.tscn" id="1_7uhev"]
-[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://player/view/customizableCrosshair/crosshair/crosshair.tscn" id="1_dxf5e"]
 
 [node name="View" unique_id=500930464 instance=ExtResource("1_7uhev")]
 script = ExtResource("1_0b00k")
 
-[node name="ArmRight" parent="." index="1" unique_id=282692557]
-skeleton = NodePath("")
-
-[node name="Hat" parent="." index="2" unique_id=206616636]
-skeleton = NodePath("")
-
-[node name="Body" parent="." index="3" unique_id=1128027527]
-skeleton = NodePath("")
-
-[node name="Head" parent="." index="4" unique_id=2004156502]
-skeleton = NodePath("")
-
-[node name="LegLeft" parent="." index="5" unique_id=994799061]
-skeleton = NodePath("")
-
-[node name="LegRight" parent="." index="6" unique_id=1754283338]
-skeleton = NodePath("")
-
-[node name="Crosshair" parent="." index="7" unique_id=231857165 instance=ExtResource("1_dxf5e")]
-crosshairThickness = 5.0
-crosshairSize = 10.0
-crosshairGap = 10.0
-crosshairColor = Color(0.8, 0, 0, 1)
-crosshairLineStyle = null
-crosshairDot = null
-crosshairTStyle = null
-crosshairOutline = null
-crosshairOutlineThickness = null
-crosshairHorizontalLines = null
-crosshairHorizontalLinesPosition = null
-crosshairHorizontalLinesThickness = null
-crosshairHorizontalLinesLength = null
-crosshairDynamic = null
-crosshairMaxDynamicOffset = null
-
-[node name="SpeedLabel" type="Label" parent="." index="8" unique_id=2122733330]
+[node name="SpeedLabel" type="Label" parent="." index="7" unique_id=2122733330]
 offset_right = 115.0
 offset_bottom = 60.0
 text = "Speed:"
 
-[node name="SpeedValueLabel" type="Label" parent="." index="9" unique_id=953741920]
+[node name="SpeedValueLabel" type="Label" parent="." index="8" unique_id=953741920]
 offset_left = 55.0
 offset_right = 107.0
 offset_bottom = 23.0

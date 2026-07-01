@@ -12,6 +12,7 @@ const ANIMATION_DIRECTORY_DATA = "res://assets/animations/rig_medium/data/"
 const ANIMATION_DIRECTORY_STATIC = "res://assets/animations/rig_medium/static/"
 const ANIMATION_DIRECTORY_FORMATTED = "res://assets/animations/rig_medium/formatted/"
 
+
 @onready var animation_names = {
 	#"Sword_1h_Attack_Chop" : "Sword_1h_Attack_Chop",
 	#"Sword_1h_Attack_Slice_Diagonal" : "Sword_1h_Attack_Slice_Diagonal",

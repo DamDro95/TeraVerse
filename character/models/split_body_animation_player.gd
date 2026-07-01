@@ -4,6 +4,7 @@ class_name SplitBodyAnimator
 var full_body_mode : bool = true
 var synchronization_delta = 0.01
 
+
 @onready var torso_animator = $TorsoAnimationPlayer
 @onready var legs_animator = $LegsAnimationPlayer
 @onready var model : CharacterModel = get_parent()
@@ -72,6 +73,7 @@ func set_speed_scale(speed : float, target: String = ""):
 
 func reset_torso_animation():
 	torso_animator.seek(0)
+
 
 func reset_legs_animation():
 	legs_animator.seek(0)

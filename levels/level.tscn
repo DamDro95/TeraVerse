@@ -67,6 +67,6 @@ script = ExtResource("2_1ainy")
 network_player = ExtResource("3_n6hdu")
 
 [node name="EnemySpawn" parent="." unique_id=733501571 instance=ExtResource("5_i2t4f")]
-process_mode = 4
+process_mode = 3
 transform = Transform3D(0.73319596, 0.6800174, 0, -0.6800174, 0.73319596, 0, 0, 0, 1, 12.593, 0, 11.499)
 entity_scene = ExtResource("6_8cye3")

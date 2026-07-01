@@ -4,6 +4,7 @@ class_name TorsoPartialState
 
 @export var valid_legs_states: Array[String]
 
+
 # Dangerous stuff, but we are overriding an internal method of base Move class.
 # Unthoughtful changes can ruin base Move processing around this class.
 # Here I only add new lines and I call the base implementation onwards
