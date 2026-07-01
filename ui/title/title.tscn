@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bg2e4rhobhf3c"]
 
 [ext_resource type="Script" uid="uid://c6b7pm5w300r4" path="res://ui/title/title.gd" id="1_0x4rn"]
-[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://level.gdshader" id="1_8abyn"]
+[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://levels/level.gdshader" id="1_8abyn"]
 [ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://player/player.tscn" id="3_6wqi4"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8abyn"]

@@ -582,7 +582,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0.057284202, 0.9983573, -4.5386042e-07, -3.8742996e-07, 4.768369e-07, 0.99999976, 0.9983573, -0.057284202, 4.1410917e-07, 0.21200737, 0.13413215, 8.402462e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(0.21200736, 0.13413203, 7.9299625e-08)
-bones/4/rotation = Quaternion(-0.5599063, -0.060880348, -0.6439745, 0.5177794)
+bones/4/rotation = Quaternion(-0.5599063, -0.060880326, -0.6439745, 0.5177794)
 bones/4/scale = Vector3(0.99999934, 0.99999934, 0.99999976)
 bones/5/name = "lowerarm.l"
 bones/5/parent = 4
@@ -609,7 +609,7 @@ bones/8/name = "handslot.l"
 bones/8/parent = 7
 bones/8/rest = Transform3D(-1.1920929e-07, 1, -3.4461551e-16, -0.99999994, -1.192093e-07, -4.753489e-09, -4.753489e-09, -2.2204463e-16, 0.99999994, 5.1389204e-10, 0.09612507, -0.057500124)
 bones/8/enabled = true
-bones/8/position = Vector3(-6.936717e-09, 0.096125185, -0.057500005)
+bones/8/position = Vector3(5.1389204e-10, 0.09612507, -0.057500124)
 bones/8/rotation = Quaternion(6.9489685e-09, -3.587743e-09, -0.7071068, 0.7071067)
 bones/8/scale = Vector3(0.99999994, 1, 0.99999994)
 bones/9/name = "head"
@@ -645,7 +645,7 @@ bones/13/parent = 12
 bones/13/rest = Transform3D(1, -1.091039e-05, -1.8421935e-07, 1.0910391e-05, 0.99999994, -2.4008373e-09, 1.8421939e-07, 2.3988274e-09, 0.99999994, 3.996803e-15, 0.073825836, -2.220446e-16)
 bones/13/enabled = true
 bones/13/position = Vector3(3.996803e-15, 0.073825836, -2.220446e-16)
-bones/13/rotation = Quaternion(-0.31929126, 0.30052418, -0.22734971, 0.8695116)
+bones/13/rotation = Quaternion(-0.31929126, 0.30052418, -0.22734973, 0.86951166)
 bones/13/scale = Vector3(1, 0.99999994, 0.99999994)
 bones/14/name = "handslot.r"
 bones/14/parent = 13
@@ -708,7 +708,7 @@ bones/22/parent = 21
 bones/22/rest = Transform3D(-1, 8.95137e-08, 1.0213958e-07, -1.1394949e-08, 0.6941041, -0.7198751, -1.3533413e-07, -0.71987, -0.694109, 2.1323326e-10, 0.16565003, 5.1714e-09)
 bones/22/enabled = true
 bones/22/position = Vector3(2.1323326e-10, 0.16565003, 5.1714e-09)
-bones/22/rotation = Quaternion(-8.9348905e-05, 0.9202216, -0.39139763, 2.0290994e-05)
+bones/22/rotation = Quaternion(-8.934892e-05, 0.9202217, -0.3913977, 2.0290998e-05)
 bones/22/scale = Vector3(1, 0.9999966, 1.0000037)
 
 [node name="Root" type="BoneAttachment3D" parent="Model" unique_id=1048916755]
@@ -727,7 +727,7 @@ processor = NodePath("../..")
 shape = SubResource("CylinderShape3D_3yvbn")
 
 [node name="RightHand" type="BoneAttachment3D" parent="Model" unique_id=941573671]
-transform = Transform3D(0.14989445, 4.4703484e-07, -0.98870134, 2.9802322e-08, -0.99999917, -1.7881393e-07, -0.98870134, -3.2782555e-07, -0.14989458, -0.5479113, 0.73715466, 0.097976506)
+transform = Transform3D(0.14989433, 3.874302e-07, -0.98870134, -2.9802322e-08, -0.99999917, -8.940697e-08, -0.9887014, -3.2782555e-07, -0.1498946, -0.5479113, 0.73715466, 0.097976506)
 bone_name = "hand.r"
 bone_idx = 13
 use_external_skeleton = true
@@ -744,21 +744,22 @@ character = NodePath("../..")
 [node name="View" parent="." unique_id=500930464 node_paths=PackedStringArray("model") instance=ExtResource("5_60agu")]
 model = NodePath("../Model")
 
-[node name="SpringArmPivot" type="Node3D" parent="View" unique_id=1454984573]
+[node name="SpringArmPivot" type="Node3D" parent="." unique_id=1454984573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 1)
+top_level = true
 script = ExtResource("2_rkbax")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="View/SpringArmPivot" unique_id=967085646]
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot" unique_id=967085646]
 collision_mask = 2
 shape = SubResource("SphereShape3D_g1dw6")
 spring_length = 6.0
 
-[node name="SpringArmPosition" type="Node3D" parent="View/SpringArmPivot/SpringArm3D" unique_id=821193982]
+[node name="SpringArmPosition" type="Node3D" parent="SpringArmPivot/SpringArm3D" unique_id=821193982]
 
-[node name="Camera3D" type="Camera3D" parent="View/SpringArmPivot" unique_id=1018711870]
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot" unique_id=1018711870]
 script = ExtResource("3_g1dw6")
 
-[node name="Crosshair2" parent="View" unique_id=231857165 instance=ExtResource("5_r212m")]
+[node name="Crosshair" parent="SpringArmPivot/Camera3D" unique_id=231857165 instance=ExtResource("5_r212m")]
 crosshairThickness = 5.0
 crosshairSize = 10.0
 crosshairGap = 10.0

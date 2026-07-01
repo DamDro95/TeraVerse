@@ -9,7 +9,6 @@ func default_lifecycle(input : InputPackage):
 		return "Jump_Idle" 
 	
 	var next_state = best_input_that_can_be_paid(input)
-	
 	#If Idle, keep the running state until friction reduces speed to 0
 	#if next_state == "Idle" and (model.character.velocity.x != 0 or model.character.velocity.z != 0):
 		#return "okay"

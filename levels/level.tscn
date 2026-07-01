@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1i5c0s0jsahu"]
 
-[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://level.gdshader" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://colsg63bdr1vn" path="res://levels/level.gd" id="1_gjl0y"]
+[ext_resource type="Shader" uid="uid://1juuwhsassmd" path="res://levels/level.gdshader" id="1_u52ul"]
 [ext_resource type="Script" uid="uid://ovas5wo15njr" path="res://network/spawner.gd" id="2_1ainy"]
 [ext_resource type="PackedScene" uid="uid://c05im176rlswp" path="res://player/player.tscn" id="3_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://dl32avf4f7oa7" path="res://spawner/spawner.tscn" id="5_i2t4f"]
@@ -15,8 +16,9 @@ shader_parameter/size = 25.00000118424012
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u52ul"]
 
-[node name="StaticBody3D" type="StaticBody3D" unique_id=1858283934]
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1858283934 groups=["Level"]]
 collision_mask = 0
+script = ExtResource("1_gjl0y")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=262107738]
 
@@ -65,5 +67,6 @@ script = ExtResource("2_1ainy")
 network_player = ExtResource("3_n6hdu")
 
 [node name="EnemySpawn" parent="." unique_id=733501571 instance=ExtResource("5_i2t4f")]
+process_mode = 4
 transform = Transform3D(0.73319596, 0.6800174, 0, -0.6800174, 0.73319596, 0, 0, 0, 1, 12.593, 0, 11.499)
 entity_scene = ExtResource("6_8cye3")

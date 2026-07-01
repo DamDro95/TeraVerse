@@ -4,7 +4,6 @@ class_name CharacterView
 
 @export var model: CharacterModel
 
-@onready var skeleton: Skeleton3D
 @onready var meshes = { 
 	"hat": $Hat,
 	"head": $Head,
@@ -16,19 +15,14 @@ class_name CharacterView
 }
 
 
-func _ready():
-	skeleton = model.skeleton
-
-
 func set_meshes() -> void:
-	print(skeleton.get_path())
 	for mesh in meshes:
-		print(skeleton.get_path())
-		meshes[mesh].skeleton = skeleton.get_path()
+		meshes[mesh].skeleton = model.skeleton.get_path()
 
 
 func set_mesh(target: String, mesh_path: String) -> void:
 	meshes[target].mesh = load(mesh_path)
+
 
 func set_mesh_pair(target: String, mesh_pair: Dictionary) -> void:
 	meshes[target + "_right"].mesh = load(mesh_pair["right"])

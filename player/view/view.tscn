@@ -7,6 +7,24 @@
 [node name="View" unique_id=500930464 instance=ExtResource("1_7uhev")]
 script = ExtResource("1_0b00k")
 
+[node name="ArmRight" parent="." index="1" unique_id=282692557]
+skeleton = NodePath("")
+
+[node name="Hat" parent="." index="2" unique_id=206616636]
+skeleton = NodePath("")
+
+[node name="Body" parent="." index="3" unique_id=1128027527]
+skeleton = NodePath("")
+
+[node name="Head" parent="." index="4" unique_id=2004156502]
+skeleton = NodePath("")
+
+[node name="LegLeft" parent="." index="5" unique_id=994799061]
+skeleton = NodePath("")
+
+[node name="LegRight" parent="." index="6" unique_id=1754283338]
+skeleton = NodePath("")
+
 [node name="Crosshair" parent="." index="7" unique_id=231857165 instance=ExtResource("1_dxf5e")]
 crosshairThickness = 5.0
 crosshairSize = 10.0

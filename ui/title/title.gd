@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-const LEVEL_SCENE_UID = "uid://b1i5c0s0jsahu"
-
 var meshes = {
 	"hat":[
 		"res://assets/characters/barbarian/BearHat.res",
@@ -105,9 +103,7 @@ func cycle_mesh(target: String) -> void:
 		player.view.set_mesh_pair(target, mesh)
 		
 func play_game() -> void:
-	var level_scene = load(LEVEL_SCENE_UID)
-	var level = level_scene.instantiate()
-	player.reparent(level)
 	player.set_display_mode(false)
-	get_parent().add_child(level)
+	SceneLoader.set_transfer_nodes([player])
+	SceneLoader.load_scene(SceneLoader.LEVEL_1_SCENE_UID)
 	queue_free()

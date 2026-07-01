@@ -1,14 +1,21 @@
 extends Node
 
+
 signal progress_changed(progress)
 signal load_finished
 
-var loading_screen: PackedScene = preload("uid://dnfv7cxrj22qq")
+const LOADING_SCREEN_PATH = "res://ui/loading_screen.tscn"
+const LEVEL_1_SCENE_UID = "uid://b1i5c0s0jsahu"
+
+
+@onready var loading_screen: PackedScene = preload(LOADING_SCREEN_PATH)
+#var loading_screen: PackedScene
 var loaded_resource: PackedScene
 var scene_path: String
 var progress: Array = []
 #Disable this var if crashing occurs
 var use_sub_threads: bool = true
+var transfer_nodes: Array[Node]
 
 func _ready() -> void:
 	set_process(false)
@@ -18,6 +25,7 @@ func load_scene(_scene_path: String) -> void:
 	
 	var new_load_screen = loading_screen.instantiate()
 	add_child(new_load_screen)
+	
 	progress_changed.connect(new_load_screen._on_progress_changed)
 	load_finished.connect(new_load_screen._on_load_finished)
 	
@@ -39,4 +47,10 @@ func _process(_delta: float) -> void:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(scene_path)
 			get_tree().change_scene_to_packed(loaded_resource)
+			
 			load_finished.emit()
+			
+func set_transfer_nodes(nodes: Array[Node]):
+	for node in nodes:
+		node.get_parent().remove_child(node)
+	transfer_nodes = nodes

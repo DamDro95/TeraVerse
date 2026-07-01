@@ -39,7 +39,7 @@ func check_relevance(input : InputPackage) -> String:
 	if has_forced_state:
 		has_forced_state = false
 		return forced_state
-		
+	
 	return default_lifecycle(input)
 
 

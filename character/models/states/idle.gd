@@ -4,7 +4,6 @@ extends CharacterState
 func default_lifecycle(input) -> String:
 	if not model.character.is_on_floor():
 		return "Jump_Idle"
-	
 	return best_input_that_can_be_paid(input)
 
 

@@ -23,10 +23,11 @@ func update(_input : InputPackage, delta ):
 
 
 func process_input_vector(input : InputPackage, delta : float):
-	var direction := (model.character.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
-	
-	# Move in the directin relative to the camera
-	direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
+	var direction = model.character.get_direction(input) 
+	#:= (model.character.transform.basis * Vector3(input.input_direction.x, 0, input.input_direction.y)).normalized()
+	#
+	## Move in the directin relative to the camera
+	#direction = direction.rotated(Vector3.UP, model.character.camera.global_rotation.y)
 	
 	# Rotate mesh
 	model.character.rotate_mesh(direction)

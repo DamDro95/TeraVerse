@@ -9,7 +9,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:		
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.y -= event.relative.x * 0.005
 		# Snap camera
@@ -29,9 +29,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("toggle_mouse_capture"):
 		capture = false
 
-func _physics_process(delta: float) -> void:
 
+func _physics_process(delta: float) -> void:
 	#if capture:
+	var player_position = get_parent().position 
+	player_position.y += 3.5
+	player_position.z += 1
+	position = player_position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#else:
 		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
